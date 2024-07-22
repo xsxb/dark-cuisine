@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://mskyem5tbpxc"]
+
+[ext_resource type="PackedScene" uid="uid://bfol0r6nss0q0" path="res://ingredient.tscn" id="1_ri6ce"]
+
+[node name="Pinecone" instance=ExtResource("1_ri6ce")]
+ing_name = "Pine Cone"
+description = "Very crunchy."
+types = ["solid"]

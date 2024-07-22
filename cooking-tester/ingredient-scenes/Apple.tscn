@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://r70x3i1s73gr"]
+
+[ext_resource type="PackedScene" uid="uid://bfol0r6nss0q0" path="res://ingredient.tscn" id="1_4eyls"]
+
+[node name="Apple" instance=ExtResource("1_4eyls")]
+ing_name = "Apple"
+description = "Crunchy."
+stats = [{}]
+types = ["fruit"]
