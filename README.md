@@ -12,7 +12,7 @@ Lukas Lenz
 
 Alexander Ermolaev
 
-Ekatarina Shmeleva
+Ekaterina Shmeleva
 
 
 ## The Game
