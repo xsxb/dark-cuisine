@@ -2,12 +2,10 @@ extends TextureButton
 
 @export var menu : Panel
 
-<<<<<<< HEAD
-var text_display
-
 func _ready():
 	menu.hide()
-	
+
+>>>>>>> eb1ab0f6592cc1f39a04a58ff5d236416ae1298c
 =======
 func _ready():
 	menu.hide()

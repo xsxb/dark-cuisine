@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfol0r6nss0q0"]
+
+[ext_resource type="Script" path="res://cooking-tester/Ingredient.gd" id="1_268fj"]
+
+[node name="Ingredient" type="Node2D"]
+script = ExtResource("1_268fj")
+ing_name = null
+description = null
+stats = null
+types = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
