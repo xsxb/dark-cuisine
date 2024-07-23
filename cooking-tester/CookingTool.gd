@@ -33,7 +33,7 @@ func resolve_recipe(composite : Composite):
 						still_needed.erase(needed)	#TODO: does this break iteration?
 						break
 
-		if still_needed.empty():
+		if still_needed.is_empty():
 			return rec_name
 
 	print("check!")

@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://caxrexn0e3rwp"]
+[gd_scene load_steps=5 format=3 uid="uid://caxrexn0e3rwp"]
 
 [ext_resource type="Script" path="res://cooking-tester/Main.gd" id="1_d0xmu"]
-[ext_resource type="Script" path="res://cooking-tester/Ingredient.gd" id="2_tagr5"]
 [ext_resource type="Script" path="res://cooking-tester/Composite.gd" id="3_0v26p"]
 [ext_resource type="Script" path="res://cooking-tester/Blender.gd" id="3_f74ix"]
 [ext_resource type="PackedScene" uid="uid://of7qamp5y4g4" path="res://cooking-tester/tool-scenes/Cauldron.tscn" id="5_htxxq"]
@@ -12,10 +11,7 @@ text_output = NodePath("Text_Output")
 text_composite = NodePath("Text_Composite")
 text_ingredients = NodePath("Text_Ingredients")
 composite = NodePath("Composite")
-result = NodePath("Result")
-
-[node name="Result" type="Node" parent="."]
-script = ExtResource("2_tagr5")
+result = NodePath("")
 
 [node name="Composite" type="Node" parent="."]
 script = ExtResource("3_0v26p")
