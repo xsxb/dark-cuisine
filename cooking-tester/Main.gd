@@ -26,21 +26,28 @@ func _process(delta):
 	var itext = "What I have lying here on the table is...\n"
 	
 	for ing in ingredients:
-		itext += "\n"
-		itext += ing.ing_name + ": " + ing.description + "\n"
-		
-		for st in ing.stats:
-			itext += "Makes you " #+ st + " by " + ing.stats[st] + "\n"
-		
-		for t in ing.types:
-			itext += "It's " + t + "\n"
+		itext += ing.print_block()
 		
 	$Text_Ingredients.text = itext
 	
-	var ctext = "The sludge on this table consists of: \n"
+	var ctext = "The sludge on this table is \n"
+	
+	for type in composite.types:
+		ctext += " " + type
+	
+	for stat in composite.stats:
+		ctext += " " + stat
+	
+	ctext += "\n"
+	ctext += "It's made of:"
 	
 	for ing in composite.ingredients:
-		ctext += ing.print_line()
+		ctext += " " + ing.ing_name
+	
+	#for ing in composite.ingredients:
+	#	ctext += ing.print_line()
+	
+	#ctext += composite.print_block()
 			
 	$Text_Composite.text = ctext
 	
@@ -49,6 +56,8 @@ func _process(delta):
 func _on_button_blend_pressed():
 	composite.reset()
 	composite.ingredients.append_array(ingredients)
+	composite.resolve_types()
+	composite.resolve_stats()
 	ingredients.clear()
 
 

@@ -1,8 +1,6 @@
-class_name Composite extends Node
+class_name Composite extends Ingredient
 
 @export var ingredients: Array[Ingredient]
-@export var types : Array[String]
-@export var stats : Array
 
 
 func reset():
@@ -15,61 +13,70 @@ func reset():
 #TODO: resolve contradicting types (e.g. solid+liquid)
 func resolve_types():
 	
-	var types : Array
-	
 	for ing in ingredients:
-		if(!types.has(ing)):
-			types.push_back(ing)
-			
-	return			
+		for type in ing.types:
+			if(!types.has(type)):
+				types.push_back(type)
 
 
-# TODO:
 func resolve_stats():
 	
-	var new_stats
+	var new_stats = []
 	
-	# for now..
-	# assumption that every stat consists of
-	# a name and an amount of + or -
-	# can only have + or -!
+	for ingr in ingredients:
 	
-	#resolution steps:
-	#strip modifiers to compare base names
-	#if not found, add as is and continue with next
-	#if same direction, add modifiers, continue
-	#if opposite, eliminate modifiers 
-	#check if stat has no modifiers left -> remove
-	for stat in stats:
-		var found = false
-		for existing_stat in new_stats:
-			if existing_stat.x == stat.x:
+		for st in ingr.stats:
+			var stat_pair = stat_to_pair(st)
+			var stat_name = stat_pair[0]
+			var stat_mod = stat_pair[1]
+			
+			var found = false
+	
+			#assuming statname first and modifiers second in block
+			for added in new_stats:
+				var added_pair = stat_to_pair(added)
+				var added_name = added_pair[0]
+				var added_mod = added_pair[1]
 				
-				var y_modifiers = existing_stat.y
-				var x_modifiers = stat.x
 				
-				#both + or both -
-				if y_modifiers[0] == x_modifiers[0]:
-					existing_stat.y += stat.y
-					continue
-					
-				else:
-					#compare length
-					if y_modifiers.length() == x_modifiers.length():
-						new_stats.erase(existing_stat)
-						continue
-					
-					elif y_modifiers.length() > x_modifiers.length():
-						var difference = y_modifiers.length() - x_modifiers.length()
-						existing_stat.resize(difference)
-						continue
-						
-					elif y_modifiers.length() < x_modifiers.lenth():
-						var difference = x_modifiers.length() - y_modifiers.length()
-						var new_mod = x_modifiers.resize(difference)
-						existing_stat.y = new_mod
-						continue
-		if !found:
-			new_stats.push_back(stat)
+				if added_name == stat_name:
+					var new_str = stat_pair_to_string([added_name, added_mod + stat_mod])
+					new_stats.erase(added)
+					new_stats.push_back(new_str)
+					found = true
+					break
 				
+			if !found:
+				new_stats.push_back(st)
+	
 	stats = new_stats
+
+
+func stat_to_pair(stat_string):
+	# this implementation means we cant use - in a name!!
+	#currently stats formated as name++++ name-- etc
+	var name = ""
+	var value = 0
+	
+	for ch in stat_string:
+		if(ch == '+'):
+			value += 1
+		elif(ch == '-'):
+			value -= 1
+		else: 
+			name += ch
+			
+	return [name, value]
+
+
+func stat_pair_to_string(pair : Array):
+	var str = pair[0]
+	var mod = pair[1]
+	
+	if(mod > 0):
+		for n in range(mod):
+			str += "+"
+	else:
+		for n in range(-mod):
+			str += "-"
+	return str
