@@ -8,13 +8,16 @@ func resolve_recipe(composite : Composite):
 		
 		var still_needed = recipes[rec_name]
 		var available = composite.ingredients
-
+		
 		#first eliminate direct matches
 		for needed in still_needed:
+			
+			print("Needed: " + needed + "\n")
 			
 			for ing in available:
 				
 				if(ing.ing_name == needed):
+					print("Found: " + ing.ing_name + "\n")
 					available.erase(ing)
 					still_needed.erase(needed)	#TODO: does this break iteration?
 					break
@@ -33,4 +36,5 @@ func resolve_recipe(composite : Composite):
 		if still_needed.empty():
 			return rec_name
 
+	print("check!")
 	return "a failure"

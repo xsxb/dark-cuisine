@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://cooking-tester/Ingredient.gd" id="2_tagr5"]
 [ext_resource type="Script" path="res://cooking-tester/Composite.gd" id="3_0v26p"]
 [ext_resource type="Script" path="res://cooking-tester/Blender.gd" id="3_f74ix"]
-[ext_resource type="PackedScene" uid="uid://dcoloe4qtldjq" path="res://cooking-tester/cooking_tool.tscn" id="7_5bt57"]
+[ext_resource type="PackedScene" uid="uid://of7qamp5y4g4" path="res://cooking-tester/tool-scenes/Cauldron.tscn" id="5_htxxq"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("text_output", "text_composite", "text_ingredients", "composite", "result")]
 script = ExtResource("1_d0xmu")
@@ -87,7 +87,7 @@ offset_right = 143.0
 offset_bottom = 116.0
 text = "Pine Cone"
 
-[node name="Cauldron" parent="." instance=ExtResource("7_5bt57")]
+[node name="Cauldron" parent="." instance=ExtResource("5_htxxq")]
 
 [connection signal="pressed" from="Button_Blend" to="." method="_on_button_blend_pressed"]
 [connection signal="pressed" from="Button_Cauldron" to="." method="_on_button_cauldron_pressed"]

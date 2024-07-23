@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://of7qamp5y4g4"]
+
+[ext_resource type="Script" path="res://cooking-tester/CookingTool.gd" id="1_h8vwk"]
+
+[node name="Cauldron" type="Node"]
+script = ExtResource("1_h8vwk")
