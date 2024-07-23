@@ -37,11 +37,11 @@ func _process(delta):
 		
 	$Text_Ingredients.text = itext
 	
-	var ctext = "The sludge on this table consists of: "
+	var ctext = "The sludge on this table consists of: \n"
 	
 	for ing in composite.ingredients:
-		ctext += ing.ing_name + " "
-	
+		ctext += ing.print_line()
+			
 	$Text_Composite.text = ctext
 	
 

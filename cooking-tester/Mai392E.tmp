@@ -18,6 +18,10 @@ result = NodePath("Result")
 
 [node name="Result" type="Node" parent="."]
 script = ExtResource("2_tagr5")
+ing_name = null
+description = null
+stats = null
+types = null
 
 [node name="Composite" type="Node" parent="."]
 script = ExtResource("3_0v26p")
@@ -90,16 +94,15 @@ offset_bottom = 116.0
 text = "Pine Cone"
 
 [node name="Apple" parent="." instance=ExtResource("5_v6r2q")]
-ing_name = ""
-description = ""
-stats = {}
-types = []
+ing_name = null
+description = null
+stats = null
+types = null
 
 [node name="Pinecone" parent="." instance=ExtResource("6_fikex")]
-ing_name = ""
-description = ""
-stats = {}
-types = []
+ing_name = null
+description = null
+types = null
 
 [node name="Cauldron" parent="." instance=ExtResource("7_5bt57")]
 
