@@ -25,7 +25,7 @@ func _init(p_name = "", p_description = "", p_stats = [], p_types = []):
 #			str += "-"
 #	return str
 
-
+# Hilfsfunktion um Kerneigenschaften in einer Zeile zu nutzen
 func print_line(): 
 	var str = ing_name + ":"
 
@@ -38,6 +38,8 @@ func print_line():
 	return str + "\n"
 	
 
+# Hilfsfunktion um alle Eigenschaften in einem
+# übersichtlichen Block zu drucken
 func print_block():
 	
 	var str = ing_name + ": " + "\n"

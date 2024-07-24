@@ -1,10 +1,18 @@
 class_name CookingTool extends Node
 
-@export var recipes : Dictionary
+# in tool instances: define recipes in the ready() function
+var recipes : Dictionary
 
-# returns the name of a matching recipe
+# a tool can pass back the ingredient type/id
+# + optionally an array of additional effects
+# who's responsible for creating the new
+# ingredient -> the main scene? the inventory?
+
+# TODO: what are tool effects and how do we implement them?
+
+# IN: a composite of ingredients
+# OUT: name of a recipe that 
 # ingredient order matters!
-# TODO: change to returning an ingredient
 # this function is ugly as all hell, sorry
 func resolve_recipe(composite : Composite):
 	

@@ -33,13 +33,6 @@ offset_right = 719.0
 offset_bottom = 184.0
 text = "Cauldron"
 
-[node name="Button_Grill" type="Button" parent="."]
-offset_left = 557.0
-offset_top = 195.0
-offset_right = 719.0
-offset_bottom = 244.0
-text = "Grill"
-
 [node name="Button_Clear" type="Button" parent="."]
 offset_left = 557.0
 offset_top = 374.0
@@ -86,7 +79,6 @@ text = "Pine Cone"
 
 [connection signal="pressed" from="Button_Blend" to="." method="_on_button_blend_pressed"]
 [connection signal="pressed" from="Button_Cauldron" to="." method="_on_button_cauldron_pressed"]
-[connection signal="pressed" from="Button_Grill" to="." method="_on_button_grill_pressed"]
 [connection signal="pressed" from="Button_Clear" to="." method="_on_button_clear_pressed"]
 [connection signal="pressed" from="Button_Apple" to="." method="_on_button_apple_pressed"]
 [connection signal="pressed" from="Button_Pinecone" to="." method="_on_button_pinecone_pressed"]
