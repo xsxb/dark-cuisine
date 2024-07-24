@@ -75,6 +75,7 @@ func _on_button_grill_pressed():
 func _on_button_clear_pressed():
 	ingredients.clear()
 	composite.reset()
+	
 	$Text_Output.text = ""
 
 

@@ -5,13 +5,12 @@
 [ext_resource type="Script" path="res://cooking-tester/Blender.gd" id="3_f74ix"]
 [ext_resource type="PackedScene" uid="uid://of7qamp5y4g4" path="res://cooking-tester/tool-scenes/Cauldron.tscn" id="5_htxxq"]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("text_output", "text_composite", "text_ingredients", "composite", "result")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("text_output", "text_composite", "text_ingredients", "composite")]
 script = ExtResource("1_d0xmu")
 text_output = NodePath("Text_Output")
 text_composite = NodePath("Text_Composite")
 text_ingredients = NodePath("Text_Ingredients")
 composite = NodePath("Composite")
-result = NodePath("")
 
 [node name="Composite" type="Node" parent="."]
 script = ExtResource("3_0v26p")
