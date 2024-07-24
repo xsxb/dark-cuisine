@@ -1,17 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://co0n2vsrb61it"]
+[gd_scene load_steps=8 format=3 uid="uid://co0n2vsrb61it"]
 
-[ext_resource type="Texture2D" uid="uid://bb6m5c775r7mn" path="res://assets/art/room-placeholder.jpg" id="1_iyfcm"]
+[ext_resource type="Script" path="res://room/room.gd" id="1_aaa8y"]
+[ext_resource type="Texture2D" uid="uid://dfd7nd22i1xi1" path="res://assets/art/Lab/Full 01.png" id="2_1rc6e"]
 [ext_resource type="Texture2D" uid="uid://dfg27f011g0td" path="res://icon.svg" id="2_xpsra"]
 [ext_resource type="Script" path="res://room/MixerButton.gd" id="3_d6bi3"]
 [ext_resource type="Script" path="res://room/OrbButton.gd" id="4_b028x"]
 [ext_resource type="Script" path="res://room/MixerMenu.gd" id="4_hr5hg"]
 [ext_resource type="Script" path="res://room/OrbMenu.gd" id="6_sne8s"]
 
-[node name="Room" type="Node2D"]
+[node name="Room" type="Node2D" node_paths=PackedStringArray("cauldron_button")]
+script = ExtResource("1_aaa8y")
+cauldron_button = NodePath("CauldronButton")
 
 [node name="Background" type="Sprite2D" parent="."]
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("1_iyfcm")
+scale = Vector2(0.46, 0.46)
+texture = ExtResource("2_1rc6e")
 centered = false
 
 [node name="MixerButton" type="TextureButton" parent="." node_paths=PackedStringArray("menu")]
@@ -63,7 +66,17 @@ offset_right = 8.0
 offset_bottom = 8.0
 text = "X"
 
+[node name="CauldronButton" type="TextureButton" parent="."]
+offset_left = 334.0
+offset_top = 258.0
+offset_right = 436.0
+offset_bottom = 324.0
+texture_normal = ExtResource("2_xpsra")
+ignore_texture_size = true
+stretch_mode = 0
+
 [connection signal="pressed" from="MixerButton" to="MixerButton" method="_on_pressed"]
 [connection signal="pressed" from="MixerButton/MixerMenu/CloseButton" to="MixerButton/MixerMenu" method="_on_close_button_pressed"]
 [connection signal="pressed" from="OrbButton" to="OrbButton" method="_on_pressed"]
 [connection signal="pressed" from="OrbButton/OrbMenu/CloseButton" to="OrbButton/OrbMenu" method="_on_close_button_pressed"]
+[connection signal="pressed" from="CauldronButton" to="." method="_on_cauldron_button_pressed"]
