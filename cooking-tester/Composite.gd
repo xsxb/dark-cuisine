@@ -9,7 +9,7 @@ func reset():
 	stats.clear()
 
 
-#simply combines all ingredient types, no doubles
+#simply combines all ingredient types without doubles
 #TODO: resolve contradicting types (e.g. solid+liquid)
 func resolve_types():
 	
@@ -18,7 +18,9 @@ func resolve_types():
 			if(!types.has(type)):
 				types.push_back(type)
 
-
+# combines stats of all ingredients
+# eg turn healthy++ und healthy- into healthy+
+# if values equal out to 0 effect, stat is removed
 func resolve_stats():
 	
 	var new_stats = []
@@ -40,9 +42,15 @@ func resolve_stats():
 				
 				
 				if added_name == stat_name:
-					var new_str = stat_pair_to_string([added_name, added_mod + stat_mod])
+					added_mod += stat_mod
+					var new_str = stat_pair_to_string([added_name, added_mod])
 					new_stats.erase(added)
-					new_stats.push_back(new_str)
+					
+					# new entry only gets added if the modifier
+					# didn't add up to 0
+					if(added_mod != 0):	
+						new_stats.push_back(new_str)
+					
 					found = true
 					break
 				
@@ -51,7 +59,7 @@ func resolve_stats():
 	
 	stats = new_stats
 
-
+#Hilffunktion: "stat++" -> ["stat", 2], "stat-" -> ["stat", -1]
 func stat_to_pair(stat_string):
 	# this implementation means we cant use - in a name!!
 	#currently stats formated as name++++ name-- etc
@@ -69,6 +77,8 @@ func stat_to_pair(stat_string):
 	return [name, value]
 
 
+# Hilfsfunktion
+# ["stat", 2] -> "stat++", ["stat", -1] -> "stat-"
 func stat_pair_to_string(pair : Array):
 	var str = pair[0]
 	var mod = pair[1]

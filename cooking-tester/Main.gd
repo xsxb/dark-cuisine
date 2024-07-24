@@ -68,13 +68,11 @@ func _on_button_cauldron_pressed():
 	$Text_Output.text = res_text
 
 
-func _on_button_grill_pressed():
-	pass # Replace with function body.
-
-
 func _on_button_clear_pressed():
 	ingredients.clear()
 	composite.reset()
+	
+	$Text_Output.text = ""
 
 
 func _on_button_apple_pressed():

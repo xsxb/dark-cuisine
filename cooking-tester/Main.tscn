@@ -1,21 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://caxrexn0e3rwp"]
+[gd_scene load_steps=5 format=3 uid="uid://caxrexn0e3rwp"]
 
 [ext_resource type="Script" path="res://cooking-tester/Main.gd" id="1_d0xmu"]
-[ext_resource type="Script" path="res://cooking-tester/Ingredient.gd" id="2_tagr5"]
 [ext_resource type="Script" path="res://cooking-tester/Composite.gd" id="3_0v26p"]
 [ext_resource type="Script" path="res://cooking-tester/Blender.gd" id="3_f74ix"]
 [ext_resource type="PackedScene" uid="uid://of7qamp5y4g4" path="res://cooking-tester/tool-scenes/Cauldron.tscn" id="5_htxxq"]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("text_output", "text_composite", "text_ingredients", "composite", "result")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("text_output", "text_composite", "text_ingredients", "composite")]
 script = ExtResource("1_d0xmu")
 text_output = NodePath("Text_Output")
 text_composite = NodePath("Text_Composite")
 text_ingredients = NodePath("Text_Ingredients")
 composite = NodePath("Composite")
-result = NodePath("Result")
-
-[node name="Result" type="Node" parent="."]
-script = ExtResource("2_tagr5")
 
 [node name="Composite" type="Node" parent="."]
 script = ExtResource("3_0v26p")
@@ -37,13 +32,6 @@ offset_top = 135.0
 offset_right = 719.0
 offset_bottom = 184.0
 text = "Cauldron"
-
-[node name="Button_Grill" type="Button" parent="."]
-offset_left = 557.0
-offset_top = 195.0
-offset_right = 719.0
-offset_bottom = 244.0
-text = "Grill"
 
 [node name="Button_Clear" type="Button" parent="."]
 offset_left = 557.0
@@ -91,7 +79,6 @@ text = "Pine Cone"
 
 [connection signal="pressed" from="Button_Blend" to="." method="_on_button_blend_pressed"]
 [connection signal="pressed" from="Button_Cauldron" to="." method="_on_button_cauldron_pressed"]
-[connection signal="pressed" from="Button_Grill" to="." method="_on_button_grill_pressed"]
 [connection signal="pressed" from="Button_Clear" to="." method="_on_button_clear_pressed"]
 [connection signal="pressed" from="Button_Apple" to="." method="_on_button_apple_pressed"]
 [connection signal="pressed" from="Button_Pinecone" to="." method="_on_button_pinecone_pressed"]
