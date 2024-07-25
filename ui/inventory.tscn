@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch0lbubw47vx4"]
+
+[ext_resource type="Script" path="res://ui/Inventory.gd" id="1_jd25s"]
+
+[node name="Inventory" type="Control" node_paths=PackedStringArray("container", "background_panel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jd25s")
+columns = 3
+rows = 3
+border = 20
+container = NodePath("BackgroundPanel/GridContainer")
+background_panel = NodePath("BackgroundPanel")
+
+[node name="BackgroundPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 37.0
+offset_bottom = 39.0
+
+[node name="GridContainer" type="GridContainer" parent="BackgroundPanel"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 3

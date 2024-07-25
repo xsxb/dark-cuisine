@@ -1,15 +1,19 @@
 extends Control
 
+##This script controls general UI behaviour
 
-# Called when the node enters the scene tree for the first time.
+@export var script_node : Node
+
+var composite
+
 func _ready():
-	hide()
+	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
-
 func _on_exit_button_pressed():
 	hide()
+
+func _on_cook_button_pressed():
+	script_node.resolve_recipe(composite)

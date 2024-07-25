@@ -7,16 +7,15 @@ var cauldron_menu
 
 var active_menu : Node
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	
+	##Initiate child nodes
 	cauldron_menu = cauldron_menu_scene.instantiate()
 	cauldron_button.add_child(cauldron_menu)
+	cauldron_menu.hide()
 	#cauldron_menu.global_position = cauldron_button.global_position
-	
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
