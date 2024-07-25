@@ -25,8 +25,8 @@ stretch_mode = 0
 
 [node name="BlubberLoopAudioStream" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_3ggf8")
-volume_db = -10.024
-pitch_scale = 0.86
+volume_db = -27.833
+pitch_scale = 0.61
 autoplay = true
 
 [connection signal="pressed" from="CauldronButton" to="." method="_on_cauldron_button_pressed"]

@@ -8,7 +8,7 @@ var inv_data = {}	#slot_id : [item_id, stack]
 @export var columns : int
 @export var rows : int
 @export var border : int
-@export var slot_size = Vector2(40,40)
+@export var slot_size = Vector2(64,64)
 
 #Nodes:
 @export var container : GridContainer

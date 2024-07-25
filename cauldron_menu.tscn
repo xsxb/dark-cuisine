@@ -4,20 +4,17 @@
 [ext_resource type="PackedScene" uid="uid://ch0lbubw47vx4" path="res://ui/inventory.tscn" id="2_2yre6"]
 [ext_resource type="Script" path="res://CauldronScriptNode.gd" id="2_nw6ca"]
 
-[node name="CauldronMenu" type="Control" node_paths=PackedStringArray("script_node")]
+[node name="CauldronMenu" type="Control" node_paths=PackedStringArray("script_node", "background_panel")]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_spqhc")
 script_node = NodePath("CauldronScriptNode")
+background_panel = NodePath("BackgroundPanel")
 
 [node name="BackgroundPanel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 362.0
-offset_bottom = 263.0
+offset_right = 441.0
+offset_bottom = 331.0
 
 [node name="ExitButton" type="Button" parent="BackgroundPanel"]
 layout_mode = 0
@@ -28,17 +25,17 @@ text = "X"
 
 [node name="Inventory" parent="BackgroundPanel" instance=ExtResource("2_2yre6")]
 layout_mode = 1
-offset_left = 28.0
-offset_top = 31.0
-offset_right = 28.0
-offset_bottom = 31.0
+offset_left = 37.0
+offset_top = 38.0
+offset_right = 37.0
+offset_bottom = 38.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BackgroundPanel"]
 layout_mode = 0
-offset_left = 233.0
-offset_top = 94.0
-offset_right = 323.0
-offset_bottom = 160.0
+offset_left = 320.0
+offset_top = 104.0
+offset_right = 410.0
+offset_bottom = 170.0
 
 [node name="CookButton" type="Button" parent="BackgroundPanel/VBoxContainer"]
 layout_mode = 2
