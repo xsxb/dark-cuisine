@@ -14,12 +14,13 @@ var recipes : Dictionary
 # OUT: name of a recipe that 
 # ingredient order matters!
 # this function is ugly as all hell, sorry
-func resolve_recipe(composite : Composite):
+func resolve_recipe(ingredients : Array):
 	
 	for rec_name in recipes:
 		
 		var still_needed = {}
-		var available = composite.ingredients
+		
+		var available = ingredients.duplicate()
 		
 		for needed_ingredient in recipes[rec_name]:
 			still_needed[needed_ingredient] = null
@@ -70,3 +71,59 @@ func resolve_recipe(composite : Composite):
 		# if this point is reached, all ingredients for one
 		# recipe could be assigned
 		return rec_name 
+
+
+#simply combines all ingredient types without doubles
+#TODO: resolve contradicting types (e.g. solid+liquid)
+func resolve_types(ingredients : Array):
+	
+	var combined_types = []
+	
+	for ing in ingredients:
+		for type in ing.types:
+			if(!combined_types.has(type)):
+				combined_types.push_back(type)
+	
+	return combined_types
+
+
+# combines stats of all ingredients
+# eg turn healthy++ und healthy- into healthy+
+# if values equal out to 0 effect, stat is removed
+func resolve_stats(ingredients : Array):
+	
+	var new_stats = []
+	
+	for ingr in ingredients:
+	
+		for st in ingr.stats:
+			var stat_pair = ingr.stat_to_pair(st)
+			var stat_name = stat_pair[0]
+			var stat_mod = stat_pair[1]
+			
+			var found = false
+	
+			#assuming statname first and modifiers second in block
+			for added in new_stats:
+				var added_pair = ingr.stat_to_pair(added)
+				var added_name = added_pair[0]
+				var added_mod = added_pair[1]
+				
+				
+				if added_name == stat_name:
+					added_mod += stat_mod
+					var new_str = ingr.stat_pair_to_string([added_name, added_mod])
+					new_stats.erase(added)
+					
+					# new entry only gets added if the modifier
+					# didn't add up to 0
+					if(added_mod != 0):	
+						new_stats.push_back(new_str)
+					
+					found = true
+					break
+				
+			if !found:
+				new_stats.push_back(st)
+	
+	return new_stats

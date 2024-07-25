@@ -1,10 +1,8 @@
 extends Node2D
 
 @export var text_output : Label
-@export var text_composite : Label
 @export var text_ingredients : Label
 
-@export var composite : Composite
 @export var result : Ingredient
 
 var ingredients : Array
@@ -29,49 +27,35 @@ func _process(delta):
 		itext += ing.print_block()
 		
 	$Text_Ingredients.text = itext
-	
-	var ctext = "The sludge on this table is \n"
-	
-	for type in composite.types:
-		ctext += " " + type
-	
-	for stat in composite.stats:
-		ctext += " " + stat
-	
-	ctext += "\n"
-	ctext += "It's made of:"
-	
-	for ing in composite.ingredients:
-		ctext += " " + ing.ing_name
-	
-	#for ing in composite.ingredients:
-	#	ctext += ing.print_line()
-	
-	#ctext += composite.print_block()
-			
-	$Text_Composite.text = ctext
-	
 
-
-func _on_button_blend_pressed():
-	composite.reset()
-	composite.ingredients.append_array(ingredients)
-	composite.resolve_types()
-	composite.resolve_stats()
-	ingredients.clear()
 
 
 func _on_button_cauldron_pressed():
-	var recipe = $Cauldron.resolve_recipe(composite)
+	var stats =  $Cauldron.resolve_stats(ingredients)
+	var recipe = $Cauldron.resolve_recipe(ingredients)
+	
+	var types = $Cauldron.resolve_types(ingredients)
+	
 	var res_text = "I created...\n"
-	res_text += recipe + "!"
+	res_text += recipe + "!\n"
+	
+	res_text += "It's...\n"
+	for t in types:
+		res_text += t + " "
+	res_text += "\n"
+	
+	res_text += "It makes you...\n"
+	for s in stats:
+		res_text += s + " "
+		
 	$Text_Output.text = res_text
+	ingredients.clear()
+	
+	
 
 
 func _on_button_clear_pressed():
 	ingredients.clear()
-	composite.reset()
-	
 	$Text_Output.text = ""
 
 

@@ -1,43 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://caxrexn0e3rwp"]
+[gd_scene load_steps=4 format=3 uid="uid://caxrexn0e3rwp"]
 
 [ext_resource type="Script" path="res://cooking-tester/Main.gd" id="1_d0xmu"]
-[ext_resource type="Script" path="res://cooking-tester/Composite.gd" id="3_0v26p"]
-[ext_resource type="Script" path="res://cooking-tester/Blender.gd" id="3_f74ix"]
 [ext_resource type="PackedScene" uid="uid://of7qamp5y4g4" path="res://cooking-tester/tool-scenes/Cauldron.tscn" id="5_htxxq"]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("text_output", "text_composite", "text_ingredients", "composite")]
+[sub_resource type="GDScript" id="GDScript_1bnn5"]
+script/source = "class_name Composite extends Ingredient
+
+@export var ingredients: Array[Ingredient]
+
+
+func reset():
+	ingredients.clear()
+	types.clear()
+	stats.clear()
+
+
+
+"
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("text_output", "text_ingredients")]
 script = ExtResource("1_d0xmu")
 text_output = NodePath("Text_Output")
-text_composite = NodePath("Text_Composite")
 text_ingredients = NodePath("Text_Ingredients")
-composite = NodePath("Composite")
 
 [node name="Composite" type="Node" parent="."]
-script = ExtResource("3_0v26p")
-
-[node name="Blender" type="Node" parent="."]
-script = ExtResource("3_f74ix")
-
-[node name="Button_Blend" type="Button" parent="."]
-offset_left = 554.0
-offset_top = 19.0
-offset_right = 716.0
-offset_bottom = 68.0
-text = "Blend"
-script = ExtResource("3_f74ix")
+script = SubResource("GDScript_1bnn5")
 
 [node name="Button_Cauldron" type="Button" parent="."]
-offset_left = 557.0
-offset_top = 135.0
-offset_right = 719.0
-offset_bottom = 184.0
+offset_left = 398.0
+offset_top = 8.0
+offset_right = 560.0
+offset_bottom = 57.0
 text = "Cauldron"
 
 [node name="Button_Clear" type="Button" parent="."]
-offset_left = 557.0
-offset_top = 374.0
-offset_right = 709.0
-offset_bottom = 425.0
+offset_left = 398.0
+offset_top = 176.0
+offset_right = 550.0
+offset_bottom = 227.0
 text = "Clear"
 
 [node name="Text_Output" type="Label" parent="."]
@@ -46,13 +46,6 @@ offset_top = 4.0
 offset_right = 532.0
 offset_bottom = 159.0
 text = "Current Results:"
-
-[node name="Text_Composite" type="Label" parent="."]
-offset_left = 161.0
-offset_top = 200.0
-offset_right = 511.0
-offset_bottom = 307.0
-text = "Current Composite:"
 
 [node name="Text_Ingredients" type="Label" parent="."]
 offset_left = 159.0
@@ -77,7 +70,6 @@ text = "Pine Cone"
 
 [node name="Cauldron" parent="." instance=ExtResource("5_htxxq")]
 
-[connection signal="pressed" from="Button_Blend" to="." method="_on_button_blend_pressed"]
 [connection signal="pressed" from="Button_Cauldron" to="." method="_on_button_cauldron_pressed"]
 [connection signal="pressed" from="Button_Clear" to="." method="_on_button_clear_pressed"]
 [connection signal="pressed" from="Button_Apple" to="." method="_on_button_apple_pressed"]
