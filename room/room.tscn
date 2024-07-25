@@ -1,12 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://co0n2vsrb61it"]
+[gd_scene load_steps=5 format=3 uid="uid://co0n2vsrb61it"]
 
 [ext_resource type="Script" path="res://room/room.gd" id="1_aaa8y"]
 [ext_resource type="Texture2D" uid="uid://dfd7nd22i1xi1" path="res://assets/art/Lab/Full 01.png" id="2_1rc6e"]
-[ext_resource type="Texture2D" uid="uid://dfg27f011g0td" path="res://icon.svg" id="2_xpsra"]
-[ext_resource type="Script" path="res://room/MixerButton.gd" id="3_d6bi3"]
-[ext_resource type="Script" path="res://room/OrbButton.gd" id="4_b028x"]
-[ext_resource type="Script" path="res://room/MixerMenu.gd" id="4_hr5hg"]
-[ext_resource type="Script" path="res://room/OrbMenu.gd" id="6_sne8s"]
+[ext_resource type="Texture2D" uid="uid://dniidnnaua8s" path="res://assets/art/Placeholder/cauldron-placeholder.png" id="3_luik3"]
+[ext_resource type="AudioStream" uid="uid://cliyahuujicxy" path="res://assets/sfx/blubber-loop.mp3" id="8_3ggf8"]
 
 [node name="Room" type="Node2D" node_paths=PackedStringArray("cauldron_button")]
 script = ExtResource("1_aaa8y")
@@ -17,66 +14,19 @@ scale = Vector2(0.46, 0.46)
 texture = ExtResource("2_1rc6e")
 centered = false
 
-[node name="MixerButton" type="TextureButton" parent="." node_paths=PackedStringArray("menu")]
-offset_left = 251.0
-offset_top = 329.0
-offset_right = 297.0
-offset_bottom = 425.0
-texture_normal = ExtResource("2_xpsra")
-ignore_texture_size = true
-stretch_mode = 0
-script = ExtResource("3_d6bi3")
-menu = NodePath("MixerMenu")
-
-[node name="MixerMenu" type="Panel" parent="MixerButton"]
-layout_mode = 0
-offset_left = -246.0
-offset_top = -74.0
-offset_bottom = 232.0
-script = ExtResource("4_hr5hg")
-
-[node name="CloseButton" type="Button" parent="MixerButton/MixerMenu"]
-layout_mode = 0
-offset_right = 18.0
-offset_bottom = 31.0
-text = "X"
-
-[node name="OrbButton" type="TextureButton" parent="." node_paths=PackedStringArray("menu")]
-offset_left = 623.0
-offset_top = 349.0
-offset_right = 687.0
-offset_bottom = 416.0
-texture_normal = ExtResource("2_xpsra")
-ignore_texture_size = true
-stretch_mode = 0
-script = ExtResource("4_b028x")
-menu = NodePath("OrbMenu")
-
-[node name="OrbMenu" type="Panel" parent="OrbButton"]
-layout_mode = 0
-offset_left = 63.0
-offset_top = -99.0
-offset_right = 310.0
-offset_bottom = 169.0
-script = ExtResource("6_sne8s")
-
-[node name="CloseButton" type="Button" parent="OrbButton/OrbMenu"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "X"
-
 [node name="CauldronButton" type="TextureButton" parent="."]
-offset_left = 334.0
-offset_top = 258.0
-offset_right = 436.0
-offset_bottom = 324.0
-texture_normal = ExtResource("2_xpsra")
+offset_left = 329.0
+offset_top = 485.0
+offset_right = 452.0
+offset_bottom = 567.0
+texture_normal = ExtResource("3_luik3")
 ignore_texture_size = true
 stretch_mode = 0
 
-[connection signal="pressed" from="MixerButton" to="MixerButton" method="_on_pressed"]
-[connection signal="pressed" from="MixerButton/MixerMenu/CloseButton" to="MixerButton/MixerMenu" method="_on_close_button_pressed"]
-[connection signal="pressed" from="OrbButton" to="OrbButton" method="_on_pressed"]
-[connection signal="pressed" from="OrbButton/OrbMenu/CloseButton" to="OrbButton/OrbMenu" method="_on_close_button_pressed"]
+[node name="BlubberLoopAudioStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_3ggf8")
+volume_db = -10.024
+pitch_scale = 0.86
+autoplay = true
+
 [connection signal="pressed" from="CauldronButton" to="." method="_on_cauldron_button_pressed"]

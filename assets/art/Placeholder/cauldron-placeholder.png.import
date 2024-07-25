@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb6m5c775r7mn"
-path="res://.godot/imported/room-placeholder.jpg-ed1a78af8e49ed8cd0150880f9ce3f6c.ctex"
+uid="uid://dniidnnaua8s"
+path="res://.godot/imported/cauldron-placeholder.png-0e8d841c64d3cf4f08320d1bd830f0d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/room-placeholder.jpg"
-dest_files=["res://.godot/imported/room-placeholder.jpg-ed1a78af8e49ed8cd0150880f9ce3f6c.ctex"]
+source_file="res://assets/art/Placeholder/cauldron-placeholder.png"
+dest_files=["res://.godot/imported/cauldron-placeholder.png-0e8d841c64d3cf4f08320d1bd830f0d3.ctex"]
 
 [params]
 
