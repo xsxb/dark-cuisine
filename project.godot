@@ -13,7 +13,11 @@ config_version=5
 config/name="Dark-cuisine"
 run/main_scene="res://main-menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/art/Placeholder/icon.svg"
+
+[autoload]
+
+Global="*res://Global.gd"
 
 [dotnet]
 

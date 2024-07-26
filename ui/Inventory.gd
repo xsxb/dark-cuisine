@@ -1,21 +1,39 @@
 extends Control
 
+class_name Inventory
+
 #Inventory data:
-var inv_id : int
+@export var inv_id : int
 var inv_data = {}	#slot_id : [item_id, stack]
 
 #Define inventory size:
-@export var columns : int
-@export var rows : int
-@export var border : int
+@export var columns : int = 8
+@export var rows : int = 1
+@export var border : int = 10
 @export var slot_size = Vector2(64,64)
 
 #Nodes:
-@export var container : GridContainer
-@export var background_panel : Panel
+@export var inventory_management : Node
+var container : GridContainer
+var background_panel : Panel
 var inv_slot_scene = preload("res://ui/inventory_slot.tscn")
+var item_scene = preload ("res://item.tscn")
+var item_script = preload("res://Item.gd")
 
 func _ready():
+	pass
+	
+	
+	#DEBUG & TESTING:
+
+
+#-----------------------------------------------------
+func init():
+	
+	background_panel = get_child(0)
+	container = background_panel.get_child(0)
+	
+	add_to_group("inventories")
 	#Initiate inventory data:
 	var slot_id = 0
 	for x in rows:
@@ -37,16 +55,29 @@ func _ready():
 			var inv_slot = inv_slot_scene.instantiate()
 			container.add_child(inv_slot)
 
-	#DEBUG:
-	#for child in container.get_children():
-	#	print(child.global_position)
+	#Update inventories
+	inventory_management.get_inventories()
 
-#-----------------------------------------------------
 
-#TODO: Put item into inventory slot:
-func put_item(slot_id):
-	var slot
-	slot = container.get_child(slot_id)
+#Returns item data from table [icon, name, description]
+func get_item_data(id):
+	var item = Global.item_table[id]
+	return item
+
+#Put item into inventory slot:
+#UNFINISHED
+func set_item(slot_id, item_id):
+	#Get relevant inventory slot:
+	var slot = container.get_child(slot_id)
+	
+	#Instantiate item:
+	var item_instance = item_scene.instantiate()
+	item_instance.script = item_script.new()
+	
+	#Fill with item data
+	var item_data = get_item_data(item_id)
+	#item_instance.init_data(item_data)
+	slot.add_child(item_instance)
 
 #Get item data from inventory slot:
 func get_item(slot_id):
