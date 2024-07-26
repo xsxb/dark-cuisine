@@ -4,6 +4,7 @@ extends Control
 
 @export var script_node : Node
 @export var background_panel : Panel
+var inventory_id : int
 
 var composite
 
