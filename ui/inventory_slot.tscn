@@ -1,6 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnphbffh34q0g"]
+[gd_scene load_steps=6 format=3 uid="uid://cnphbffh34q0g"]
 
 [ext_resource type="Script" path="res://ui/InventorySlot.gd" id="1_fx77x"]
+[ext_resource type="Theme" uid="uid://lwhy6nphe0ya" path="res://ui/base_theme.tres" id="1_hdfct"]
+[ext_resource type="FontFile" uid="uid://wq4p6wqglps6" path="res://ui/old_english_text_mt.ttf" id="3_nm05u"]
+
+[sub_resource type="Theme" id="Theme_axrno"]
+default_font = ExtResource("3_nm05u")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spnxo"]
 
@@ -11,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_hdfct")
 script = ExtResource("1_fx77x")
 slot_panel = NodePath("SlotPanel")
 
@@ -18,4 +24,5 @@ slot_panel = NodePath("SlotPanel")
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
+theme = SubResource("Theme_axrno")
 theme_override_styles/panel = SubResource("StyleBoxFlat_spnxo")

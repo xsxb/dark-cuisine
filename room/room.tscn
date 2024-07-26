@@ -90,7 +90,7 @@ stretch_mode = 0
 
 [node name="BlubberLoopAudioStream" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_3ggf8")
-volume_db = -27.833
+volume_db = -24.674
 pitch_scale = 0.61
 autoplay = true
 
