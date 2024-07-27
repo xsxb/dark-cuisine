@@ -71,9 +71,6 @@ _data = {
 script = ExtResource("1_aaa8y")
 cauldron_button = NodePath("CauldronButton")
 
-[node name="InventoryManagement" type="Node" parent="."]
-script = ExtResource("5_1bptw")
-
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(0.46, 0.46)
 texture = ExtResource("2_1rc6e")
@@ -129,6 +126,9 @@ libraries = {
 "": SubResource("AnimationLibrary_fmit7")
 }
 speed_scale = 4.0
+
+[node name="InventoryManagement" type="Node" parent="."]
+script = ExtResource("5_1bptw")
 
 [connection signal="child_entered_tree" from="." to="InventoryManagement" method="_on_room_child_entered_tree"]
 [connection signal="pressed" from="CauldronButton" to="." method="_on_cauldron_button_pressed"]

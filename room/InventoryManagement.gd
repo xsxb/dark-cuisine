@@ -1,6 +1,8 @@
 extends Node
 
-var inventories #: Array #array of nodes
+##Moved node to bottom of scene tree to change initialisation order
+
+var inventories #: Array of inventory nodes
 
 func _ready():
 	get_inventories()

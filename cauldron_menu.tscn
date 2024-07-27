@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://x5v2yw4apsrh"]
+[gd_scene load_steps=5 format=3 uid="uid://x5v2yw4apsrh"]
 
+[ext_resource type="Theme" uid="uid://lwhy6nphe0ya" path="res://ui/base_theme.tres" id="1_ructh"]
 [ext_resource type="Script" path="res://cauldron_menu.gd" id="1_spqhc"]
 [ext_resource type="PackedScene" uid="uid://ch0lbubw47vx4" path="res://ui/inventory.tscn" id="2_2yre6"]
 [ext_resource type="Script" path="res://CauldronScriptNode.gd" id="2_nw6ca"]
@@ -7,6 +8,7 @@
 [node name="CauldronMenu" type="Control" node_paths=PackedStringArray("script_node", "background_panel")]
 layout_mode = 3
 anchors_preset = 0
+theme = ExtResource("1_ructh")
 script = ExtResource("1_spqhc")
 script_node = NodePath("CauldronScriptNode")
 background_panel = NodePath("BackgroundPanel")

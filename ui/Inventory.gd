@@ -21,10 +21,9 @@ var item_scene = preload ("res://item.tscn")
 var item_script = preload("res://Item.gd")
 
 func _ready():
+	##Script will be attached to node after node is ready
+	##_ready function will therefore not be called
 	pass
-	
-	
-	#DEBUG & TESTING:
 
 
 #-----------------------------------------------------
@@ -64,20 +63,24 @@ func get_item_data(id):
 	var item = Global.item_table[id]
 	return item
 
+func set_item_data(item_data, item):
+	item.set_icon()
+
 #Put item into inventory slot:
-#UNFINISHED
-func set_item(slot_id, item_id):
+func set_item(slot_id, item_id, stack):
 	#Get relevant inventory slot:
 	var slot = container.get_child(slot_id)
 	
 	#Instantiate item:
 	var item_instance = item_scene.instantiate()
-	item_instance.script = item_script.new()
+	slot.add_child(item_instance)
+	#item_instance.script = item_script.new()
 	
 	#Fill with item data
 	var item_data = get_item_data(item_id)
-	#item_instance.init_data(item_data)
-	slot.add_child(item_instance)
+	item_instance.item_data = item_data
+	item_instance.item_stack = stack
+	item_instance.set_icon()
 
 #Get item data from inventory slot:
 func get_item(slot_id):

@@ -14,7 +14,7 @@ var item_table = {
 	,
 	2 : {
 	"name" : "test-item1", 
-	"icon" : "res://assets/art/Icons/alchemical/background/1.png", 
+	"icon" : "res://assets/art/Icons/alchemical/background/2.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	}
