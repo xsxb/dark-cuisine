@@ -27,7 +27,7 @@ func resolve_recipe(ingredients : Array):
 		return false
 
 	else:
-		var result_node = create_ingredient(rec_name)
+		var result_node = create_ingredient(found_recipe)
 		apply_tool_effect(result_node)
 		return result_node
 
@@ -69,7 +69,7 @@ func check_recipe(rec_name, ingredients):
 		
 		for given_ingredient in available_ingredients:
 			if given_ingredient.type == needed_string:
-				sorted_ingredients[nee]
+				sorted_ingredients[needed_string] = given_ingredient
 	
 	# if there's a needed ingredient with no potential match
 	for needed_string in sorted_ingredients:
@@ -77,30 +77,59 @@ func check_recipe(rec_name, ingredients):
 			return false
 	
 	# check if there is a fulfilling permutation
-	var potential = find_permutation(sorted_ingredients)
+	return find_permutation(sorted_ingredients) != null
 	
-	if potential == null:
-		return false
-	
-	return potential
 
-# IN: a dict where each requirement is assgined an array
-# of matching ingredients
-# OUT: null or a dict with a fulfilling 1-to-1 mapping
-func find_permutation(sorted_ingredients : Dictionary):
+# returns either null or an array of used ingredients
+func find_permutation(sorted_ingredients):
 	
-	var trial_dict
-	var already_
+	var picked = []
+	var remaining = []
 	
-	# handy: we have at most as many ingredients as rows
-	# has redundant checks, but at our scale that doesn't matter
-	for row_key in sorted_ingredients:
+	# [[req1 matches],[req2 matches],[req3 matches],...]
+	for key in sorted_ingredients:
+		remaining.push_back(sorted_ingredients[key])
+	
+	return base_find_permutation(picked, remaining)
+
+# cursed recursion
+# ill figure out if this actually does whats intended
+# later. TODO
+func base_find_permutation(picked, remaining):
+	
+	if remaining.size == 0:
+		return picked
+	
+	var current_list = remaining[0]
+	
+	if current_list.is_empty():
+		return null
+	
+	var rest = []
+	
+	if remaining.size() > 1: 
+		rest = remaining.slice(1,remaining.size())
+	
+	# fix next value
+	for potential in current_list:
 		
-		for entry in sorted_ingredients[row_key]:
-			trial_dict[row_key] = entry
+		var already_used = false
+		
+		for used in picked:
+			if used == potential:
+				already_used = true
+		
+		if already_used:
+			continue
 			
-			for other_rows in sorted_ingredients:
-				
+		else:
+			picked.push_back(potential)
+			var result = base_find_permutation(picked, rest)
+			if result != null:
+				return result
+		
+	return null
+
 
 #simply combines all ingredient types without doubles
 #TODO: resolve contradicting types (e.g. solid+liquid)
@@ -157,5 +186,6 @@ func resolve_stats(ingredients : Array):
 	
 	return new_stats
 
-func create_ingredient():
+func create_ingredient(recipe_name):
+	
 	pass #TODO
