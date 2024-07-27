@@ -81,6 +81,7 @@ func set_item(slot_id, item_id, stack):
 	item_instance.item_data = item_data
 	item_instance.item_stack = stack
 	item_instance.set_icon()
+	item_instance.set_tooltip()
 
 #Get item data from inventory slot:
 func get_item(slot_id):
