@@ -41,6 +41,10 @@ func resolve_recipe(ingredients : Array):
 #OUT: true or false
 func check_recipe(rec_name, ingredients):
 	
+	# number of ingredients doesn't match number required exactly
+	# => can't find a 1 to 1 mapping
+	if recipes[rec_name].size() != ingredients.size():
+		return false
 	
 	# initialize data structures
 	# copy to avoid modifying the original array
@@ -72,16 +76,31 @@ func check_recipe(rec_name, ingredients):
 		if sorted_ingredients[needed_string].is_empty():
 			return false
 	
+	# check if there is a fulfilling permutation
+	var potential = find_permutation(sorted_ingredients)
 	
+	if potential == null:
+		return false
 	
-	if check_all_satisfied(still_needed):
-			if !available.is_empty():
-				return false
+	return potential
 
-
-func check_ingredient(ingredient , available_ingredients : Array):
+# IN: a dict where each requirement is assgined an array
+# of matching ingredients
+# OUT: null or a dict with a fulfilling 1-to-1 mapping
+func find_permutation(sorted_ingredients : Dictionary):
+	
+	var trial_dict
+	var already_
+	
+	# handy: we have at most as many ingredients as rows
+	# has redundant checks, but at our scale that doesn't matter
+	for row_key in sorted_ingredients:
 		
-
+		for entry in sorted_ingredients[row_key]:
+			trial_dict[row_key] = entry
+			
+			for other_rows in sorted_ingredients:
+				
 
 #simply combines all ingredient types without doubles
 #TODO: resolve contradicting types (e.g. solid+liquid)
