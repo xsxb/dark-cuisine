@@ -1,5 +1,8 @@
 class_name CookingTool extends Node
 
+var apple_scene = preload("res://cooking-tester/ingredient.tscn")
+var pinecone_scene
+
 # in tool instances: define recipes in the ready() function
 var recipes : Dictionary
 
@@ -28,6 +31,7 @@ func resolve_recipe(ingredients : Array):
 
 	else:
 		var result_node = create_ingredient(found_recipe)
+		add_ingredient_stats(result_node, ingredients)
 		apply_tool_effect(result_node)
 		return result_node
 
@@ -186,6 +190,12 @@ func resolve_stats(ingredients : Array):
 	
 	return new_stats
 
-func create_ingredient(recipe_name):
-	
-	pass #TODO
+func create_ingredient(found_recipe):
+	# get ingredient stats
+	# TODO
+	var ing_node = ingredient_scene.instantiate()
+	pass
+
+func add_ingredient_stats(result_node, ingredients):
+	# TODO
+	pass
