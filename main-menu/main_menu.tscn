@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfo4tcfe3vx1t"]
+[gd_scene load_steps=4 format=3 uid="uid://cfo4tcfe3vx1t"]
 
 [ext_resource type="Script" path="res://main-menu/main_menu.gd" id="1_v6mbh"]
 [ext_resource type="Theme" uid="uid://lwhy6nphe0ya" path="res://ui/base_theme.tres" id="2_g61th"]
+[ext_resource type="AudioStream" uid="uid://3pubwpumr0c7" path="res://assets/music/upbeat01.mp3" id="3_poqpq"]
 
 [node name="MainMenu" type="Node2D" node_paths=PackedStringArray("menu_container")]
 script = ExtResource("1_v6mbh")
@@ -26,5 +27,9 @@ layout_mode = 2
 text = "Credits"
 
 [node name="Background" type="Sprite2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_poqpq")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
