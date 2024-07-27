@@ -7,7 +7,7 @@ extends Node
 var item_table = {
 	1 : {
 	"name" : "Brucola", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/1.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/1.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 
@@ -15,7 +15,7 @@ var item_table = {
 	,
 	2 : {
 	"name" : "White Cabbaged", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/2.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/2.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 
@@ -23,7 +23,7 @@ var item_table = {
 	,
 	3 : {
 	"name" : "Chi Leaves", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/3.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/3.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -31,7 +31,7 @@ var item_table = {
 	,
 	4 : {
 	"name" : "Cauli Plower", 
-	"icon" : "res://res://assets/art/Icons/veg/without_shadow/4.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/4.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -39,7 +39,7 @@ var item_table = {
 	,
 	5 : {
 	"name" : "Carrot Bust", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/5.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/5.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -47,7 +47,7 @@ var item_table = {
 	,
 	6 : {
 	"name" : "Egg Plant", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/6.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/6.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -63,7 +63,7 @@ var item_table = {
 	,
 	8 : {
 	"name" : "Tomato Nut", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/8.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/8.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -71,7 +71,7 @@ var item_table = {
 	,
 	9 : {
 	"name" : "Potato Starch", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/9.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/9.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -79,7 +79,7 @@ var item_table = {
 	,
 	10 : {
 	"name" : "Bloody Beetroot", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/10.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/10.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -87,7 +87,7 @@ var item_table = {
 	,
 	11 : {
 	"name" : "Reddish Radical", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/11.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/11.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -95,7 +95,7 @@ var item_table = {
 	,
 	12 : {
 	"name" : "???", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/12.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/12.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -103,7 +103,7 @@ var item_table = {
 	,
 	13 : {
 	"name" : "Brussels", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/13.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/13.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -111,7 +111,7 @@ var item_table = {
 	,
 	14 : {
 	"name" : "Sparta Sparagus", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/14.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/13.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -119,7 +119,7 @@ var item_table = {
 	,
 	15 : {
 	"name" : "On Ion", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/15.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/15.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -127,7 +127,7 @@ var item_table = {
 	,
 	16 : {
 	"name" : "Green Unions", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/16.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/16.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -135,7 +135,7 @@ var item_table = {
 	,
 	17 : {
 	"name" : "Garlectics", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/17.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/17.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -143,7 +143,7 @@ var item_table = {
 	,
 	18 : {
 	"name" : "A-chives", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/18.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/18.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -151,7 +151,7 @@ var item_table = {
 	,
 	19 : {
 	"name" : "B-chives", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/19.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/19.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -159,7 +159,7 @@ var item_table = {
 	,
 	20 : {
 	"name" : "Chili Dilliya", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/20.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/20.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -167,7 +167,7 @@ var item_table = {
 	,
 	21 : {
 	"name" : "Chili Dosmas", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/21.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/21.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -175,7 +175,7 @@ var item_table = {
 	,
 	22 : {
 	"name" : "Pepper Shepper", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/22.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/22.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -183,7 +183,7 @@ var item_table = {
 	,
 	23 : {
 	"name" : "Onethumb", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/23.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/23.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -191,7 +191,7 @@ var item_table = {
 	,
 	24 : {
 	"name" : "Parasley", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/24.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/24.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -199,7 +199,7 @@ var item_table = {
 	,
 	25 : {
 	"name" : "Vine Leaves", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/25.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/25.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -207,7 +207,7 @@ var item_table = {
 	,
 	26 : {
 	"name" : "Sunners", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/26.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/26.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -215,7 +215,7 @@ var item_table = {
 	,
 	27 : {
 	"name" : "Corners", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/27.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/27.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -223,7 +223,7 @@ var item_table = {
 	,
 	28 : {
 	"name" : "IPTurn", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/28.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/28.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -231,7 +231,7 @@ var item_table = {
 	,
 	29 : {
 	"name" : "X Garlictec", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/29.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/29.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -239,7 +239,7 @@ var item_table = {
 	,
 	30 : {
 	"name" : "Cour Gette", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/30.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/30.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -247,7 +247,7 @@ var item_table = {
 	,
 	31 : {
 	"name" : "Brownveg", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/31.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/31.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -255,7 +255,7 @@ var item_table = {
 	,
 	32 : {
 	"name" : "Aloha Vera", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/32.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/32.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -263,7 +263,7 @@ var item_table = {
 	,
 	33 : {
 	"name" : "Mystecell", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/33.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/33.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -271,7 +271,7 @@ var item_table = {
 	,
 	34 : {
 	"name" : "Tomato Berries", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/34.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/34.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -279,7 +279,7 @@ var item_table = {
 	,
 	35 : {
 	"name" : "Velvet Beams", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/35.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/35.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -287,7 +287,7 @@ var item_table = {
 	,
 	36 : {
 	"name" : "Insalato", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/36.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/36.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -295,7 +295,15 @@ var item_table = {
 	,
 	37 : {
 	"name" : "Sweet Earthapple", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/37.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/37.png ", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	38 : {
+	"name" : "Magic Olives", 
+	"icon" : "res://assets/art/Icons/veg/shadow/37.png ", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
