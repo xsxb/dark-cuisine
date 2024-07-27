@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://x5v2yw4apsrh"]
+[gd_scene load_steps=7 format=3 uid="uid://x5v2yw4apsrh"]
 
 [ext_resource type="Theme" uid="uid://lwhy6nphe0ya" path="res://ui/base_theme.tres" id="1_ructh"]
 [ext_resource type="Script" path="res://cauldron_menu.gd" id="1_spqhc"]
 [ext_resource type="PackedScene" uid="uid://ch0lbubw47vx4" path="res://ui/inventory.tscn" id="2_2yre6"]
 [ext_resource type="Script" path="res://CauldronScriptNode.gd" id="2_nw6ca"]
+[ext_resource type="Theme" uid="uid://lwhy6nphe0ya" path="res://ui/base_theme.tres" id="3_47n1l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvofs"]
+
+[sub_resource type="Theme" id="Theme_klli4"]
+Panel/styles/panel = SubResource("StyleBoxFlat_pvofs")
 
 [node name="CauldronMenu" type="Control" node_paths=PackedStringArray("script_node", "background_panel")]
 layout_mode = 3
@@ -27,10 +33,11 @@ text = "X"
 
 [node name="Inventory" parent="BackgroundPanel" instance=ExtResource("2_2yre6")]
 layout_mode = 1
-offset_left = 37.0
-offset_top = 38.0
-offset_right = 37.0
-offset_bottom = 38.0
+offset_left = -2.0
+offset_top = 1.0
+offset_right = -2.0
+offset_bottom = 1.0
+theme = SubResource("Theme_klli4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BackgroundPanel"]
 layout_mode = 0
@@ -41,10 +48,12 @@ offset_bottom = 170.0
 
 [node name="CookButton" type="Button" parent="BackgroundPanel/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_47n1l")
 text = "Cook"
 
 [node name="ClearButton" type="Button" parent="BackgroundPanel/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_47n1l")
 text = "Clear"
 
 [node name="CauldronScriptNode" type="Node" parent="."]
