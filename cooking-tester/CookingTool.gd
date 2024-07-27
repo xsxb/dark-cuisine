@@ -1,7 +1,6 @@
 class_name CookingTool extends Node
 
-var apple_scene = preload("res://cooking-tester/ingredient.tscn")
-var pinecone_scene
+var ingredient_scene = preload("res://cooking-tester/ingredient.tscn")
 
 # in tool instances: define recipes in the ready() function
 var recipes : Dictionary
@@ -50,6 +49,8 @@ func check_recipe(rec_name, ingredients):
 	if recipes[rec_name].size() != ingredients.size():
 		return false
 	
+	#print("Check 1")
+	
 	# initialize data structures
 	# copy to avoid modifying the original array
 	var available_ingredients = ingredients.duplicate()
@@ -60,26 +61,38 @@ func check_recipe(rec_name, ingredients):
 	for ingredient in recipes[rec_name]:
 		sorted_ingredients[ingredient] = []
 	
+	#print("Available: ")
+	#print(available_ingredients)
+	
 	# sort available ingredients to requirements
 	# sort ingredients that add name requirements
 	for needed_string in sorted_ingredients:
 		
 		for given_ingredient in available_ingredients:
-			if given_ingredient.name == needed_string:
-				sorted_ingredients[needed_string] = given_ingredient
+			if given_ingredient.ing_name == needed_string:
+				sorted_ingredients[needed_string].push_back(given_ingredient)
+
+	#print("After name match: ")
+	#print("Available: ")
+	#print(available_ingredients)
+	#print("Sorted: ")
+	#print(sorted_ingredients)
 
 	# add ingredients that match type requirements
 	for needed_string in sorted_ingredients:
 		
 		for given_ingredient in available_ingredients:
-			if given_ingredient.type == needed_string:
-				sorted_ingredients[needed_string] = given_ingredient
+			if given_ingredient.types.has(needed_string):
+				sorted_ingredients[needed_string].push_back(given_ingredient)
+	
+	#print(sorted_ingredients)
 	
 	# if there's a needed ingredient with no potential match
 	for needed_string in sorted_ingredients:
 		if sorted_ingredients[needed_string].is_empty():
 			return false
 	
+	#print("Check 2")
 	# check if there is a fulfilling permutation
 	return find_permutation(sorted_ingredients) != null
 	
@@ -101,7 +114,7 @@ func find_permutation(sorted_ingredients):
 # later. TODO
 func base_find_permutation(picked, remaining):
 	
-	if remaining.size == 0:
+	if remaining.size() == 0:
 		return picked
 	
 	var current_list = remaining[0]
@@ -157,20 +170,20 @@ func resolve_stats(ingredients : Array):
 	var new_stats = []
 	
 	for ingr in ingredients:
-	
+		
+		
 		for st in ingr.stats:
 			var stat_pair = ingr.stat_to_pair(st)
 			var stat_name = stat_pair[0]
 			var stat_mod = stat_pair[1]
 			
 			var found = false
-	
+			
 			#assuming statname first and modifiers second in block
 			for added in new_stats:
 				var added_pair = ingr.stat_to_pair(added)
 				var added_name = added_pair[0]
 				var added_mod = added_pair[1]
-				
 				
 				if added_name == stat_name:
 					added_mod += stat_mod
@@ -190,12 +203,20 @@ func resolve_stats(ingredients : Array):
 	
 	return new_stats
 
-func create_ingredient(found_recipe):
-	# get ingredient stats
-	# TODO
+func create_ingredient(found_recipe_id):
 	var ing_node = ingredient_scene.instantiate()
-	pass
+	var attribute_dict = Global.item_table[found_recipe_id]
+	
+	ing_node.ing_name = attribute_dict["name"]
+	ing_node.description = attribute_dict["description"]
+	ing_node.stats = attribute_dict["stats"]
+	ing_node.types = attribute_dict["types"]
+	
+	return ing_node
 
 func add_ingredient_stats(result_node, ingredients):
-	# TODO
-	pass
+	
+	var tmp = ingredients.duplicate()
+	tmp.push_back(result_node)
+	var ing_stats = resolve_stats(tmp)
+	result_node.stats = ing_stats

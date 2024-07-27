@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://caxrexn0e3rwp"]
+[gd_scene load_steps=4 format=3 uid="uid://caxrexn0e3rwp"]
 
 [ext_resource type="Script" path="res://cooking-tester/Main.gd" id="1_d0xmu"]
+[ext_resource type="Script" path="res://cooking-tester/Ingredient.gd" id="3_23qb6"]
 [ext_resource type="PackedScene" uid="uid://of7qamp5y4g4" path="res://cooking-tester/tool-scenes/Cauldron.tscn" id="5_htxxq"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("text_output", "text_ingredients")]
@@ -51,6 +52,20 @@ offset_bottom = 116.0
 text = "Pine Cone"
 
 [node name="Cauldron" parent="." instance=ExtResource("5_htxxq")]
+
+[node name="Apple" type="Node" parent="."]
+script = ExtResource("3_23qb6")
+ing_name = "Apple"
+description = "Crunchy"
+stats = ["healthy++"]
+types = ["solid", "fruit"]
+
+[node name="PineCone" type="Node" parent="."]
+script = ExtResource("3_23qb6")
+ing_name = "Pine Cone"
+description = "Very Crunchy"
+stats = ["healthy-"]
+types = ["solid"]
 
 [connection signal="pressed" from="Button_Cauldron" to="." method="_on_button_cauldron_pressed"]
 [connection signal="pressed" from="Button_Clear" to="." method="_on_button_clear_pressed"]
