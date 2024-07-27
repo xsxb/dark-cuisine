@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnphbffh34q0g"]
+[gd_scene load_steps=4 format=3 uid="uid://cnphbffh34q0g"]
 
 [ext_resource type="Script" path="res://ui/InventorySlot.gd" id="1_fx77x"]
+[ext_resource type="Theme" uid="uid://lwhy6nphe0ya" path="res://ui/base_theme.tres" id="2_3wbaj"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spnxo"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_srvvt"]
+bg_color = Color(0, 0, 0, 0.533333)
 
-[node name="InventorySlot" type="Control"]
+[node name="InventorySlot" type="Control" node_paths=PackedStringArray("slot_panel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,9 +14,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fx77x")
+slot_panel = NodePath("SlotPanel")
 
 [node name="SlotPanel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_spnxo")
+offset_right = 64.0
+offset_bottom = 64.0
+theme = ExtResource("2_3wbaj")
+theme_override_styles/panel = SubResource("StyleBoxFlat_srvvt")
