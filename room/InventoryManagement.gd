@@ -14,6 +14,9 @@ func _process(delta):
 func get_inventories():
 	inventories = get_tree().get_nodes_in_group("inventories")
 
+func _on_item_pressed():
+	pass
+
 func drag_item(item_instance_id):
 	pass
 	

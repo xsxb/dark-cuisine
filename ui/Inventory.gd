@@ -82,7 +82,14 @@ func set_item(slot_id, item_id, stack):
 	item_instance.item_stack = stack
 	item_instance.set_icon()
 	item_instance.set_tooltip()
+	
+	#Connects button signal to inventory
+	item_instance.item_pressed.connect(_on_item_pressed)
 
 #Get item data from inventory slot:
 func get_item(slot_id):
 	return inv_data[slot_id]
+
+#Passes the pressed button on to inventory management
+func _on_item_pressed(item):
+	print(item.item_data["name"])

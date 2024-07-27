@@ -1,10 +1,12 @@
-extends Node2D
+extends TextureButton
 
 class_name Item
 
+signal item_pressed(item_node)
+
 #Icon:
-@export var button : TextureButton
 @export var stack_label : Label
+@export var highlight : Panel
 var icon_path : String
 var icon_size : Vector2 = Vector2(64,64)
 
@@ -31,23 +33,14 @@ func update_stack():
 	stack_label.text = str(item_stack)
 
 func set_icon():
-	button.size = icon_size
+	size = icon_size
 	
 	#Get icon from path and assign it button
 	icon_path = item_data["icon"]
-	button.texture_normal = load(icon_path)
-	button.texture_disabled = load(icon_path)
-	button.texture_hover = load(icon_path)
-	button.texture_pressed = load(icon_path)
+	texture_normal = load(icon_path)
 	
 	update_stack()
-	
-	##Old code using Sprite2D
-	#sprite.texture = load(icon_path)
-	#Scale image size to icon size:
-	#orig_icon_size = sprite.texture.get_size()
-	#icon_scale = scaled_icon_size/orig_icon_size
-	#sprite.scale = icon_scale
+
 
 func set_tooltip():
 	
@@ -55,18 +48,20 @@ func set_tooltip():
 	var style_box = StyleBoxFlat.new()
 	style_box.set_bg_color(Color(0, 0, 0))
 	style_box.set_border_width_all(2)
-	button.theme.set_stylebox("panel", "TooltipPanel", style_box)
-	button.theme.set_color("font_color", "TooltipLabel", Color(1, 1, 1))
+	theme.set_stylebox("panel", "TooltipPanel", style_box)
+	theme.set_color("font_color", "TooltipLabel", Color(1, 1, 1))
 	
 	#Tooltip data
-	button.tooltip_text = item_data["name"] + "\n" + item_data["description"]
-	
-	pass 
+	tooltip_text = item_data["name"] + "\n" + item_data["description"]
 
-#For custom tooltip, to be implemented later
-func showtooltip():
-	pass
 
-#For custom tooltip, to be implemented later
-func _on_texture_button_mouse_entered():
-	showtooltip()
+##Modulation colours:
+#Dark red disabled:
+#button.modulate = Color(0.5, 0.1, 0.2, 1.0)
+#Dark disabled:
+#button.modulate = Color(0.5, 0.5, 0.5, 1.0)
+
+
+#Custom signal needed, because pressed signal doesn't pass parameter
+func _on_pressed():
+	item_pressed.emit(self)
