@@ -17,6 +17,3 @@ func _ready():
 
 func _process(delta):
 	pass
-
-func _on_cauldron_button_pressed():
-	cauldron_menu.show()

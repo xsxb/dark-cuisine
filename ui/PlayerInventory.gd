@@ -18,3 +18,8 @@ func _ready():
 
 func _process(delta):
 	pass
+
+#Because Godot loading stuff is strange
+func _on_inventory_management_ready():
+	#Update inventories
+	inventory_management.get_inventories()

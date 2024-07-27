@@ -9,3 +9,4 @@ extends Control
 func _ready():
 	custom_minimum_size = slot_size
 	slot_panel.size = slot_size
+	size = Vector2(64,64)

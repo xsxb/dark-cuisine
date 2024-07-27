@@ -15,8 +15,14 @@ func _process(delta):
 	pass
 
 func _on_exit_button_pressed():
-	hide()
+	background_panel.hide()
+
+func _on_cauldron_button_pressed():
+	background_panel.show()
+
 
 func _on_cook_button_pressed():
 	pass
 	#script_node.resolve_recipe(composite)
+
+
