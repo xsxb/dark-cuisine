@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://co0n2vsrb61it"]
+[gd_scene load_steps=19 format=3 uid="uid://co0n2vsrb61it"]
 
 [ext_resource type="Script" path="res://room/room.gd" id="1_aaa8y"]
 [ext_resource type="Texture2D" uid="uid://dfd7nd22i1xi1" path="res://assets/art/Lab/Full 01.png" id="2_1rc6e"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://cliyahuujicxy" path="res://assets/sfx/blubber-loop.mp3" id="8_3ggf8"]
 [ext_resource type="Script" path="res://CauldronScriptNode.gd" id="8_4jpey"]
 [ext_resource type="Script" path="res://ui/PlayerInventory.gd" id="8_feovw"]
+[ext_resource type="PackedScene" uid="uid://c32o5n4thngoo" path="res://spawned_monster.tscn" id="12_6xdus"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvofs"]
 
@@ -134,11 +135,12 @@ offset_bottom = 44.0
 theme = SubResource("Theme_klli4")
 script = ExtResource("7_3hvn4")
 inv_id = 2
-columns = 4
-rows = 2
+columns = 3
+rows = 3
 inventory_management = NodePath("../../../InventoryManagement")
 
 [node name="Timer" type="Timer" parent="CauldronMenu/BackgroundPanel/CauldronInventory"]
+wait_time = 0.1
 one_shot = true
 autostart = true
 
@@ -207,6 +209,9 @@ autoplay = true
 [node name="InventoryManagement" type="Node" parent="." node_paths=PackedStringArray("picked_up_sprite")]
 script = ExtResource("5_1bptw")
 picked_up_sprite = NodePath("../CursorItemSprite")
+
+[node name="TestMonster" parent="." instance=ExtResource("12_6xdus")]
+position = Vector2(519, 445)
 
 [connection signal="child_entered_tree" from="." to="InventoryManagement" method="_on_room_child_entered_tree"]
 [connection signal="pressed" from="CauldronMenu/CauldronButton" to="CauldronMenu" method="_on_cauldron_button_pressed"]
