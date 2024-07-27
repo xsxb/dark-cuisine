@@ -309,9 +309,11 @@ var item_table = {
 	
 	}
 
-	
-	
 }
+
+var monster_table = {}
+
+
 func _ready():
 	pass
 

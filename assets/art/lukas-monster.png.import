@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8xeilqp8f0pd"
-path="res://.godot/imported/43.png-1ed87bd2b56d298c7a9720cad72e8740.ctex"
+uid="uid://b41pteuojafyl"
+path="res://.godot/imported/lukas-monster.png-5975f1e068bb6040de606c5bd93c202b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/Icons/veg/without_shadow/43.png"
-dest_files=["res://.godot/imported/43.png-1ed87bd2b56d298c7a9720cad72e8740.ctex"]
+source_file="res://assets/art/lukas-monster.png"
+dest_files=["res://.godot/imported/lukas-monster.png-5975f1e068bb6040de606c5bd93c202b.ctex"]
 
 [params]
 

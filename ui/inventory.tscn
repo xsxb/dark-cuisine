@@ -1,17 +1,19 @@
-[gd_scene format=3 uid="uid://ch0lbubw47vx4"]
+[gd_scene load_steps=3 format=3 uid="uid://ch0lbubw47vx4"]
+
+[ext_resource type="Theme" uid="uid://lwhy6nphe0ya" path="res://ui/base_theme.tres" id="1_jiimi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ya21c"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 
 [node name="BackgroundPanel" type="Panel" parent="."]
 layout_mode = 0
 offset_right = 37.0
 offset_bottom = 39.0
+theme = ExtResource("1_jiimi")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ya21c")
 
 [node name="GridContainer" type="GridContainer" parent="BackgroundPanel"]
 custom_minimum_size = Vector2(40, 40)
