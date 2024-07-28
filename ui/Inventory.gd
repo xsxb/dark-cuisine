@@ -21,6 +21,7 @@ var item_scene = preload ("res://item.tscn")
 var item_script = preload("res://Item.gd")
 
 signal item_pressed(item_node)
+signal empty_slot_clicked(slot_clicked)
 
 func _ready():
 	##Script will be attached to node after node is ready
@@ -43,15 +44,14 @@ func init():
 	container.position = Vector2(border,border)
 	container_seperation = Vector2(4 * columns, 4 * rows) 	#GridContainer seperation is a constant set to 4px
 	
-	##Not scaling correctly, therefore removed for now:
-	#background_panel.size.x = rows * slot_size.x + 2*border + container_seperation.x
-	#background_panel.size.y = columns * slot_size.y + 2*border + container_seperation.y
 	
 	#Initiate slots:
 	for x in rows:
 		for y in columns:
 			var inv_slot = inv_slot_scene.instantiate()
 			container.add_child(inv_slot)
+			inv_slot.inventory = self
+			inv_slot.slot_clicked.connect(inventory_management.on_empty_slot_click)
 			
 	#Initiate inventory data:
 	var slot_id = 0
@@ -77,7 +77,8 @@ func set_item(slot_id, item_id, stack = 1):
 	var item_instance = item_scene.instantiate()
 	slot.add_child(item_instance)
 	item_instance.add_to_group("items")
-	#item_instance.script = item_script.new()
+	item_instance.inventory = self
+	item_instance.inv_slot = slot_id
 	
 	#Fill with item data
 	var item_data = get_item_data(item_id)
@@ -92,7 +93,6 @@ func set_item(slot_id, item_id, stack = 1):
 	
 	#Connects button signal to inventory
 	item_instance.item_pressed.connect(inventory_management._on_item_pressed)
-
 #Add item to first free inventory slot
 #Code will break on tree structure change in Item
 func add_item(item_id, stack = 1):
