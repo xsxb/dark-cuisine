@@ -1,76 +1,151 @@
 class_name CookingTool extends Node
 
+var ingredient_scene = preload("res://cooking-tester/ingredient.tscn")
+
 # in tool instances: define recipes in the ready() function
 var recipes : Dictionary
 
-# a tool can pass back the ingredient type/id
-# + optionally an array of additional effects
-# who's responsible for creating the new
-# ingredient -> the main scene? the inventory?
+# overwrite in subclass to apply specific effects to the returned ingredient
+func apply_tool_effect(ingredient_node):
+	pass #TODO
 
-# TODO: what are tool effects and how do we implement them?
 
-# IN: a composite of ingredients
-# OUT: name of a recipe that 
-# ingredient order matters!
-# this function is ugly as all hell, sorry
+# INPUT: a composite of ingredients
+# OUTPUT: name of a recipe that 
+# INTEDED SIDE EFFECTS: none
+# POTENTIAL ERROR SOURCES: ingredients are passed by value - they should not be
+# modified in this function, ingredient order may change result
 func resolve_recipe(ingredients : Array):
+	
+	var found_recipe = null
 	
 	for rec_name in recipes:
 		
-		var still_needed = {}
-		
-		var available = ingredients.duplicate()
-		
-		for needed_ingredient in recipes[rec_name]:
-			still_needed[needed_ingredient] = null
-		
-		#first eliminate direct name matches
-		for needed in still_needed:
-			
-			#print("Needed: " + needed + "\n")
-			
-			for ing in available:
-				if(ing.ing_name == needed):
-					#print("Found: " + ing.ing_name + "\n")
-					still_needed[needed] = ing
-					available.erase(ing)
-					break
-		
-			if still_needed[needed] != null:
-				continue
-		#print("Name matches checked")
-		#print(still_needed)
-		#if no name match found, look for type match
-		for needed in still_needed:
-			
-			if still_needed[needed] != null:
-				continue
-			
-			if available.is_empty():
-				return "a failure"
-			
-			var found_type = false
-			for ing in available:
-				
-				for type in ing.types:
-					if type == needed:
-						#print("type match found")
-						found_type = true
-						still_needed[needed] = ing
-						available.erase(ing)
-						break
-				
-				if found_type:
-					break
-				
-				#if this point is reached, no match was found
-				#print("not found")
-				return "a failure"
+		if check_recipe(rec_name, ingredients):
+			found_recipe = rec_name
+			break
 
-		# if this point is reached, all ingredients for one
-		# recipe could be assigned
-		return rec_name 
+	if found_recipe == null:
+		return false
+
+	else:
+		var result_node = create_ingredient(found_recipe)
+		add_ingredient_stats(result_node, ingredients)
+		apply_tool_effect(result_node)
+		return result_node
+
+
+#########################################################
+#                 below this it's all                   #
+#                  HELPER FUNCTIONS                     #
+#               (don't call from outside)               #
+#########################################################
+
+#OUT: true or false
+func check_recipe(rec_name, ingredients):
+	
+	# number of ingredients doesn't match number required exactly
+	# => can't find a 1 to 1 mapping
+	if recipes[rec_name].size() != ingredients.size():
+		return false
+	
+	#print("Check 1")
+	
+	# initialize data structures
+	# copy to avoid modifying the original array
+	var available_ingredients = ingredients.duplicate()
+	
+	# for each required ingredient, all potential matches
+	# are saved in an array
+	var sorted_ingredients = {}
+	for ingredient in recipes[rec_name]:
+		sorted_ingredients[ingredient] = []
+	
+	#print("Available: ")
+	#print(available_ingredients)
+	
+	# sort available ingredients to requirements
+	# sort ingredients that add name requirements
+	for needed_string in sorted_ingredients:
+		
+		for given_ingredient in available_ingredients:
+			if given_ingredient.ing_name == needed_string:
+				sorted_ingredients[needed_string].push_back(given_ingredient)
+
+	#print("After name match: ")
+	#print("Available: ")
+	#print(available_ingredients)
+	#print("Sorted: ")
+	#print(sorted_ingredients)
+
+	# add ingredients that match type requirements
+	for needed_string in sorted_ingredients:
+		
+		for given_ingredient in available_ingredients:
+			if given_ingredient.types.has(needed_string):
+				sorted_ingredients[needed_string].push_back(given_ingredient)
+	
+	#print(sorted_ingredients)
+	
+	# if there's a needed ingredient with no potential match
+	for needed_string in sorted_ingredients:
+		if sorted_ingredients[needed_string].is_empty():
+			return false
+	
+	#print("Check 2")
+	# check if there is a fulfilling permutation
+	return find_permutation(sorted_ingredients) != null
+	
+
+# returns either null or an array of used ingredients
+func find_permutation(sorted_ingredients):
+	
+	var picked = []
+	var remaining = []
+	
+	# [[req1 matches],[req2 matches],[req3 matches],...]
+	for key in sorted_ingredients:
+		remaining.push_back(sorted_ingredients[key])
+	
+	return base_find_permutation(picked, remaining)
+
+# cursed recursion
+# ill figure out if this actually does whats intended
+# later. TODO
+func base_find_permutation(picked, remaining):
+	
+	if remaining.size() == 0:
+		return picked
+	
+	var current_list = remaining[0]
+	
+	if current_list.is_empty():
+		return null
+	
+	var rest = []
+	
+	if remaining.size() > 1: 
+		rest = remaining.slice(1,remaining.size())
+	
+	# fix next value
+	for potential in current_list:
+		
+		var already_used = false
+		
+		for used in picked:
+			if used == potential:
+				already_used = true
+		
+		if already_used:
+			continue
+			
+		else:
+			picked.push_back(potential)
+			var result = base_find_permutation(picked, rest)
+			if result != null:
+				return result
+		
+	return null
 
 
 #simply combines all ingredient types without doubles
@@ -95,20 +170,20 @@ func resolve_stats(ingredients : Array):
 	var new_stats = []
 	
 	for ingr in ingredients:
-	
+		
+		
 		for st in ingr.stats:
 			var stat_pair = ingr.stat_to_pair(st)
 			var stat_name = stat_pair[0]
 			var stat_mod = stat_pair[1]
 			
 			var found = false
-	
+			
 			#assuming statname first and modifiers second in block
 			for added in new_stats:
 				var added_pair = ingr.stat_to_pair(added)
 				var added_name = added_pair[0]
 				var added_mod = added_pair[1]
-				
 				
 				if added_name == stat_name:
 					added_mod += stat_mod
@@ -127,3 +202,21 @@ func resolve_stats(ingredients : Array):
 				new_stats.push_back(st)
 	
 	return new_stats
+
+func create_ingredient(found_recipe_id):
+	var ing_node = ingredient_scene.instantiate()
+	var attribute_dict = Global.item_table[found_recipe_id]
+	
+	ing_node.ing_name = attribute_dict["name"]
+	ing_node.description = attribute_dict["description"]
+	ing_node.stats = attribute_dict["stats"]
+	ing_node.types = attribute_dict["types"]
+	
+	return ing_node
+
+func add_ingredient_stats(result_node, ingredients):
+	
+	var tmp = ingredients.duplicate()
+	tmp.push_back(result_node)
+	var ing_stats = resolve_stats(tmp)
+	result_node.stats = ing_stats

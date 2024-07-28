@@ -9,7 +9,9 @@ var item_table = {
 	"name" : "Brucola", 
 	"icon" : "res://assets/art/Icons/veg/shadow/1.png", 
 	"description" : "just a test item",
-	"max_stack" : 20
+	"max_stack" : 20,
+	"stats" : ["healthy+"],
+	"types" : ["vegetable", "raw"]
 
 	}
 	,
