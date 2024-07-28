@@ -57,7 +57,7 @@ var item_table = {
 	,
 	7 : {
 	"name" : "Cucumba Rumba", 
-	"icon" : "res://assets/art/Icons/veg/without_shadow/7.png", 
+	"icon" : "res://assets/art/Icons/veg/shadow/7.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -297,7 +297,7 @@ var item_table = {
 	,
 	37 : {
 	"name" : "Sweet Earthapple", 
-	"icon" : "res://assets/art/Icons/veg/shadow/37.png ", 
+	"icon" : "res://assets/art/Icons/veg/shadow/37.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
@@ -305,13 +305,296 @@ var item_table = {
 	,
 	38 : {
 	"name" : "Magic Olives", 
-	"icon" : "res://assets/art/Icons/veg/shadow/37.png ", 
+	"icon" : "res://assets/art/Icons/veg/shadow/38.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	39 : {
+	"name" : "Hazel V", 
+	"icon" : "res://assets/art/Icons/veg/shadow/39.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	40 : {
+	"name" : "Prickle X", 
+	"icon" : "res://assets/art/Icons/veg/shadow/40.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	41 : {
+	"name" : "Smashin Pumpkin", 
+	"icon" : "res://assets/art/Icons/veg/shadow/41.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	42 : {
+	"name" : "Wonder Y", 
+	"icon" : "res://assets/art/Icons/veg/shadow/42.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	43 : {
+	"name" : "Super Alga", 
+	"icon" : "res://assets/art/Icons/veg/shadow/43.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	44 : {
+	"name" : "Rough Barb", 
+	"icon" : "res://assets/art/Icons/veg/shadow/44.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	45 : {
+	"name" : "Sugar Patota", 
+	"icon" : "res://assets/art/Icons/veg/shadow/45.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	46 : {
+	"name" : "Celery Vie", 
+	"icon" : "res://assets/art/Icons/veg/shadow/46.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	47 : {
+	"name" : "Art´i Shock", 
+	"icon" : "res://assets/art/Icons/veg/shadow/47.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	48 : {
+	"name" : "Killah Beans", 
+	"icon" : "res://assets/art/Icons/veg/shadow/48.png", 
 	"description" : "just a test item",
 	"max_stack" : 20
 	
 	}
 
+
 }
+
+var herbs_table = {
+	1 : {
+	"name" : "Herp A", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/1.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	2 : {
+	"name" : "Herp B", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/2.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	3 : {
+	"name" : "Herp C", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/3.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	4 : {
+	"name" : "Herps A", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/4.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	5 : {
+	"name" : "Herps B", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/5.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	6 : {
+	"name" : "Herp D", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/6.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	7 : {
+	"name" : "Herp E", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/7.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	8 : {
+	"name" : "Herps C", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/8.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	9 : {
+	"name" : "Herp F", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/9.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	10 : {
+	"name" : "Herps D", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/10.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	11 : {
+	"name" : "Herps E", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/11.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	12 : {
+	"name" : "Herp G", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/12.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	13 : {
+	"name" : "Herp H", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/13.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	14 : {
+	"name" : "Herps F", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/14.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	15 : {
+	"name" : "Herp I", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/15.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	16 : {
+	"name" : "Herps G", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/16.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	17 : {
+	"name" : "Herp J", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/17.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	18 : {
+	"name" : "Herp K", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/18.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	19 : {
+	"name" : "Herps H", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/19.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	20 : {
+	"name" : "Herps I", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/20.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	21 : {
+	"name" : "Herp L", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/21.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	22 : {
+	"name" : "Herps J", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/22.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	23 : {
+	"name" : "Herp M", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/23.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	,
+	24 : {
+	"name" : "Herp N", 
+	"icon" : "res://assets/art/Icons/herbs/shadow/24.png", 
+	"description" : "just a test item",
+	"max_stack" : 20
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+}
+
 
 var monster_table = {}
 
