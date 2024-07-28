@@ -93,6 +93,20 @@ func set_item(slot_id, item_id, stack):
 	#Connects button signal to inventory
 	item_instance.item_pressed.connect(inventory_management._on_item_pressed)
 
+#Removes item from inventory by slot number
+func remove_item_from_slot(slot_id, stack = 1):
+	for child in container.get_child(slot_id).get_children():
+			if child.is_in_group("items"):
+				child.queue_free()
+
+#Removes item from inventory by item_id (first one it finds)
+func remove_item(item_id, stack = 1):
+	var item_nodes = get_item_nodes()
+	for item in item_nodes:
+		if item.item_id == item_id:
+			item.queue_free()
+			break
+
 #Get item data from inventory slot:
 func get_item(slot_id):
 	return inv_data[slot_id]

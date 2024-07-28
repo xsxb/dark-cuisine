@@ -16,9 +16,9 @@ func _process(delta):
 
 func _on_cook_button_pressed():
 	var item_array = inventory.get_item_nodes()
-	#print(item_array)
-	#for item in item_array:
-		#print(item.item_id)
-		#print(item.item_data["name"])
-	#print(item_array[0].stack)
+	
+	##Function testing:
+	inventory.remove_item(6)
+	inventory.remove_item_from_slot(4)
+
 	resolve_recipe(item_array)
