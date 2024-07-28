@@ -19,5 +19,3 @@ func _on_timer_timeout():
 	set_item(2,5,1)
 	set_item(3,22,6)
 	set_item(4,7,2)
-	
-	print()

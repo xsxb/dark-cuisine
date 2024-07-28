@@ -76,6 +76,7 @@ func set_item(slot_id, item_id, stack):
 	#Instantiate item:
 	var item_instance = item_scene.instantiate()
 	slot.add_child(item_instance)
+	item_instance.add_to_group("items")
 	#item_instance.script = item_script.new()
 	
 	#Fill with item data
@@ -85,6 +86,9 @@ func set_item(slot_id, item_id, stack):
 	item_instance.set_icon()
 	item_instance.set_tooltip()
 	
+	#Update inventory data:
+	inv_data[slot_id] = Vector2i(item_id,stack)
+	
 	#Connects button signal to inventory
 	item_instance.item_pressed.connect(inventory_management._on_item_pressed)
 
@@ -92,6 +96,20 @@ func set_item(slot_id, item_id, stack):
 func get_item(slot_id):
 	return inv_data[slot_id]
 
+#Returns array with all items nodes in inventory
+func get_item_nodes():
+	var item_array = []
+	for slot in container.get_children():
+		for child in slot.get_children():
+			if child.is_in_group("items"):
+				item_array.append(child)
+	return item_array
+	
+	#var item_array = []
+	#for x in inv_data:
+		#item_array.append(inv_data[x])
+	#return item_array
+	
 #Passes the pressed button on to inventory management
 func _on_item_pressed(item):
 	item_pressed.emit(item)
