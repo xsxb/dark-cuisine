@@ -22,3 +22,7 @@ func _on_cook_button_pressed():
 	inventory.remove_item_from_slot(4)
 
 	resolve_recipe(item_array)
+
+
+func _on_test_button_pressed():
+	inventory.add_item(5)

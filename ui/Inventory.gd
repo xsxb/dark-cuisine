@@ -69,7 +69,7 @@ func set_item_data(item_data, item):
 	item.set_icon()
 
 #Put item into inventory slot:
-func set_item(slot_id, item_id, stack):
+func set_item(slot_id, item_id, stack = 1):
 	#Get relevant inventory slot:
 	var slot = container.get_child(slot_id)
 	
@@ -93,10 +93,22 @@ func set_item(slot_id, item_id, stack):
 	#Connects button signal to inventory
 	item_instance.item_pressed.connect(inventory_management._on_item_pressed)
 
+#Add item to first free inventory slot
+#Code will break on tree structure change in Item
+func add_item(item_id, stack = 1):
+	for slot in container.get_children():
+		if slot.get_child(1):
+			pass
+		else:
+			set_item(slot.get_index(),item_id, stack)
+			break
+		#print(inv_data[slot])
+
 #Removes item from inventory by slot number
 func remove_item_from_slot(slot_id, stack = 1):
 	for child in container.get_child(slot_id).get_children():
 			if child.is_in_group("items"):
+				inv_data.erase(slot_id)
 				child.queue_free()
 
 #Removes item from inventory by item_id (first one it finds)
@@ -104,6 +116,7 @@ func remove_item(item_id, stack = 1):
 	var item_nodes = get_item_nodes()
 	for item in item_nodes:
 		if item.item_id == item_id:
+			inv_data.erase(item.get_index())
 			item.queue_free()
 			break
 
