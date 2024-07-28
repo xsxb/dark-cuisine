@@ -117,7 +117,6 @@ stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="BackgroundPanel" type="Panel" parent="CauldronMenu"]
-visible = false
 layout_mode = 0
 offset_right = 441.0
 offset_bottom = 331.0
@@ -164,9 +163,10 @@ offset_bottom = 17.0
 rotation = 0.0343104
 text = "X"
 
-[node name="CauldronScriptNode" type="Node" parent="CauldronMenu" node_paths=PackedStringArray("inventory")]
+[node name="CauldronScriptNode" type="Node" parent="CauldronMenu" node_paths=PackedStringArray("inventory", "player_inventory")]
 script = ExtResource("8_4jpey")
 inventory = NodePath("../BackgroundPanel/CauldronInventory")
+player_inventory = NodePath("../../PlayerInventoryMenu/PlayerInventory")
 
 [node name="PlayerInventoryMenu" type="Control" parent="." node_paths=PackedStringArray("animation_player")]
 layout_mode = 3

@@ -11,8 +11,8 @@ var icon_path : String
 var icon_size : Vector2 = Vector2(64,64)
 
 #Item data:
-var item_data
-var item_id : int = 0
+var item_data : Dictionary
+var item_id : int
 var max_stack_size : int
 
 #Item instanced data:

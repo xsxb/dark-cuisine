@@ -81,6 +81,7 @@ func set_item(slot_id, item_id, stack):
 	
 	#Fill with item data
 	var item_data = get_item_data(item_id)
+	item_instance.item_id = item_id
 	item_instance.item_data = item_data
 	item_instance.item_stack = stack
 	item_instance.set_icon()
