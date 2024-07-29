@@ -162,46 +162,7 @@ func resolve_types(ingredients : Array):
 	return combined_types
 
 
-# combines stats of all ingredients
-# eg turn healthy++ und healthy- into healthy+
-# if values equal out to 0 effect, stat is removed
-func resolve_stats(ingredients : Array):
-	
-	var new_stats = []
-	
-	for ingr in ingredients:
-		
-		
-		for st in ingr.stats:
-			var stat_pair = ingr.stat_to_pair(st)
-			var stat_name = stat_pair[0]
-			var stat_mod = stat_pair[1]
-			
-			var found = false
-			
-			#assuming statname first and modifiers second in block
-			for added in new_stats:
-				var added_pair = ingr.stat_to_pair(added)
-				var added_name = added_pair[0]
-				var added_mod = added_pair[1]
-				
-				if added_name == stat_name:
-					added_mod += stat_mod
-					var new_str = ingr.stat_pair_to_string([added_name, added_mod])
-					new_stats.erase(added)
-					
-					# new entry only gets added if the modifier
-					# didn't add up to 0
-					if(added_mod != 0):	
-						new_stats.push_back(new_str)
-					
-					found = true
-					break
-				
-			if !found:
-				new_stats.push_back(st)
-	
-	return new_stats
+
 
 func create_ingredient(found_recipe_id):
 	var ing_node = ingredient_scene.instantiate()
@@ -216,7 +177,5 @@ func create_ingredient(found_recipe_id):
 
 func add_ingredient_stats(result_node, ingredients):
 	
-	var tmp = ingredients.duplicate()
-	tmp.push_back(result_node)
-	var ing_stats = resolve_stats(tmp)
-	result_node.stats = ing_stats
+	for ing in ingredients:
+		result_node.stats.resolve_with(ing.stats)

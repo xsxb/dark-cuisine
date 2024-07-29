@@ -10,7 +10,7 @@ var item_table = {
 	"icon" : "res://assets/art/Icons/veg/shadow/1.png", 
 	"description" : "just a test item",
 	"max_stack" : 20,
-	"stats" : ["healthy+"],
+	"stats" : {"healthy" : 1},
 	"types" : ["vegetable", "raw"]
 
 	}

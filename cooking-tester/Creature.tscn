@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://f8yvo3gbcuab"]
+[gd_scene load_steps=2 format=3 uid="uid://f8yvo3gbcuab"]
+
+[ext_resource type="Script" path="res://cooking-tester/Creature.gd" id="1_h38g6"]
 
 [node name="Creature" type="Node2D"]
+script = ExtResource("1_h38g6")

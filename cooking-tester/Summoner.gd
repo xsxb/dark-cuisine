@@ -32,30 +32,38 @@ var creature_table = {
 	5 : {
 		"title" : "The Cannonfodder",
 		"description" : "Can walk in a straight line and doesn't smell too awful.",
-		"requirements" : [["healthy", REQ.IS_POSITIVE], ["smash", REQ.IS_POSITIVE], ["repulsive+", REQ.LESS]]
+		"requirements" : [["healthy", REQ.IS_POSITIVE], ["smash", REQ.IS_POSITIVE], ["repulsive", REQ.ZERO_OR_NEGATIVE]]
 	},
 	
-	6 : {
+	0 : {
 		"name" : "The Blob",
 		"description" : "Not useful for anything...",
 		"requirements" : []
 	}
 }
 
+func initiate_creature(creature_node):
+	creature_node.type = 0
+	creature_node.stats = {}
+	creature_node.name = creature_table[0]["name"]
+	creature_node.description = creature_table[0]["description"]
+
 func evolve_creature(creature_node, ingredient):
 	
 	var stat_heap = creature_node.stats.duplicate()
 	stat_heap.push_back(ingredient)
 	
-	var new_stats = resolve_stats(stat_heap)
+	var new_stats = resolve_with_strings(stat_heap)
 	
-	var new_type = resolve_creature(new_stats)
+	var new_type = resolve_creature_type(new_stats)
 	
+	creature_node.set_stats(new_stats)
+	creature_node.set_type(new_type)
 
 
 # takes stat array
 # returns id of creature that is the best match
-func resolve_creature(stats):
+func resolve_creature_type(stats):
 	
 	for entry_id in creature_table: 
 		
@@ -64,14 +72,49 @@ func resolve_creature(stats):
 			return entry_id
 
 
-func meets_requirements(stats, requirements):
-	
-	stats_to_dict(stats)
+# dict: "name":int
+# array: 
+func meets_requirements(stats : Dictionary, requirements : Dictionary):
 	
 	for req in requirements:
 		
-
-# In: list of strings
-# Out: dict with statname:modifier pairs
-func stats_to_dict(stats):
-	
+		var req_name = $Ingredient.stat_to_pair(req)[0]
+		var req_value = $Ingredient.stat_to_pair(req)[1]
+		var req_type = requirements[req_name]
+		
+		var stat_value = 0
+		
+		if stats.has(req_name):
+			stat_value = stats[req_name]
+		
+		match req_type:
+			
+			REQ.EQUAL:
+				if stat_value != req_value:
+					return false
+			
+			REQ.GREATER_EQUAL:
+				if stat_value < req_value:
+					return false
+			
+			REQ.LESS_EQUAL:
+				if stat_value > req_value:
+					return false
+		
+			REQ.IS_POSITIVE:
+				if stat_value < 0:
+					return false
+		
+			REQ.IS_ZERO:
+				if stat_value != 0:
+					return false
+			
+			REQ.ZERO_OR_POSITIVE:
+				if stat_value < 0:
+					return false
+		
+			REQ.ZERO_OR_NEGATIVE:
+				if stat_value > 0:
+					return false
+					
+	return true
