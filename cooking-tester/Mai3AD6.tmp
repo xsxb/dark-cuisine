@@ -36,12 +36,19 @@ offset_top = 160.0
 offset_right = 200.0
 offset_bottom = 344.0
 
-[node name="Button_Ingr" type="Button" parent="."]
+[node name="Button_Apple" type="Button" parent="."]
 offset_left = 9.0
 offset_top = 13.0
 offset_right = 142.0
 offset_bottom = 58.0
-text = "Add"
+text = "Apple"
+
+[node name="Button_Pinecone" type="Button" parent="."]
+offset_left = 10.0
+offset_top = 71.0
+offset_right = 143.0
+offset_bottom = 116.0
+text = "Pine Cone"
 
 [node name="Cauldron" parent="." instance=ExtResource("5_htxxq")]
 
@@ -80,14 +87,9 @@ offset_bottom = 609.0
 [node name="Summoner" type="Node" parent="."]
 script = ExtResource("4_o5mdy")
 
-[node name="TextEdit_ID" type="TextEdit" parent="."]
-offset_left = 55.0
-offset_top = 74.0
-offset_right = 86.0
-offset_bottom = 110.0
-
 [connection signal="pressed" from="Button_Cauldron" to="." method="_on_button_cauldron_pressed"]
 [connection signal="pressed" from="Button_Clear" to="." method="_on_button_clear_pressed"]
-[connection signal="pressed" from="Button_Ingr" to="." method="_on_button_ingr_pressed"]
+[connection signal="pressed" from="Button_Apple" to="." method="_on_button_apple_pressed"]
+[connection signal="pressed" from="Button_Pinecone" to="." method="_on_button_pinecone_pressed"]
 [connection signal="pressed" from="Button_Summon" to="." method="_on_button_summon_pressed"]
 [connection signal="pressed" from="Button_Evolve" to="." method="_on_button_evolve_pressed"]

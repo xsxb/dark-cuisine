@@ -389,6 +389,27 @@ var item_table = {
 	"description" : "just a test item",
 	"max_stack" : 20
 	
+	},
+	
+	49: {
+		"name" : "Apple",
+		"description" : "Crunchy",
+		"types" : ["fruit", "solid"],
+		"stats" : {"healthy" : 2, "smart" : 1}
+	},
+	
+	50: {
+		"name" : "Pine Cone",
+		"description" : "Very crunchy",
+		"types" : ["solid", "inedible"],
+		"stats" : {"healthy" : -1, "sneak" : -1}
+	},
+	
+	51: {
+		"name" : "Pineapple",
+		"description" : "Crunchy at first",
+		"types" : ["solid", "fruit"],
+		"stats" : {"healthy" : 1}
 	}
 
 
@@ -586,9 +607,6 @@ var herbs_table = {
 	"max_stack" : 20
 	
 	}
-	
-	
-	
 	
 	
 	

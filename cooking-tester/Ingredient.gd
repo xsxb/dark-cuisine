@@ -6,12 +6,15 @@ extends Node
 @export var stats : Stats
 @export var types : Array
 
-func _init(p_name = "", p_description = "", p_stats = {}, p_types = []):
+var stat_scene = preload("res://cooking-tester/Stats.tscn")
+
+
+func _init(p_name = "", p_description = "", p_types = []):
 	ing_name = p_name
-	stats = p_stats
 	description = p_description
 	types = p_types
-	
+	stats = stat_scene.instantiate()
+	add_child(stats)
 
 
 #func format_stat(st):
@@ -46,9 +49,7 @@ func print_block():
 	for type in types:
 		str += "It's a " + type + "\n"
 	
-
-	for st in stats.data:
-		str += "Makes you " + stats.get_as_string(st) + "\n"
+	str += stats.print_list()
 		
 	str += description + "\n"
 	

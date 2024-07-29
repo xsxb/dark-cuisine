@@ -10,11 +10,7 @@ func apply_tool_effect(ingredient_node):
 	pass #TODO
 
 
-# INPUT: a composite of ingredients
-# OUTPUT: name of a recipe that 
-# INTEDED SIDE EFFECTS: none
-# POTENTIAL ERROR SOURCES: ingredients are passed by value - they should not be
-# modified in this function, ingredient order may change result
+
 func resolve_recipe(ingredients : Array):
 	
 	var found_recipe = null
@@ -170,7 +166,7 @@ func create_ingredient(found_recipe_id):
 	
 	ing_node.ing_name = attribute_dict["name"]
 	ing_node.description = attribute_dict["description"]
-	ing_node.stats = attribute_dict["stats"]
+	ing_node.stats.data = attribute_dict["stats"]
 	ing_node.types = attribute_dict["types"]
 	
 	return ing_node

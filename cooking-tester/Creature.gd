@@ -9,9 +9,12 @@ var description : String
 var stat_scene = preload("res://cooking-tester/Stats.tscn")
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	type = 0
+func _init():
+	type = -1
+	title = "undefined"
+	description = "hey look, missingno's cousin showed up"
 	stats = stat_scene.instantiate()
+	add_child(stats)
 
 func print_block():
 	var text = "This beautiful abomination is...\n"

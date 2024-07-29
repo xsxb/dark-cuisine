@@ -3,8 +3,14 @@ class_name Stats extends Node
 var data : Dictionary
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _init():
 	data = {}
+
+func get_dict():
+	return data.duplicate()
+
+func set_to(dict : Dictionary):
+	data = dict
 
 func set_stat(key : String, value : int):
 	data[key] = value
@@ -30,6 +36,8 @@ func get_as_string(key : String) -> String:
 	else:
 		for n in range(-mod):
 			str += "-"
+			
+	
 	return str
 
 
@@ -51,11 +59,19 @@ func string_to_pair(stat_string):
 func print_list():
 	var str = ""
 	
+	#print("print list check")
+	#print("data:")
+	#print(data)
+	
 	for key in data:
 		str += get_as_string(key)
 		str += ", "
-		
-	str.erase(str.size()-2, 2)
+	
+	#print("print list str:")
+	#print(str)
+	if str.length() >= 2:
+		str.erase(str.length()-2, 2)
+	
 	return str
 
 func resolve_with(stats : Stats):
@@ -69,6 +85,8 @@ func resolve_with_dict(stat_dict : Dictionary):
 			data[stat] = data[stat] + stat_dict[stat]
 			if data[stat] == 0:
 				data.erase(stat)
+		else:
+			data[stat] = stat_dict[stat]
 
 
 func resolve_with_strings(stat_strings : Array):

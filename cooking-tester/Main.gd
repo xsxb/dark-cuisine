@@ -12,11 +12,26 @@ var tools : Array
 var ingredient_scene = load("res://cooking-tester/ingredient.tscn")
 var creature_scene = load("res://cooking-tester/Creature.tscn")
 
+#TODO where should this function go?
+func create_ingredient(id):
+	var data = Global.item_table[id]
+	var new_ing = ingredient_scene.instantiate()
+	new_ing.ing_name = data["name"]
+	new_ing.description = data["description"]
+	new_ing.types = data["types"]
+
+	new_ing.stats.set_to(data["stats"])
+
+	return new_ing
+
+
+
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _init():
 	ingredients = []
 	tools = []
 	creature = creature_scene.instantiate()
+	add_child(creature)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,22 +48,22 @@ func _process(delta):
 
 
 
+
+
 func _on_button_cauldron_pressed():
 	
-	var recipe = $Cauldron.resolve_recipe(ingredients)
-
+	result = $Cauldron.resolve_recipe(ingredients)
 	
 	var res_text = "I created...\n"
 	
-	if recipe:
-		res_text += recipe.print_block()
+	if result:
+		res_text += result.print_block()
 	else:
 		res_text += "a failue!"
 	
 	$Text_Output.text = res_text
 	ingredients.clear()
-	
-	
+
 
 
 func _on_button_clear_pressed():
@@ -56,27 +71,23 @@ func _on_button_clear_pressed():
 	$Text_Output.text = ""
 
 
-func _on_button_apple_pressed():
-	for ing in ingredients:
-		if(ing.ing_name == "Apple"):
-			return
-			
-	ingredients.push_back($Apple)
+func _on_button_ingr_pressed():
+	var id = int($TextEdit_ID.text)
+	$TextEdit_ID.text = ""
 
-
-func _on_button_pinecone_pressed():
-	for ing in ingredients:
-		if(ing.ing_name == "Pine Cone"):
-			return
+	if id < 49 || id > 51:
+		return
 	
-	ingredients.push_back($PineCone)
+	var node = create_ingredient(id)
+	ingredients.push_back(node)
+
+	add_child(node)
 
 
 func _on_button_summon_pressed():
 	$Summoner.initiate_creature(creature)
-	
-
-
 
 func _on_button_evolve_pressed():
-	$Summoner.evolve_creature(creature, result)
+	if result == null:
+		return
+	$Summoner.evolve_creature(creature, result.stats.get_dict())
