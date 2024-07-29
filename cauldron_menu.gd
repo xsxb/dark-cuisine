@@ -4,19 +4,12 @@ extends Control
 
 @export var script_node : Node
 @export var background_panel : Panel
-var inventory_id : int
-
-var composite
 
 func _ready():
 	size = background_panel.size
-
-func _process(delta):
-	pass
+	global_position = get_viewport_rect().size/2 - size/2
+	hide()
 
 func _on_exit_button_pressed():
-	background_panel.hide()
-
-func _on_cauldron_button_pressed():
-	background_panel.show()
+	hide()
 
