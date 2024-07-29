@@ -17,22 +17,22 @@ var creature_table = {
 	},
 	
 	3 : {
+		"title" : "The Rogue",
+		"description" : "Somehow makes cardboard boxes appear.",
+		"requirements" : [["healthy+", REQ.GREATER_EQUAL], ["sneak", REQ.IS_POSITIVE], ["smart+", REQ.GREATER_EQUAL],
+		["big", REQ.ZERO_OR_NEGATIVE], ["inspiring", REQ.ZERO_OR_NEGATIVE],["repulsive", REQ.ZERO_OR_NEGATIVE]]
+	},
+	
+	4 : {
 		"title" : "The Barbarian",
 		"description" : "Mindlessly swings those big meat fists around.",
 		"requirements" : [["healthy+++", REQ.GREATER_EQUAL], ["big++", REQ.GREATER_EQUAL], ["smash", REQ.IS_POSITIVE]]
 	},
 	
-	4 : {
-		"title" : "The Rogue",
-		"description" : "Somehow makes cardboard boxes appear.",
-		"requirements" : [["healthy+", REQ.GREATER_EQUAL], ["sneak", REQ.IS_POSITIVE],
-		["big", REQ.ZERO_OR_NEGATIVE], ["inspiring", REQ.ZERO_OR_NEGATIVE],["repulsive", REQ.ZERO_OR_NEGATIVE]]
-	},
-	
 	5 : {
 		"title" : "The Cannonfodder",
 		"description" : "Can walk in a straight line and doesn't smell too awful.",
-		"requirements" : [["healthy", REQ.HAS_POSITIVE], ["smart--", REQ.GREATER_EQUAL], ["repulsive+", REQ.LESS]]
+		"requirements" : [["healthy", REQ.IS_POSITIVE], ["smash", REQ.IS_POSITIVE], ["repulsive+", REQ.LESS]]
 	},
 	
 	6 : {
