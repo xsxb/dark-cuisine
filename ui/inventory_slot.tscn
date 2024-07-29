@@ -11,10 +11,13 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1088.0
+offset_bottom = -584.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fx77x")
 slot_panel = NodePath("SlotPanel")
+metadata/_edit_horizontal_guides_ = [-86.0]
 
 [node name="SlotPanel" type="Panel" parent="."]
 layout_mode = 0
@@ -22,3 +25,6 @@ offset_right = 64.0
 offset_bottom = 64.0
 theme = ExtResource("2_3wbaj")
 theme_override_styles/panel = SubResource("StyleBoxFlat_srvvt")
+
+[connection signal="gui_input" from="SlotPanel" to="." method="_on_slot_panel_gui_input"]
+[connection signal="mouse_entered" from="SlotPanel" to="." method="_on_slot_panel_mouse_entered"]
