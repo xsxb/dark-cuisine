@@ -2,7 +2,7 @@ extends Node2D
 
 @export var menu_container : VBoxContainer
 
-var spawn_scene = preload("res://spawned_monster.tscn")
+var spawn_scene = preload("res://ui/menu_sprite_node.tscn")
 var room_scene = preload("res://room/room.tscn")
 
 func _ready():
