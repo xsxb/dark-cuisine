@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8d6g1xxac1tn"
-path="res://.godot/imported/Poster.png-2ea457541dcdd058fc3e7a000e004115.ctex"
+uid="uid://3rmbmsg1lgtb"
+path="res://.godot/imported/02 Pine cone.png-544a4bc6b8d14273e595b0acc65ca1d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/Lab/Poster.png"
-dest_files=["res://.godot/imported/Poster.png-2ea457541dcdd058fc3e7a000e004115.ctex"]
+source_file="res://assets/art/25 Icons/02 Pine cone.png"
+dest_files=["res://.godot/imported/02 Pine cone.png-544a4bc6b8d14273e595b0acc65ca1d6.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8d6g1xxac1tn"
-path="res://.godot/imported/Poster.png-2ea457541dcdd058fc3e7a000e004115.ctex"
+uid="uid://c6m3qvcnmj781"
+path="res://.godot/imported/-1 Strange Ooze.png-cf8ea2e45a5815e74e123648bfbe81ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/Lab/Poster.png"
-dest_files=["res://.godot/imported/Poster.png-2ea457541dcdd058fc3e7a000e004115.ctex"]
+source_file="res://assets/art/25 Icons/-1 Strange Ooze.png"
+dest_files=["res://.godot/imported/-1 Strange Ooze.png-cf8ea2e45a5815e74e123648bfbe81ad.ctex"]
 
 [params]
 
