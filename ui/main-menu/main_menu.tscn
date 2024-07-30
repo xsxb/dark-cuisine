@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfo4tcfe3vx1t"]
+
+[ext_resource type="Script" path="res://ui/main-menu/main_menu.gd" id="1_v6mbh"]
+[ext_resource type="Theme" uid="uid://lwhy6nphe0ya" path="res://ui/base_theme.tres" id="2_g61th"]
+[ext_resource type="AudioStream" uid="uid://3pubwpumr0c7" path="res://assets/music/upbeat01.mp3" id="3_poqpq"]
+[ext_resource type="Texture2D" uid="uid://cx31bnpvsgaie" path="res://assets/art/UI/Logo-chinese.png" id="3_tmbtc"]
+[ext_resource type="PackedScene" uid="uid://5cv0gy4n3agj" path="res://ui/menu_sprite_node.tscn" id="4_4m041"]
+[ext_resource type="Texture2D" uid="uid://cnqeakp1ahd8d" path="res://assets/art/UI/logo.png" id="6_uyj07"]
+
+[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("menu_container")]
+script = ExtResource("1_v6mbh")
+menu_container = NodePath("VBoxContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+top_level = true
+offset_right = 145.0
+offset_bottom = 100.0
+theme = ExtResource("2_g61th")
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Options
+"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+
+[node name="LogoChinese" type="Sprite2D" parent="."]
+position = Vector2(575, 168)
+rotation = 0.138991
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_tmbtc")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_poqpq")
+autoplay = true
+
+[node name="MenuSpriteNode" parent="." instance=ExtResource("4_4m041")]
+position = Vector2(212.833, 132.074)
+
+[node name="MenuSpriteNode2" parent="." instance=ExtResource("4_4m041")]
+position = Vector2(560.572, 139.634)
+
+[node name="MenuSpriteNode4" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("4_4m041")]
+position = Vector2(244, 490)
+sprite = NodePath("../MenuSpriteNode3/Sprite2D")
+
+[node name="MenuSpriteNode3" parent="." instance=ExtResource("4_4m041")]
+position = Vector2(763, 462)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(576, 87)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_uyj07")
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
