@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcoloe4qtldjq"]
-
-[ext_resource type="Script" path="res://cooking-tester/CookingTool.gd" id="1_vmwai"]
-
-[node name="CookingTool" type="Node2D"]
-script = ExtResource("1_vmwai")

@@ -1,0 +1,63 @@
+[gd_scene load_steps=13 format=3 uid="uid://b4rmp8sxp45a1"]
+
+[ext_resource type="Shader" path="res://orb/noise_overlay.gdshader" id="1_q7wgb"]
+[ext_resource type="Texture2D" uid="uid://dydqpb4vdjqif" path="res://assets/art/Lab/orb.png" id="2_nyhq5"]
+[ext_resource type="Shader" path="res://orb/fisheye.gdshader" id="3_a1tjf"]
+[ext_resource type="Script" path="res://orb/orb.gd" id="3_yh0wm"]
+[ext_resource type="Theme" uid="uid://lwhy6nphe0ya" path="res://ui/base_theme.tres" id="4_w6j4q"]
+
+[sub_resource type="Gradient" id="Gradient_f1hkl"]
+colors = PackedColorArray(0, 0, 0, 1, 0.501407, 0.501406, 0.501406, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_aa8e0"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dsudk"]
+color_ramp = SubResource("Gradient_f1hkl")
+noise = SubResource("FastNoiseLite_aa8e0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vu08q"]
+shader = ExtResource("1_q7wgb")
+shader_parameter/direction = Vector2(0.2, 0.6)
+shader_parameter/speed = 0.1
+shader_parameter/noise = SubResource("NoiseTexture2D_dsudk")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8sqjh"]
+shader = ExtResource("3_a1tjf")
+shader_parameter/effect_amount = 1.684
+
+[sub_resource type="Curve" id="Curve_4j4ps"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.280335, 0.747253), 0.0, 0.0, 0, 0, Vector2(0.380753, 0.505494), 0.0, 0.0, 0, 0, Vector2(0.527197, 0.395604), 0.0, 0.0, 0, 0, Vector2(0.8159, 0.274725), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_kp55a"]
+curve = SubResource("Curve_4j4ps")
+
+[node name="Orb" type="Sprite2D" node_paths=PackedStringArray("curve_texture_sprite")]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_vu08q")
+texture = ExtResource("2_nyhq5")
+centered = false
+script = ExtResource("3_yh0wm")
+curve_texture_sprite = NodePath("CurveTextureSprite")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 104.0
+offset_top = 108.0
+offset_right = 365.0
+offset_bottom = 344.0
+theme = ExtResource("4_w6j4q")
+text = "Orb of ancient alchemical knowledge"
+
+[node name="FisheyeShaderControl" type="Node2D" parent="."]
+
+[node name="ShaderRect" type="ColorRect" parent="FisheyeShaderControl"]
+material = SubResource("ShaderMaterial_8sqjh")
+offset_left = -426.0
+offset_top = -232.0
+offset_right = 966.0
+offset_bottom = 706.0
+color = Color(0, 0, 0, 1)
+
+[node name="CurveTextureSprite" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("CurveTexture_kp55a")

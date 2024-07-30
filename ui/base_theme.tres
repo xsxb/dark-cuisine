@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://lwhy6nphe0ya"]
+
+[ext_resource type="FontFile" uid="uid://wq4p6wqglps6" path="res://ui/old_english_text_mt.ttf" id="1_y33ra"]
+[ext_resource type="Texture2D" uid="uid://d28577rv8apof" path="res://assets/art/Buttons/simple/6.png" id="2_5o4qy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_556k7"]
+texture = ExtResource("2_5o4qy")
+region_rect = Rect2(35.5639, 147.82, 407.282, 181.231)
+
+[resource]
+default_font = ExtResource("1_y33ra")
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/fonts/font = ExtResource("1_y33ra")
+Button/styles/normal = SubResource("StyleBoxTexture_556k7")
+RichTextLabel/colors/default_color = Color(0.292322, 0.142936, 2.40654e-08, 1)

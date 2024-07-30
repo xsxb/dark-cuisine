@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc4n6c2oyphut"]
+
+[ext_resource type="Script" path="res://cooking-system/Stats.gd" id="1_54sio"]
+
+[node name="Stats" type="Node"]
+script = ExtResource("1_54sio")

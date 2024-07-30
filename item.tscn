@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://dngenvg08u5e5"]
+
+[ext_resource type="Script" path="res://Item.gd" id="1_pxbg1"]
+[ext_resource type="Texture2D" uid="uid://b686p7fab2dpc" path="res://assets/art/Icons/alchemical/background/1.png" id="3_stemy"]
+[ext_resource type="Theme" uid="uid://lwhy6nphe0ya" path="res://ui/base_theme.tres" id="3_xypxf"]
+[ext_resource type="FontFile" uid="uid://wq4p6wqglps6" path="res://ui/old_english_text_mt.ttf" id="4_c7piy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqgll"]
+bg_color = Color(0.266667, 0.054902, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scnmq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[node name="Item" type="TextureButton" node_paths=PackedStringArray("stack_label", "highlight")]
+offset_right = 64.0
+offset_bottom = 64.0
+tooltip_text = "test"
+theme = ExtResource("3_xypxf")
+texture_normal = ExtResource("3_stemy")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_pxbg1")
+stack_label = NodePath("Panel/StackLabel")
+highlight = NodePath("Highlight")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 45.0
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sqgll")
+
+[node name="StackLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.5
+offset_top = -7.5
+offset_right = 7.5
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_c7piy")
+theme_override_font_sizes/font_size = 15
+text = "20"
+
+[node name="Highlight" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_scnmq")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
