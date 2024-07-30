@@ -7,13 +7,15 @@ extends CookingTool
 # should maybe be ids
 func _ready():
 	recipes = { 
-		3 : ["Apple", "Pine Cone"],
-		5 : ["Pineapple", "Instant Noodles"],
-		7 : ["Instant Noodles", "Tome"],
-		: ["Alphabet Soup", "Caffeine"],
-		: ["Energy Potion Blue", "Energy Potion Red"],
-		: ["Caffeine"]
-		#"Energy Potion Red" : ["caffeine", "liquid", "fruit"]
+		3 : ["Apple", "Pine Cone"], #pineapple
+		5 : ["Pineapple", "Instant Noodles"], #poodles
+		7 : ["Instant Noodles", "Tome"], #alphabet soup
+		10 : ["Alphabet Soup", "Caffeine"], #energy potion blue
+		25 : ["Energy Potion Blue", "Energy Potion Red", "Shadow Essence"], #ultimate shadow potion 
+		12 : ["Caffeine", "Ketchup", "Super Hot Chili"],
+		17 : ["Wheaty Goop", "Eye Thing??"],
+		18 : ["Mushrooms", "Toast", "Ketchup"],
+		22 : ["Toast", "Tortillas"]
 		}
 
 

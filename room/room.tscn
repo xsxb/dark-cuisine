@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://room/FridgeButton.gd" id="10_hydeq"]
 [ext_resource type="Script" path="res://ui/fridge_inventory.gd" id="11_40qd2"]
 [ext_resource type="AudioStream" uid="uid://bgcrkr17w5k60" path="res://assets/music/lab_beat01.mp3" id="11_urlu4"]
-[ext_resource type="PackedScene" path="res://spawned_monster.tscn" id="12_6xdus"]
+[ext_resource type="PackedScene" uid="uid://c32o5n4thngoo" path="res://spawned_monster.tscn" id="12_6xdus"]
 [ext_resource type="Script" path="res://ui/web_inventory.gd" id="12_ljgqm"]
 [ext_resource type="Script" path="res://room/WebButton.gd" id="12_pl5k3"]
 [ext_resource type="AudioStream" uid="uid://by7hhh3rqahvy" path="res://assets/sfx/wet/creature_slime_01.ogg" id="13_st6vo"]
@@ -552,7 +552,7 @@ anchor_bottom = 0.891667
 offset_left = -73.0002
 offset_top = -93.0
 offset_right = 527.0
-offset_bottom = 6.99996
+offset_bottom = 6.99992
 metadata/_edit_use_anchors_ = true
 
 [node name="MinimizeButton" type="Button" parent="PlayerInventoryMenu/Panel"]

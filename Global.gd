@@ -6,6 +6,12 @@ extends Node
 enum REQ {EQUAL, GREATER_EQUAL, LESS_EQUAL, GREATER, LESS}
 var creature_table = {
 	
+	#6 : {
+	#	"title" : "My Shadow",
+	#	"description" : "Just like in my dream.",
+	#	"requirements" : {}
+	#},
+	
 	1 : {
 		"title" : "The General",
 		"description" : "Louder than the students upstairs.",
@@ -138,7 +144,7 @@ var item_table = {
 	
 	10 : {
 		"name" : "Energy Potion Blue",
-		"description" : "Ahhh!",
+		"description" : "Mhhh...",
 		"types" : [],
 		"stats" : {},
 		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
@@ -146,7 +152,7 @@ var item_table = {
 	},
 	
 	11 : {
-		"name" : "Super Hot Chilly",
+		"name" : "Super Hot Chili",
 		"description" : "Tempting",
 		"types" : [],
 		"stats" : {},
@@ -191,7 +197,7 @@ var item_table = {
 	},
 	
 	16 : {
-		"name" : "Weird Eye Thing??",
+		"name" : "Eye Thing??",
 		"description" : "What is this? Why is this in my room??",
 		"types" : [],
 		"stats" : {},
@@ -256,6 +262,24 @@ var item_table = {
 	23 : {
 		"name" : "Tortillas",
 		"description" : "",
+		"types" : [],
+		"stats" : {},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
+	},
+	
+	24 : {
+		"name" : "Shadow Essence",
+		"description" : "The soul.",
+		"types" : [],
+		"stats" : {},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
+	},
+	
+	25 : {
+		"name" : "Shadow Potion Ultimate",
+		"description" : "IT IS DONE!",
 		"types" : [],
 		"stats" : {},
 		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
