@@ -1,6 +1,6 @@
 class_name CookingTool extends Node
 
-var ingredient_scene = preload("res://cooking-system/ingredient.tscn")
+var item_scene = preload("res://item.tscn")
 
 # in tool instances: define recipes in the ready() function
 var recipes : Dictionary
@@ -10,7 +10,8 @@ func apply_tool_effect(ingredient_node):
 	pass #TODO
 
 
-
+# returns true or false
+# modifies input array
 func resolve_recipe(ingredients : Array):
 	
 	var found_recipe = null
@@ -57,15 +58,13 @@ func check_recipe(rec_name, ingredients):
 	for ingredient in recipes[rec_name]:
 		sorted_ingredients[ingredient] = []
 	
-	#print("Available: ")
-	#print(available_ingredients)
-	
 	# sort available ingredients to requirements
 	# sort ingredients that add name requirements
 	for needed_string in sorted_ingredients:
 		
 		for given_ingredient in available_ingredients:
-			if given_ingredient.ing_name == needed_string:
+			if given_ingredient.get_data("name") == needed_string:
+			#if given_ingredient.ing_name == needed_string:
 				sorted_ingredients[needed_string].push_back(given_ingredient)
 
 	#print("After name match: ")
@@ -78,7 +77,7 @@ func check_recipe(rec_name, ingredients):
 	for needed_string in sorted_ingredients:
 		
 		for given_ingredient in available_ingredients:
-			if given_ingredient.types.has(needed_string):
+			if given_ingredient.get_data("types").has(needed_string):
 				sorted_ingredients[needed_string].push_back(given_ingredient)
 	
 	#print(sorted_ingredients)
@@ -161,7 +160,7 @@ func resolve_types(ingredients : Array):
 
 
 func create_ingredient(found_recipe_id):
-	var ing_node = ingredient_scene.instantiate()
+	var ing_node = item_scene.instantiate()
 	var attribute_dict = Global.item_table[found_recipe_id]
 	
 	ing_node.ing_name = attribute_dict["name"]
@@ -174,4 +173,4 @@ func create_ingredient(found_recipe_id):
 func add_ingredient_stats(result_node, ingredients):
 	
 	for ing in ingredients:
-		result_node.stats.resolve_with(ing.stats)
+		result_node.get_data("stats").resolve_with(ing.get_data("stats"))

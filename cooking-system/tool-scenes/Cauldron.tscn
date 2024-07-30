@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://of7qamp5y4g4"]
-
-[ext_resource type="Script" path="res://cooking-system/tool-scenes/Cauldron.gd" id="1_lsyel"]
-
-[node name="Cauldron" type="Node"]
-script = ExtResource("1_lsyel")
