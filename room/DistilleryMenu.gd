@@ -13,7 +13,4 @@ func _ready():
 func _on_exit_button_pressed():
 	hide()
 
-#Resolve recipe on button click
-func _on_distill_button_pressed():
-	#script_node.resolve_recipe()
-	pass
+

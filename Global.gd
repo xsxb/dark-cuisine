@@ -284,6 +284,15 @@ var item_table = {
 		"stats" : {},
 		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
 		"max_stack" : 20
+	},
+	
+	26 : {
+		"name" : "Shadow Creature",
+		"description" : "Wiggles in my hands",
+		"types" : [],
+		"stats" : {},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
 	}
 
 }

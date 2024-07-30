@@ -1,11 +1,23 @@
 extends CookingTool
 
+@export var inventory : Control
+@export var player_inventory : Control
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	recipes = { 
+		19 : ["Moldy Sock"],
+		999 : ["Cold Pizza Slice"], #special case: 2 returns
+		9 : ["Cold Coffee"],
+		24 : ["Shadow Creature"]
+		}
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+#Resolve recipe on button click
+func _on_distill_button_pressed():
+	var ingredients = inventory.get_item_nodes()
+	var result = resolve_recipe(ingredients)
+	
+	if result == 999:
+		inventory.remove_items(ingredients)
+	elif result:
+		inventory.remove_items(ingredients)
+		player_inventory.add_item(result)
