@@ -62,6 +62,9 @@ func init():
 
 #Returns item data from table [icon, name, description]
 func get_item_data(id):
+	if id < 1 || id > Global.item_table.size():
+		return Global.item_table[-1]
+		
 	var item = Global.item_table[id]
 	return item
 

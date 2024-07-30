@@ -46,6 +46,14 @@ var creature_table = {
 
 var item_table = {
 	
+	-1 : {
+		"name" : "Strange Ooze",
+		"description" : "This shouldn't exist. Someone messed up.",
+		"types" : ["error"],
+		"stats" : {"healthy" : -5, "smart" : -5, "magic" : 5, "repulsive" : 5},
+		"icon" : "res://assets/art/Icons/veg/shadow/1.png",
+		"max_stack" : 20
+	},
 	
 	1 : {
 		"name" : "Apple",

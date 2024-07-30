@@ -2,6 +2,8 @@ extends TextureButton
 
 class_name Item
 
+var stat_scene = preload("res://cooking-system/Stats.tscn")
+
 signal item_pressed(item_node)
 
 #Icon:
@@ -66,3 +68,39 @@ func set_tooltip():
 #Custom signal needed, because pressed signal doesn't pass parameter
 func _on_pressed():
 	item_pressed.emit(self)
+
+## ingredient functionality ##
+# TODO make this two seperate nodes with a Item root object
+
+func get_data(key : String):
+	if item_data.has(key):
+		return item_data[key]
+	else:
+		return false
+
+# Hilfsfunktion um Kerneigenschaften in einer Zeile zu nutzen
+func print_line(): 
+	var str = get_data("stats") + ":"
+
+	str += get_data("stats").print_list()
+	
+	for type in get_data("types"):
+		str += " " + type
+	
+	return str + "\n"
+	
+
+# Hilfsfunktion um alle Eigenschaften in einem
+# übersichtlichen Block zu drucken
+func print_block():
+	
+	var str = get_data("ing_name") + ": " + "\n"
+	
+	for type in get_data("types"):
+		str += "It's a " + type + "\n"
+	
+	str += get_data("stats").print_list()
+		
+	str += get_data("description") + "\n"
+	
+	return str + "\n"
