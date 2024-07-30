@@ -16,6 +16,7 @@ func _ready():
 	set_item(2,16,3)
 	set_item(3,17,3)
 	set_item(4,20,15)
+	remove_item_from_slot(0)
 
 
 func _process(delta):

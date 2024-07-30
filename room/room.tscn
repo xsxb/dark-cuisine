@@ -589,6 +589,7 @@ top_level = true
 centered = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 anchor_mode = 0
 
 [connection signal="child_entered_tree" from="." to="InventoryManagement" method="_on_room_child_entered_tree"]

@@ -4,7 +4,7 @@ extends Inventory
 @export var spawn_animation_player : AnimationPlayer
 @export var spawn_audio_stream : AudioStreamPlayer2D
 
-var spawn_table = []
+var spawn_table = [1]
 var rng : int
 
 

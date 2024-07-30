@@ -19,8 +19,7 @@ func _on_cook_button_pressed():
 	
 	##Function testing:
 	inventory.remove_item(6)
-	inventory.remove_item_from_slot(4)
-
+	
 	resolve_recipe(item_array)
 
 
