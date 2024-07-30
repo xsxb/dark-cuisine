@@ -717,7 +717,7 @@ anchor_mode = 0
 [connection signal="pressed" from="Tools/CauldronButton/CauldronMenu/BackgroundPanel/VBoxContainer/TestButton" to="Tools/CauldronButton/CauldronMenu/CauldronScriptNode" method="_on_test_button_pressed"]
 [connection signal="pressed" from="Tools/CauldronButton/CauldronMenu/BackgroundPanel/ExitButton" to="Tools/CauldronButton/CauldronMenu" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Tools/DistilleryButton" to="Tools/DistilleryButton" method="_on_pressed"]
-[connection signal="pressed" from="Tools/DistilleryButton/DistilleryMenu/BackgroundPanel/DistillButton" to="Tools/DistilleryButton/DistilleryMenu" method="_on_distill_button_pressed"]
+[connection signal="pressed" from="Tools/DistilleryButton/DistilleryMenu/BackgroundPanel/DistillButton" to="Tools/DistilleryButton/DistilleryMenu/DistilleryScriptNode" method="_on_distill_button_pressed"]
 [connection signal="pressed" from="Tools/DistilleryButton/DistilleryMenu/CloseButton" to="Tools/DistilleryButton" method="_on_close_button_pressed"]
 [connection signal="pressed" from="Tools/OrbButton" to="Tools/OrbButton" method="_on_pressed"]
 [connection signal="pressed" from="Tools/OrbButton/Orb/Button" to="Tools/OrbButton" method="_on_button_pressed"]

@@ -13,6 +13,8 @@ func _ready():
 	#Manually filling inventory with test items:
 	add_item(1)
 	add_item(2)
+	add_item(14)
+	add_item(8)
 	#set_item(0,1,1)
 	#set_item(1,2,5)
 	#set_item(2,16,3)
