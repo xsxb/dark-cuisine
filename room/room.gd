@@ -6,7 +6,6 @@ var cauldron_menu
 @export var cauldron_button : TextureButton	
 
 func _ready():
-	
 	##Initiate child nodes
 	cauldron_menu = cauldron_menu_scene.instantiate()
 	cauldron_button.add_child(cauldron_menu)

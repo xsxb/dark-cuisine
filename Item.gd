@@ -22,9 +22,11 @@ var item_stack : int
 var inventory : Inventory
 var inv_slot : int
 
-##Below instanced data will be stored in respective inventory
-#var inventory_id : int # ID of inventory where item is located at
-#var inventory_slot : int # Slot number in inventory
+##Below is a quick
+var ing_name
+var description
+@export var stats : Node
+var types
 
 
 func _ready():

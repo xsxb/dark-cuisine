@@ -64,7 +64,6 @@ func check_recipe(rec_name, ingredients):
 		
 		for given_ingredient in available_ingredients:
 			if given_ingredient.get_data("name") == needed_string:
-			#if given_ingredient.ing_name == needed_string:
 				sorted_ingredients[needed_string].push_back(given_ingredient)
 
 	#print("After name match: ")
@@ -160,13 +159,15 @@ func resolve_types(ingredients : Array):
 
 
 func create_ingredient(found_recipe_id):
+
 	var ing_node = item_scene.instantiate()
-	var attribute_dict = Global.item_table[found_recipe_id]
+	var attribute_dict = Global.item_table.get(found_recipe_id)
 	
-	ing_node.ing_name = attribute_dict["name"]
-	ing_node.description = attribute_dict["description"]
-	ing_node.stats.data = attribute_dict["stats"]
-	ing_node.types = attribute_dict["types"]
+	if attribute_dict:
+		ing_node.ing_name = attribute_dict["name"]
+		ing_node.description = attribute_dict["description"]
+		ing_node.stats.data = attribute_dict["stats"]
+		ing_node.types = attribute_dict["types"]
 	
 	return ing_node
 

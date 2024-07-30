@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dngenvg08u5e5"]
+[gd_scene load_steps=8 format=3 uid="uid://dngenvg08u5e5"]
 
 [ext_resource type="Script" path="res://Item.gd" id="1_pxbg1"]
 [ext_resource type="Texture2D" uid="uid://b686p7fab2dpc" path="res://assets/art/Icons/alchemical/background/1.png" id="3_stemy"]
 [ext_resource type="Theme" uid="uid://lwhy6nphe0ya" path="res://ui/base_theme.tres" id="3_xypxf"]
 [ext_resource type="FontFile" uid="uid://wq4p6wqglps6" path="res://ui/old_english_text_mt.ttf" id="4_c7piy"]
+[ext_resource type="PackedScene" uid="uid://cc4n6c2oyphut" path="res://cooking-system/Stats.tscn" id="5_6c3sb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqgll"]
 bg_color = Color(0.266667, 0.054902, 0, 1)
@@ -25,7 +26,7 @@ expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
-[node name="Item" type="TextureButton" node_paths=PackedStringArray("stack_label", "highlight")]
+[node name="Item" type="TextureButton" node_paths=PackedStringArray("stack_label", "highlight", "stats")]
 offset_right = 64.0
 offset_bottom = 64.0
 tooltip_text = "test"
@@ -36,6 +37,7 @@ stretch_mode = 0
 script = ExtResource("1_pxbg1")
 stack_label = NodePath("Panel/StackLabel")
 highlight = NodePath("Highlight")
+stats = NodePath("Stats")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -69,5 +71,7 @@ layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_scnmq")
+
+[node name="Stats" parent="." instance=ExtResource("5_6c3sb")]
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
