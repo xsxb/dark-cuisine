@@ -65,6 +65,9 @@ func set_tooltip():
 	
 	#Tooltip data
 	tooltip_text = item_data["name"] + "\n" + item_data["description"]
+	
+	for st in stats.data:
+		tooltip_text += "\n" + stats.get_as_string(st)
 
 
 ##Modulation colours:
