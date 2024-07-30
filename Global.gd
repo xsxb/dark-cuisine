@@ -80,11 +80,189 @@ var item_table = {
 		"stats" : {"healthy" : 1},
 		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
 		"max_stack" : 20
-	}
+	},
 	
+	4 : {
+		"name" : "Instant Noodles",
+		"description" : "One of my greatest achievements.",
+		"types" : [],
+		"stats" : {},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
+	},
+	
+	5 : {
+		"name" : "Poodles",
+		"description" : "A complex taste for intellectual pallettes.",
+		"types" : [],
+		"stats" : {},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
+	},
+	
+	6 : {
+		"name" : "Tome",
+		"description" : "Can't read, gotta eat.",
+		"types" : [],
+		"stats" : {},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
+	},
+	
+	7 : {
+		"name" : "Alphabet Soup",
+		"description" : "Made me who I am today.",
+		"types" : [],
+		"stats" : {},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
+	},
+	
+	8 : {
+		"name" : "Cold Coffee",
+		"description" : "",
+		"types" : [],
+		"stats" : {},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
+	},
+	
+	9 : {
+		"name" : "Pure Caffeine",
+		"description" : "The heart.",
+		"types" : [],
+		"stats" : {},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
+	},
+	
+	10 : {
+		"name" : "Energy Potion Blue",
+		"description" : "Ahhh!",
+		"types" : [],
+		"stats" : {},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
+	},
+	
+	11 : {
+		"name" : "Super Hot Chilly",
+		"description" : "Tempting",
+		"types" : [],
+		"stats" : {},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
+	},
+	
+	12 : {
+		"name" : "Energy Potion Red",
+		"description" : "Oh my!",
+		"types" : [],
+		"stats" : {},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
+	},
+	
+	13 : {
+		"name" : "Ketchup",
+		"description" : "",
+		"types" : [],
+		"stats" : {},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
+	},
+	
+	14 : {
+		"name" : "Cold Pizza Slice",
+		"description" : "",
+		"types" : [],
+		"stats" : {},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
+	},
+	
+	15 : {
+		"name" : "Wheaty Goop",
+		"description" : "Could pass for dough... if you don't smell it",
+		"types" : [],
+		"stats" : {},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
+	},
+	
+	16 : {
+		"name" : "Weird Eye Thing??",
+		"description" : "What is this? Why is this in my room??",
+		"types" : [],
+		"stats" : {},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
+	},
+	
+	17 : {
+		"name" : "Pieye",
+		"description" : "Looking delicious",
+		"types" : [],
+		"stats" : {},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
+	},
+	
+	18 : {
+		"name" : "Idiot Sandwich",
+		"description" : "",
+		"types" : [],
+		"stats" : {},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
+	},
+	
+	19 : {
+		"name" : "Mushrooms",
+		"description" : "See? They're fine!",
+		"types" : [],
+		"stats" : {},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
+	},
+	
+	20 : {
+		"name" : "Moldy Sock",
+		"description" : "Surely useful for something...",
+		"types" : [],
+		"stats" : {},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
+	},
+	
+	21 : {
+		"name" : "Toast",
+		"description" : "",
+		"types" : [],
+		"stats" : {},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
+	},
+	
+	 22 : {
+		"name" : "British Sandwich",
+		"description" : "Always wondered what a British is",
+		"types" : [],
+		"stats" : {},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
+	},
+	
+	23 : {
+		"name" : "Tortillas",
+		"description" : "",
+		"types" : [],
+		"stats" : {},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
+	}
+
 }
-
-
 
 
 
