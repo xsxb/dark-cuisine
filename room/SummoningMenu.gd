@@ -13,7 +13,4 @@ func _ready():
 func _on_close_button_pressed():
 	hide()
 
-#Resolve recipe here
-func _on_summon_button_pressed():
-	#script_node.resolve_recipe()
-	pass 
+

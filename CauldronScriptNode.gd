@@ -24,10 +24,11 @@ func _process(delta):
 
 
 func _on_cook_button_pressed():
-	var result = resolve_recipe(inventory.get_item_nodes())
+	var ingredients = inventory.get_item_nodes()
+	var result = resolve_recipe(ingredients)
 	
 	if result:
-		inventory.empty()
+		inventory.remove_items(ingredients)
 		player_inventory.add_item(result)
 
 

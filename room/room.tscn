@@ -630,8 +630,9 @@ offset_bottom = 106.0
 text = "Summon
 Dark Spirit"
 
-[node name="SummoningScriptNode" type="Node" parent="Tools/SummoningButton/SummoningMenu"]
+[node name="SummoningScriptNode" type="Node" parent="Tools/SummoningButton/SummoningMenu" node_paths=PackedStringArray("inventory")]
 script = ExtResource("27_2fp73")
+inventory = NodePath("../BackgroundPanel/SummoningInventory")
 
 [node name="CloseButton" type="Button" parent="Tools/SummoningButton/SummoningMenu"]
 layout_mode = 0
@@ -660,7 +661,7 @@ anchor_bottom = 0.891667
 offset_left = -73.0002
 offset_top = -93.0
 offset_right = 527.0
-offset_bottom = 6.99995
+offset_bottom = 6.99991
 metadata/_edit_use_anchors_ = true
 
 [node name="MinimizeButton" type="Button" parent="PlayerInventoryMenu/Panel"]
@@ -719,6 +720,6 @@ anchor_mode = 0
 [connection signal="pressed" from="Tools/OrbButton" to="Tools/OrbButton" method="_on_pressed"]
 [connection signal="pressed" from="Tools/OrbButton/Orb/Button" to="Tools/OrbButton" method="_on_button_pressed"]
 [connection signal="pressed" from="Tools/SummoningButton" to="Tools/SummoningButton" method="_on_pressed"]
-[connection signal="pressed" from="Tools/SummoningButton/SummoningMenu/BackgroundPanel/SummonButton" to="Tools/SummoningButton/SummoningMenu" method="_on_summon_button_pressed"]
+[connection signal="pressed" from="Tools/SummoningButton/SummoningMenu/BackgroundPanel/SummonButton" to="Tools/SummoningButton/SummoningMenu/SummoningScriptNode" method="_on_summon_button_pressed"]
 [connection signal="pressed" from="Tools/SummoningButton/SummoningMenu/CloseButton" to="Tools/SummoningButton/SummoningMenu" method="_on_close_button_pressed"]
 [connection signal="toggled" from="PlayerInventoryMenu/Panel/MinimizeButton" to="PlayerInventoryMenu" method="_on_minimize_button_toggled"]
