@@ -15,12 +15,63 @@
 [ext_resource type="Script" path="res://room/FridgeButton.gd" id="10_hydeq"]
 [ext_resource type="Script" path="res://ui/fridge_inventory.gd" id="11_40qd2"]
 [ext_resource type="AudioStream" uid="uid://bgcrkr17w5k60" path="res://assets/music/lab_beat01.mp3" id="11_urlu4"]
-[ext_resource type="PackedScene" uid="uid://c32o5n4thngoo" path="res://spawned_monster.tscn" id="12_6xdus"]
+[ext_resource type="PackedScene" path="res://spawned_monster.tscn" id="12_6xdus"]
 [ext_resource type="Script" path="res://ui/web_inventory.gd" id="12_ljgqm"]
 [ext_resource type="Script" path="res://room/WebButton.gd" id="12_pl5k3"]
 [ext_resource type="AudioStream" uid="uid://by7hhh3rqahvy" path="res://assets/sfx/wet/creature_slime_01.ogg" id="13_st6vo"]
 [ext_resource type="Script" path="res://room/OrbButton.gd" id="15_g2uuf"]
 [ext_resource type="PackedScene" uid="uid://b4rmp8sxp45a1" path="res://orb/orb.tscn" id="15_k2ef7"]
+
+[sub_resource type="Animation" id="Animation_pla64"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(73, 55)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
 
 [sub_resource type="Animation" id="Animation_u4bmi"]
 resource_name = "spawn_animation"
@@ -72,57 +123,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [Vector2(0.5, 0.5), Vector2(0.316148, 0.587329), Vector2(0.316148, 0.587329), Vector2(0.5, 0.5)]
-}
-
-[sub_resource type="Animation" id="Animation_pla64"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(73, 55)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.5, 0.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i6his"]
@@ -549,10 +549,10 @@ anchor_left = 0.121667
 anchor_top = 0.891667
 anchor_right = 0.121667
 anchor_bottom = 0.891667
-offset_left = -73.0
+offset_left = -73.0002
 offset_top = -93.0
 offset_right = 527.0
-offset_bottom = 7.0
+offset_bottom = 6.99996
 metadata/_edit_use_anchors_ = true
 
 [node name="MinimizeButton" type="Button" parent="PlayerInventoryMenu/Panel"]
@@ -589,7 +589,6 @@ top_level = true
 centered = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
 anchor_mode = 0
 
 [connection signal="child_entered_tree" from="." to="InventoryManagement" method="_on_room_child_entered_tree"]

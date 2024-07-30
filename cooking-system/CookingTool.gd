@@ -10,8 +10,7 @@ func apply_tool_effect(ingredient_node):
 	pass #TODO
 
 
-# returns true or false
-# modifies input array
+# returns false or an item id
 func resolve_recipe(ingredients : Array):
 	
 	var found_recipe = null
@@ -26,10 +25,12 @@ func resolve_recipe(ingredients : Array):
 		return false
 
 	else:
-		var result_node = create_ingredient(found_recipe)
-		add_ingredient_stats(result_node, ingredients)
-		apply_tool_effect(result_node)
-		return result_node
+		#var result_node = create_ingredient(found_recipe)
+		#add_ingredient_stats(result_node, ingredients)
+		#apply_tool_effect(result_node)
+		#ingredients.clear()
+		#ingredients.push_back(result_node)
+		return found_recipe
 
 
 #########################################################
@@ -174,4 +175,4 @@ func create_ingredient(found_recipe_id):
 func add_ingredient_stats(result_node, ingredients):
 	
 	for ing in ingredients:
-		result_node.get_data("stats").resolve_with(ing.get_data("stats"))
+		result_node.get_stats().resolve_with(ing.get_stats())

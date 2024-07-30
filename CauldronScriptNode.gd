@@ -16,7 +16,10 @@ func _process(delta):
 
 
 func _on_cook_button_pressed():
-	var is_success = resolve_recipe(inventory.get_item_nodes())
+	var result = resolve_recipe(inventory.get_item_nodes())
+	
+	if result:
+		player_inventory.add_item(result)
 
 
 func _on_test_button_pressed():

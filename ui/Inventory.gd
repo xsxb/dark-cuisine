@@ -91,6 +91,9 @@ func set_item(slot_id, item_id, stack = 1):
 	item_instance.set_icon()
 	item_instance.set_tooltip()
 	
+	#configure stat
+	item_instance.initialize_stats()
+	
 	#Update inventory data:
 	inv_data[slot_id] = Vector2i(item_id,stack)
 	

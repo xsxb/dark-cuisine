@@ -25,8 +25,15 @@ var inv_slot : int
 ##Below is a quick
 var ing_name
 var description
-@export var stats : Node
+var stats : Stats
 var types
+
+func _init(p_name = "", p_description = "", p_types = []):
+	ing_name = p_name
+	description = p_description
+	types = p_types
+	stats = stat_scene.instantiate()
+	add_child(stats)
 
 
 func _ready():
@@ -74,11 +81,21 @@ func _on_pressed():
 ## ingredient functionality ##
 # TODO make this two seperate nodes with a Item root object
 
+
+func initialize_stats():
+	stats.set_to(get_data("stats"))
+
+
+func get_stats():
+	return stats
+
+
 func get_data(key : String):
 	if item_data.has(key):
 		return item_data[key]
 	else:
 		return false
+
 
 # Hilfsfunktion um Kerneigenschaften in einer Zeile zu nutzen
 func print_line(): 
