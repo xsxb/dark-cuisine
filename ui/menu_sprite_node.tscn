@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://5cv0gy4n3agj"]
+
+[ext_resource type="Script" path="res://MenuSpriteNode.gd" id="1_xxql1"]
+
+[node name="MenuSpriteNode" type="Node2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_xxql1")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
