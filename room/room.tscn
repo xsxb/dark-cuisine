@@ -481,10 +481,12 @@ text = "Cook"
 [node name="ClearButton" type="Button" parent="Tools/CauldronButton/CauldronMenu/BackgroundPanel/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("4_p5ch1")
+disabled = true
 text = "Clear"
 
 [node name="TestButton" type="Button" parent="Tools/CauldronButton/CauldronMenu/BackgroundPanel/VBoxContainer"]
 layout_mode = 2
+disabled = true
 text = "Tester"
 
 [node name="ExitButton" type="Button" parent="Tools/CauldronButton/CauldronMenu/BackgroundPanel"]
@@ -663,7 +665,7 @@ anchor_bottom = 0.891667
 offset_left = -73.0002
 offset_top = -93.0
 offset_right = 527.0
-offset_bottom = 6.99991
+offset_bottom = 6.99987
 metadata/_edit_use_anchors_ = true
 
 [node name="MinimizeButton" type="Button" parent="PlayerInventoryMenu/Panel"]
