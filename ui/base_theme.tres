@@ -8,5 +8,8 @@ texture = ExtResource("2_5o4qy")
 region_rect = Rect2(35.5639, 147.82, 407.282, 181.231)
 
 [resource]
+default_font = ExtResource("1_y33ra")
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 Button/fonts/font = ExtResource("1_y33ra")
 Button/styles/normal = SubResource("StyleBoxTexture_556k7")
+RichTextLabel/colors/default_color = Color(0.292322, 0.142936, 2.40654e-08, 1)
