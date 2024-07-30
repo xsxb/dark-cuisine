@@ -57,7 +57,7 @@ var item_table = {
 		"description" : "This shouldn't exist. Someone messed up.",
 		"types" : ["error"],
 		"stats" : {"healthy" : -5, "smart" : -5, "magic" : 5, "repulsive" : 5},
-		"icon" : "res://assets/art/Icons/veg/shadow/1.png",
+		"icon" : "res://assets/art/25 Icons/-1 Strange Ooze.png",
 		"max_stack" : 20
 	},
 	
@@ -66,7 +66,7 @@ var item_table = {
 		"description" : "Crunchy",
 		"types" : ["fruit", "solid"],
 		"stats" : {"healthy" : 2, "smart" : 1},
-		"icon" : "res://assets/art/Icons/veg/shadow/1.png",
+		"icon" : "res://assets/art/25 Icons/01 Apple.png",
 		"max_stack" : 20
 	},
 	
@@ -75,7 +75,7 @@ var item_table = {
 		"description" : "Very crunchy",
 		"types" : ["solid", "inedible"],
 		"stats" : {"healthy" : -1, "sneak" : -1},
-		"icon" : "res://assets/art/Icons/veg/shadow/2.png",
+		"icon" : "res://assets/art/25 Icons/02 Pine cone.png",
 		"max_stack" : 20
 	},
 	
@@ -84,7 +84,7 @@ var item_table = {
 		"description" : "Crunchy at first",
 		"types" : ["solid", "fruit"],
 		"stats" : {"healthy" : 1},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/03 Pineapple.png",
 		"max_stack" : 20
 	},
 	
@@ -93,7 +93,7 @@ var item_table = {
 		"description" : "One of my greatest achievements.",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/04 Instant noodles.png",
 		"max_stack" : 20
 	},
 	
@@ -102,7 +102,7 @@ var item_table = {
 		"description" : "A complex taste for intellectual pallettes.",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/05 Poodles.png",
 		"max_stack" : 20
 	},
 	
@@ -111,7 +111,7 @@ var item_table = {
 		"description" : "Can't read, gotta eat.",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/06 Tome.png",
 		"max_stack" : 20
 	},
 	
@@ -120,7 +120,7 @@ var item_table = {
 		"description" : "Made me who I am today.",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/07 Alphabet soup.png",
 		"max_stack" : 20
 	},
 	
@@ -129,7 +129,7 @@ var item_table = {
 		"description" : "",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/08 Cold Coffee.png",
 		"max_stack" : 20
 	},
 	
@@ -138,7 +138,7 @@ var item_table = {
 		"description" : "The heart.",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/09 Pure Caffeine.png",
 		"max_stack" : 20
 	},
 	
@@ -147,7 +147,7 @@ var item_table = {
 		"description" : "Mhhh...",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/10 Energy Potion Blue.png",
 		"max_stack" : 20
 	},
 	
@@ -156,7 +156,7 @@ var item_table = {
 		"description" : "Tempting",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/11 Super Hot Chili.png",
 		"max_stack" : 20
 	},
 	
@@ -165,7 +165,7 @@ var item_table = {
 		"description" : "Oh my!",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/12 Energy Potion Red.png",
 		"max_stack" : 20
 	},
 	
@@ -174,7 +174,7 @@ var item_table = {
 		"description" : "",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/13 Ketchup.png",
 		"max_stack" : 20
 	},
 	
@@ -183,7 +183,7 @@ var item_table = {
 		"description" : "",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/14 Cold Pizza Slice.png",
 		"max_stack" : 20
 	},
 	
@@ -192,7 +192,7 @@ var item_table = {
 		"description" : "Could pass for dough... if you don't smell it",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/15 Wheeaty Goop.png",
 		"max_stack" : 20
 	},
 	
@@ -201,7 +201,7 @@ var item_table = {
 		"description" : "What is this? Why is this in my room??",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/16 Eye Thing.png",
 		"max_stack" : 20
 	},
 	
@@ -210,7 +210,7 @@ var item_table = {
 		"description" : "Looking delicious",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/17 Pieye.png",
 		"max_stack" : 20
 	},
 	
@@ -219,7 +219,7 @@ var item_table = {
 		"description" : "",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/18 Idiot Sandwich.png",
 		"max_stack" : 20
 	},
 	
@@ -228,7 +228,7 @@ var item_table = {
 		"description" : "See? They're fine!",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/19 Mushrooms Kopie.png",
 		"max_stack" : 20
 	},
 	
@@ -237,7 +237,7 @@ var item_table = {
 		"description" : "Surely useful for something...",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/20 Moldy Sock.png",
 		"max_stack" : 20
 	},
 	
@@ -246,7 +246,7 @@ var item_table = {
 		"description" : "",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/21 Toast.png",
 		"max_stack" : 20
 	},
 	
@@ -255,7 +255,7 @@ var item_table = {
 		"description" : "Always wondered what a British is",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/22 British Sandwich.png",
 		"max_stack" : 20
 	},
 	
@@ -264,7 +264,7 @@ var item_table = {
 		"description" : "",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/23 Tortillas.png",
 		"max_stack" : 20
 	},
 	
@@ -273,7 +273,7 @@ var item_table = {
 		"description" : "The soul.",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/24 Shaddow Essence.png",
 		"max_stack" : 20
 	},
 	
@@ -282,7 +282,7 @@ var item_table = {
 		"description" : "IT IS DONE!",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/25 Energy Potion Shadow.png",
 		"max_stack" : 20
 	},
 	

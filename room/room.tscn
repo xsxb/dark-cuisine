@@ -665,7 +665,7 @@ anchor_bottom = 0.891667
 offset_left = -73.0002
 offset_top = -93.0
 offset_right = 527.0
-offset_bottom = 6.99987
+offset_bottom = 6.99983
 metadata/_edit_use_anchors_ = true
 
 [node name="MinimizeButton" type="Button" parent="PlayerInventoryMenu/Panel"]
