@@ -9,8 +9,8 @@ var creature : Creature
 var ingredients : Array
 var tools : Array
 
-var ingredient_scene = load("res://cooking-tester/ingredient.tscn")
-var creature_scene = load("res://cooking-tester/Creature.tscn")
+var ingredient_scene = load("res://cooking-system/ingredient.tscn")
+var creature_scene = load("res://cooking-system/Creature.tscn")
 
 #TODO where should this function go?
 func create_ingredient(id):
@@ -59,7 +59,7 @@ func _on_button_cauldron_pressed():
 	if result:
 		res_text += result.print_block()
 	else:
-		res_text += "a failue!"
+		res_text += "a failure!"
 	
 	$Text_Output.text = res_text
 	ingredients.clear()
@@ -75,7 +75,7 @@ func _on_button_ingr_pressed():
 	var id = int($TextEdit_ID.text)
 	$TextEdit_ID.text = ""
 
-	if id < 49 || id > 51:
+	if id < 1 || id > Global.item_table.size():
 		return
 	
 	var node = create_ingredient(id)

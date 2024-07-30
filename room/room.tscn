@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://ui/PlayerInventory.gd" id="8_feovw"]
 [ext_resource type="Script" path="res://room/CauldronButton.gd" id="10_bkrb2"]
 [ext_resource type="AudioStream" uid="uid://bgcrkr17w5k60" path="res://assets/music/lab_beat01.mp3" id="11_urlu4"]
-[ext_resource type="PackedScene" uid="uid://c32o5n4thngoo" path="res://spawned_monster.tscn" id="12_6xdus"]
+[ext_resource type="PackedScene" path="res://spawned_monster.tscn" id="12_6xdus"]
 [ext_resource type="Script" path="res://room/OrbButton.gd" id="15_g2uuf"]
 [ext_resource type="PackedScene" uid="uid://b4rmp8sxp45a1" path="res://orb/orb.tscn" id="15_k2ef7"]
 

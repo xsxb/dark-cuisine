@@ -6,7 +6,7 @@ var title : String
 var description : String
 
 #var creature_name : String # for randomly generated names
-var stat_scene = preload("res://cooking-tester/Stats.tscn")
+var stat_scene = preload("res://cooking-system/Stats.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _init():

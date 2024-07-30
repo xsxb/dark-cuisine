@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://caxrexn0e3rwp"]
 
-[ext_resource type="Script" path="res://cooking-tester/Main.gd" id="1_d0xmu"]
-[ext_resource type="Script" path="res://cooking-tester/Ingredient.gd" id="3_23qb6"]
-[ext_resource type="Script" path="res://cooking-tester/Summoner.gd" id="4_o5mdy"]
-[ext_resource type="PackedScene" uid="uid://of7qamp5y4g4" path="res://cooking-tester/tool-scenes/Cauldron.tscn" id="5_htxxq"]
+[ext_resource type="Script" path="res://cooking-system/test-ui/Main.gd" id="1_d0xmu"]
+[ext_resource type="Script" path="res://cooking-system/Ingredient.gd" id="3_23qb6"]
+[ext_resource type="Script" path="res://cooking-system/Summoner.gd" id="4_o5mdy"]
+[ext_resource type="PackedScene" uid="uid://of7qamp5y4g4" path="res://cooking-system/tool-scenes/Cauldron.tscn" id="5_htxxq"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("text_output", "text_ingredients")]
 script = ExtResource("1_d0xmu")

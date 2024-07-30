@@ -3,8 +3,87 @@ extends Node
 ##Global script
 ##All predefined data goes in here
 
-#Item definitions:
+enum REQ {EQUAL, GREATER_EQUAL, LESS_EQUAL, GREATER, LESS}
+var creature_table = {
+	
+	1 : {
+		"title" : "The General",
+		"description" : "Louder than the students upstairs.",
+		"requirements" : {"inspire" : [REQ.GREATER, 0], "smash" : [REQ.GREATER, 0], "big" : [REQ.GREATER_EQUAL, 3], "smart" : [REQ.GREATER_EQUAL, 2], "healthy" : [REQ.GREATER_EQUAL, 2], "strong" : [REQ.GREATER_EQUAL, 2], "repulsive" : [REQ.LESS_EQUAL, 0]}
+	},
+	
+	2 : {
+		"title" : "The Wizard",
+		"description" : "Keeps setting things on fire.",
+		"requirements" : {"magic" : [REQ.GREATER, 0], "smart" : [REQ.GREATER_EQUAL, 3]}
+	},
+	
+	3 : {
+		"title" : "The Rogue",
+		"description" : "Somehow makes cardboard boxes appear.",
+		"requirements" : {"healthy" : [REQ.GREATER_EQUAL, 1], "sneak" : [REQ.GREATER, 0], "smart" : [REQ.GREATER_EQUAL, 2],
+		"big" : [REQ.LESS_EQUAL, 0], "inspiring" : [REQ.LESS_EQUAL, 0], "repulsive" : [REQ.LESS_EQUAL, 0]}
+	},
+	
+	4 : {
+		"title" : "The Barbarian",
+		"description" : "Mindlessly swings those big meat fists around.",
+		"requirements" : {"healthy" : [REQ.GREATER_EQUAL, 3], "big" : [REQ.GREATER_EQUAL, 2], "smash" : [REQ.GREATER, 0]}
+	},
+	
+	5 : {
+		"title" : "The Cannonfodder",
+		"description" : "Can walk in a straight line and doesn't smell too awful.",
+		"requirements" : {"healthy" : [REQ.GREATER, 0], "repulsive" : [REQ.LESS_EQUAL, 0]}
+	},
+	
+	0 : {
+		"title" : "The Blob",
+		"description" : "Not useful for anything...",
+		"requirements" : {}
+	}
+}
+
 var item_table = {
+	
+	
+	1 : {
+		"name" : "Apple",
+		"description" : "Crunchy",
+		"types" : ["fruit", "solid"],
+		"stats" : {"healthy" : 2, "smart" : 1},
+		"icon" : "res://assets/art/Icons/veg/shadow/1.png",
+		"max_stack" : 20
+	},
+	
+	2 : {
+		"name" : "Pine Cone",
+		"description" : "Very crunchy",
+		"types" : ["solid", "inedible"],
+		"stats" : {"healthy" : -1, "sneak" : -1},
+		"icon" : "res://assets/art/Icons/veg/shadow/2.png",
+		"max_stack" : 20
+	},
+	
+	3 : {
+		"name" : "Pineapple",
+		"description" : "Crunchy at first",
+		"types" : ["solid", "fruit"],
+		"stats" : {"healthy" : 1},
+		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"max_stack" : 20
+	}
+	
+}
+
+
+
+
+
+
+
+#Item definitions:
+var item_table_test = {
 	1 : {
 	"name" : "Brucola", 
 	"icon" : "res://assets/art/Icons/veg/shadow/1.png", 

@@ -6,7 +6,7 @@ extends Node
 @export var stats : Stats
 @export var types : Array
 
-var stat_scene = preload("res://cooking-tester/Stats.tscn")
+var stat_scene = preload("res://cooking-system/Stats.tscn")
 
 
 func _init(p_name = "", p_description = "", p_types = []):

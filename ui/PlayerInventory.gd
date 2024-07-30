@@ -11,11 +11,13 @@ func _ready():
 	}
 	
 	#Manually filling inventory with test items:
-	set_item(0,1,1)
-	set_item(1,2,5)
-	set_item(2,16,3)
-	set_item(3,17,3)
-	set_item(4,20,15)
+	add_item(1)
+	add_item(2)
+	#set_item(0,1,1)
+	#set_item(1,2,5)
+	#set_item(2,16,3)
+	#set_item(3,17,3)
+	#set_item(4,20,15)
 
 
 func _process(delta):

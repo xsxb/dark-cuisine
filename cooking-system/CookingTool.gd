@@ -1,6 +1,6 @@
 class_name CookingTool extends Node
 
-var ingredient_scene = preload("res://cooking-tester/ingredient.tscn")
+var ingredient_scene = preload("res://cooking-system/ingredient.tscn")
 
 # in tool instances: define recipes in the ready() function
 var recipes : Dictionary
