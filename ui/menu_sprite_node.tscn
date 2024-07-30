@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://MenuSpriteNode.gd" id="1_xxql1"]
 
 [node name="MenuSpriteNode" type="Node2D" node_paths=PackedStringArray("sprite")]
+show_behind_parent = true
 script = ExtResource("1_xxql1")
 sprite = NodePath("Sprite2D")
 

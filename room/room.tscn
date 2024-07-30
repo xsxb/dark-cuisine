@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://co0n2vsrb61it"]
+[gd_scene load_steps=39 format=3 uid="uid://co0n2vsrb61it"]
 
 [ext_resource type="Script" path="res://room/room.gd" id="1_aaa8y"]
 [ext_resource type="Texture2D" uid="uid://c8c20xfdorqtw" path="res://assets/art/Placeholder/Background_Lab_P01.png" id="2_kadsc"]
@@ -16,11 +16,19 @@
 [ext_resource type="Script" path="res://ui/fridge_inventory.gd" id="11_40qd2"]
 [ext_resource type="AudioStream" uid="uid://bgcrkr17w5k60" path="res://assets/music/lab_beat01.mp3" id="11_urlu4"]
 [ext_resource type="PackedScene" uid="uid://c32o5n4thngoo" path="res://spawned_monster.tscn" id="12_6xdus"]
-[ext_resource type="Script" path="res://ui/web_inventory.gd" id="12_ljgqm"]
 [ext_resource type="Script" path="res://room/WebButton.gd" id="12_pl5k3"]
 [ext_resource type="AudioStream" uid="uid://by7hhh3rqahvy" path="res://assets/sfx/wet/creature_slime_01.ogg" id="13_st6vo"]
+[ext_resource type="Script" path="res://ui/WebInventory.gd" id="14_fan5f"]
 [ext_resource type="Script" path="res://room/OrbButton.gd" id="15_g2uuf"]
 [ext_resource type="PackedScene" uid="uid://b4rmp8sxp45a1" path="res://orb/orb.tscn" id="15_k2ef7"]
+[ext_resource type="Script" path="res://room/DistilleryButton.gd" id="19_bhb3k"]
+[ext_resource type="Script" path="res://room/DistilleryMenu.gd" id="20_gb632"]
+[ext_resource type="Script" path="res://ui/DistilleryInventory.gd" id="21_s2int"]
+[ext_resource type="Script" path="res://room/SummoningButton.gd" id="22_a7hiw"]
+[ext_resource type="Script" path="res://room/DistilleryScriptNode.gd" id="22_l51tt"]
+[ext_resource type="Script" path="res://room/SummoningMenu.gd" id="26_sa6e0"]
+[ext_resource type="Script" path="res://ui/SummoningInventory.gd" id="26_xxhus"]
+[ext_resource type="Script" path="res://room/SummoningScriptNode.gd" id="27_2fp73"]
 
 [sub_resource type="Animation" id="Animation_pla64"]
 length = 0.001
@@ -295,8 +303,8 @@ inventory_management = NodePath("../../../../../InventoryManagement")
 
 [node name="CloseButton" type="Button" parent="Clickables/FridgeButton/Control"]
 layout_mode = 0
-offset_right = 18.0
-offset_bottom = 31.0
+offset_right = 30.0
+offset_bottom = 30.0
 text = "X"
 
 [node name="ShelfLeftButton" type="TextureButton" parent="Clickables"]
@@ -361,6 +369,7 @@ libraries = {
 stream = ExtResource("13_st6vo")
 
 [node name="Control" type="Control" parent="Clickables/WebButton"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -373,8 +382,10 @@ offset_bottom = 40.0
 
 [node name="Button" type="Button" parent="Clickables/WebButton/Control/Panel"]
 layout_mode = 0
-offset_right = 11.0
-offset_bottom = 17.0
+offset_left = 10.0
+offset_top = 13.0
+offset_right = 21.0
+offset_bottom = 30.0
 text = "X"
 
 [node name="WebInventory" parent="Clickables/WebButton/Control/Panel" node_paths=PackedStringArray("spawn_timer", "spawn_animation_player", "spawn_audio_stream", "inventory_management") instance=ExtResource("7_8x0ij")]
@@ -382,7 +393,7 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 20.0
 offset_bottom = 20.0
-script = ExtResource("12_ljgqm")
+script = ExtResource("14_fan5f")
 spawn_timer = NodePath("SpawnTimer")
 spawn_animation_player = NodePath("../../../SpawnFeedback/SpawnAnimation")
 spawn_audio_stream = NodePath("../../../SpawnFeedback/SpawnSFX")
@@ -410,6 +421,7 @@ offset_left = 645.0
 offset_top = 417.0
 offset_right = 768.0
 offset_bottom = 499.0
+theme = ExtResource("4_p5ch1")
 texture_hover = ExtResource("5_08sp5")
 ignore_texture_size = true
 stretch_mode = 0
@@ -496,14 +508,57 @@ texture_hover = ExtResource("5_08sp5")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="DistilleryButton" type="TextureButton" parent="Tools"]
+[node name="DistilleryButton" type="TextureButton" parent="Tools" node_paths=PackedStringArray("menu")]
 offset_left = 1017.0
 offset_top = 465.0
 offset_right = 1144.0
 offset_bottom = 656.0
+theme = ExtResource("4_p5ch1")
 texture_hover = ExtResource("5_08sp5")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("19_bhb3k")
+menu = NodePath("DistilleryMenu")
+
+[node name="DistilleryMenu" type="Control" parent="Tools/DistilleryButton" node_paths=PackedStringArray("script_node", "background_panel")]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("20_gb632")
+script_node = NodePath("DistilleryScriptNode")
+background_panel = NodePath("BackgroundPanel")
+
+[node name="BackgroundPanel" type="Panel" parent="Tools/DistilleryButton/DistilleryMenu"]
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 114.0
+
+[node name="DistilleryInventory" parent="Tools/DistilleryButton/DistilleryMenu/BackgroundPanel" node_paths=PackedStringArray("inventory_management") instance=ExtResource("7_8x0ij")]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
+script = ExtResource("21_s2int")
+columns = 1
+inventory_management = NodePath("../../../../../InventoryManagement")
+
+[node name="DistillButton" type="Button" parent="Tools/DistilleryButton/DistilleryMenu/BackgroundPanel"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 38.0
+offset_right = 181.0
+offset_bottom = 78.0
+text = "Go"
+
+[node name="DistilleryScriptNode" type="Node" parent="Tools/DistilleryButton/DistilleryMenu"]
+script = ExtResource("22_l51tt")
+
+[node name="CloseButton" type="Button" parent="Tools/DistilleryButton/DistilleryMenu"]
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 30.0
+text = "X"
 
 [node name="OrbButton" type="TextureButton" parent="Tools" node_paths=PackedStringArray("menu")]
 offset_left = 568.0
@@ -520,16 +575,69 @@ menu = NodePath("Orb")
 visible = false
 position = Vector2(-224, -405)
 
+[node name="Button" type="Button" parent="Tools/OrbButton/Orb"]
+offset_left = -234.0
+offset_top = -57.0
+offset_right = -216.0
+offset_bottom = -26.0
+theme = ExtResource("4_p5ch1")
+text = "X"
+
 [node name="ZoomInAnimation" type="AnimationPlayer" parent="Tools/OrbButton"]
 
-[node name="SummoningButton" type="TextureButton" parent="Tools"]
+[node name="SummoningButton" type="TextureButton" parent="Tools" node_paths=PackedStringArray("menu")]
 offset_left = 672.0
 offset_top = 489.0
 offset_right = 751.0
 offset_bottom = 539.0
+theme = ExtResource("4_p5ch1")
 texture_hover = ExtResource("5_08sp5")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("22_a7hiw")
+menu = NodePath("SummoningMenu")
+
+[node name="SummoningMenu" type="Control" parent="Tools/SummoningButton" node_paths=PackedStringArray("script_node", "background_panel")]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("26_sa6e0")
+script_node = NodePath("SummoningScriptNode")
+background_panel = NodePath("BackgroundPanel")
+
+[node name="BackgroundPanel" type="Panel" parent="Tools/SummoningButton/SummoningMenu"]
+layout_mode = 0
+offset_right = 277.0
+offset_bottom = 171.0
+
+[node name="SummoningInventory" parent="Tools/SummoningButton/SummoningMenu/BackgroundPanel" node_paths=PackedStringArray("inventory_management") instance=ExtResource("7_8x0ij")]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
+script = ExtResource("26_xxhus")
+columns = 2
+rows = 2
+inventory_management = NodePath("../../../../../InventoryManagement")
+
+[node name="SummonButton" type="Button" parent="Tools/SummoningButton/SummoningMenu/BackgroundPanel"]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 53.0
+offset_right = 268.0
+offset_bottom = 106.0
+text = "Summon
+Dark Spirit"
+
+[node name="SummoningScriptNode" type="Node" parent="Tools/SummoningButton/SummoningMenu"]
+script = ExtResource("27_2fp73")
+
+[node name="CloseButton" type="Button" parent="Tools/SummoningButton/SummoningMenu"]
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 30.0
+text = "X"
 
 [node name="PlayerInventoryMenu" type="Control" parent="." node_paths=PackedStringArray("animation_player")]
 layout_mode = 3
@@ -552,7 +660,7 @@ anchor_bottom = 0.891667
 offset_left = -73.0002
 offset_top = -93.0
 offset_right = 527.0
-offset_bottom = 6.99992
+offset_bottom = 6.99995
 metadata/_edit_use_anchors_ = true
 
 [node name="MinimizeButton" type="Button" parent="PlayerInventoryMenu/Panel"]
@@ -589,6 +697,7 @@ top_level = true
 centered = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 anchor_mode = 0
 
 [connection signal="child_entered_tree" from="." to="InventoryManagement" method="_on_room_child_entered_tree"]
@@ -604,5 +713,12 @@ anchor_mode = 0
 [connection signal="pressed" from="Tools/CauldronButton/CauldronMenu/BackgroundPanel/VBoxContainer/CookButton" to="Tools/CauldronButton/CauldronMenu/CauldronScriptNode" method="_on_cook_button_pressed"]
 [connection signal="pressed" from="Tools/CauldronButton/CauldronMenu/BackgroundPanel/VBoxContainer/TestButton" to="Tools/CauldronButton/CauldronMenu/CauldronScriptNode" method="_on_test_button_pressed"]
 [connection signal="pressed" from="Tools/CauldronButton/CauldronMenu/BackgroundPanel/ExitButton" to="Tools/CauldronButton/CauldronMenu" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Tools/DistilleryButton" to="Tools/DistilleryButton" method="_on_pressed"]
+[connection signal="pressed" from="Tools/DistilleryButton/DistilleryMenu/BackgroundPanel/DistillButton" to="Tools/DistilleryButton/DistilleryMenu" method="_on_distill_button_pressed"]
+[connection signal="pressed" from="Tools/DistilleryButton/DistilleryMenu/CloseButton" to="Tools/DistilleryButton" method="_on_close_button_pressed"]
 [connection signal="pressed" from="Tools/OrbButton" to="Tools/OrbButton" method="_on_pressed"]
+[connection signal="pressed" from="Tools/OrbButton/Orb/Button" to="Tools/OrbButton" method="_on_button_pressed"]
+[connection signal="pressed" from="Tools/SummoningButton" to="Tools/SummoningButton" method="_on_pressed"]
+[connection signal="pressed" from="Tools/SummoningButton/SummoningMenu/BackgroundPanel/SummonButton" to="Tools/SummoningButton/SummoningMenu" method="_on_summon_button_pressed"]
+[connection signal="pressed" from="Tools/SummoningButton/SummoningMenu/CloseButton" to="Tools/SummoningButton/SummoningMenu" method="_on_close_button_pressed"]
 [connection signal="toggled" from="PlayerInventoryMenu/Panel/MinimizeButton" to="PlayerInventoryMenu" method="_on_minimize_button_toggled"]

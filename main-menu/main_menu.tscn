@@ -41,7 +41,6 @@ position = Vector2(212.833, 132.074)
 position = Vector2(560.572, 139.634)
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 4.338
 autostart = true
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

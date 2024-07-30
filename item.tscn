@@ -26,7 +26,7 @@ expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
-[node name="Item" type="TextureButton" node_paths=PackedStringArray("stack_label", "highlight", "stats")]
+[node name="Item" type="TextureButton" node_paths=PackedStringArray("stack_label", "highlight")]
 offset_right = 64.0
 offset_bottom = 64.0
 tooltip_text = "test"
@@ -37,7 +37,6 @@ stretch_mode = 0
 script = ExtResource("1_pxbg1")
 stack_label = NodePath("Panel/StackLabel")
 highlight = NodePath("Highlight")
-stats = NodePath("Stats")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
