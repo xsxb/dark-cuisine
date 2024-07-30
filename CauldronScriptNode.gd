@@ -6,8 +6,9 @@ extends CookingTool
 
 func _ready():
 	recipes = { 
-	"Pineapple" : ["Apple", "Pine Cone"]
-	}
+		51 : ["Apple", "Pine Cone"],
+		#"Energy Potion Red" : ["caffeine", "liquid", "fruit"]
+		}
 
 
 func _process(delta):
@@ -16,9 +17,6 @@ func _process(delta):
 
 func _on_cook_button_pressed():
 	var item_array = inventory.get_item_nodes()
-	
-	##Function testing:
-	inventory.remove_item(6)
 	
 	resolve_recipe(item_array)
 

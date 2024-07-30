@@ -14,7 +14,9 @@ func _on_timer_timeout():
 	init()
 	
 	#Fill with test data
-	set_item(0,7,1)
-	set_item(1,6,1)
-	set_item(2,5,1)
-	set_item(3,22,6)
+	add_item(1)
+	add_item(2)
+	#set_item(0,7,1)
+	#set_item(1,6,1)
+	#set_item(2,5,1)
+	#set_item(3,22,6)
