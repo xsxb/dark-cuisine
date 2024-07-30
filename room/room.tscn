@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://co0n2vsrb61it"]
+[gd_scene load_steps=31 format=3 uid="uid://co0n2vsrb61it"]
 
 [ext_resource type="Script" path="res://room/room.gd" id="1_aaa8y"]
 [ext_resource type="Texture2D" uid="uid://c8c20xfdorqtw" path="res://assets/art/Placeholder/Background_Lab_P01.png" id="2_kadsc"]
@@ -12,10 +12,129 @@
 [ext_resource type="Script" path="res://CauldronScriptNode.gd" id="8_4jpey"]
 [ext_resource type="Script" path="res://ui/PlayerInventory.gd" id="8_feovw"]
 [ext_resource type="Script" path="res://room/CauldronButton.gd" id="10_bkrb2"]
+[ext_resource type="Script" path="res://room/FridgeButton.gd" id="10_hydeq"]
+[ext_resource type="Script" path="res://ui/fridge_inventory.gd" id="11_40qd2"]
 [ext_resource type="AudioStream" uid="uid://bgcrkr17w5k60" path="res://assets/music/lab_beat01.mp3" id="11_urlu4"]
 [ext_resource type="PackedScene" uid="uid://c32o5n4thngoo" path="res://spawned_monster.tscn" id="12_6xdus"]
+[ext_resource type="Script" path="res://ui/web_inventory.gd" id="12_ljgqm"]
+[ext_resource type="Script" path="res://room/WebButton.gd" id="12_pl5k3"]
+[ext_resource type="AudioStream" uid="uid://by7hhh3rqahvy" path="res://assets/sfx/wet/creature_slime_01.ogg" id="13_st6vo"]
 [ext_resource type="Script" path="res://room/OrbButton.gd" id="15_g2uuf"]
 [ext_resource type="PackedScene" uid="uid://b4rmp8sxp45a1" path="res://orb/orb.tscn" id="15_k2ef7"]
+
+[sub_resource type="Animation" id="Animation_u4bmi"]
+resource_name = "spawn_animation"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 0.0852886, -0.219189, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(73, 55), Vector2(73, 55), Vector2(73, 55), Vector2(73, 55)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0.5, 0.5), Vector2(0.316148, 0.587329), Vector2(0.316148, 0.587329), Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_pla64"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(73, 55)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i6his"]
+_data = {
+"RESET": SubResource("Animation_pla64"),
+"spawn_animation": SubResource("Animation_u4bmi")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvofs"]
+
+[sub_resource type="Theme" id="Theme_klli4"]
+Panel/styles/panel = SubResource("StyleBoxFlat_pvofs")
 
 [sub_resource type="GDScript" id="GDScript_jn38e"]
 script/source = "extends Control
@@ -45,14 +164,26 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("Panel:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(257, 540)]
+"values": [Vector2(0, 14)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_kyf1q"]
@@ -60,14 +191,26 @@ resource_name = "minimize"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("Panel:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(257, 540), Vector2(257, 641)]
+"values": [Vector2(0, 18), Vector2(0, 96)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fmit7"]
@@ -75,11 +218,6 @@ _data = {
 "RESET": SubResource("Animation_7sqqv"),
 "minimize": SubResource("Animation_kyf1q")
 }
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvofs"]
-
-[sub_resource type="Theme" id="Theme_klli4"]
-Panel/styles/panel = SubResource("StyleBoxFlat_pvofs")
 
 [node name="Room" type="Node2D" node_paths=PackedStringArray("cauldron_button")]
 script = ExtResource("1_aaa8y")
@@ -91,56 +229,6 @@ scale = Vector2(0.57, 0.57)
 texture = ExtResource("2_kadsc")
 centered = false
 metadata/_edit_lock_ = true
-
-[node name="PlayerInventoryMenu" type="Control" parent="." node_paths=PackedStringArray("animation_player")]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_left = 257.0
-offset_top = 540.0
-offset_right = 857.0
-offset_bottom = 660.0
-script = SubResource("GDScript_jn38e")
-animation_player = NodePath("MenuAnimation")
-metadata/_edit_use_anchors_ = true
-
-[node name="Panel" type="Panel" parent="PlayerInventoryMenu"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = -0.05
-anchor_bottom = -0.05
-offset_top = 6.0
-offset_right = 600.0
-offset_bottom = 126.0
-metadata/_edit_use_anchors_ = true
-
-[node name="MinimizeButton" type="Button" parent="PlayerInventoryMenu/Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.02
-anchor_top = 0.025
-anchor_right = -0.02
-anchor_bottom = 0.025
-offset_left = 261.0
-offset_top = -32.0
-offset_right = 340.0
-offset_bottom = -1.0
-toggle_mode = true
-text = "Minimize"
-metadata/_edit_use_anchors_ = true
-
-[node name="PlayerInventory" parent="PlayerInventoryMenu/Panel" node_paths=PackedStringArray("inventory_management") instance=ExtResource("7_8x0ij")]
-layout_mode = 1
-script = ExtResource("8_feovw")
-inv_id = 1
-inventory_management = NodePath("../../../InventoryManagement")
-metadata/_edit_use_anchors_ = true
-
-[node name="MenuAnimation" type="AnimationPlayer" parent="PlayerInventoryMenu"]
-libraries = {
-"": SubResource("AnimationLibrary_fmit7")
-}
-speed_scale = 4.0
 
 [node name="BlubberLoopAudioStream" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_3ggf8")
@@ -163,7 +251,16 @@ position = Vector2(519, 445)
 
 [node name="Clickables" type="Node" parent="."]
 
-[node name="FridgeButton" type="TextureButton" parent="Clickables"]
+[node name="PlantLeftButton" type="TextureButton" parent="Clickables"]
+offset_left = 516.0
+offset_top = 340.0
+offset_right = 580.0
+offset_bottom = 414.0
+texture_hover = ExtResource("5_08sp5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="FridgeButton" type="TextureButton" parent="Clickables" node_paths=PackedStringArray("menu")]
 offset_left = 387.0
 offset_top = 323.0
 offset_right = 451.0
@@ -171,6 +268,36 @@ offset_bottom = 473.0
 texture_hover = ExtResource("5_08sp5")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("10_hydeq")
+menu = NodePath("Control")
+
+[node name="Control" type="Control" parent="Clickables/FridgeButton"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("4_p5ch1")
+
+[node name="Panel" type="Panel" parent="Clickables/FridgeButton/Control"]
+layout_mode = 0
+offset_right = 162.0
+offset_bottom = 238.0
+
+[node name="FridgeInventory" parent="Clickables/FridgeButton/Control/Panel" node_paths=PackedStringArray("inventory_management") instance=ExtResource("7_8x0ij")]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
+script = ExtResource("11_40qd2")
+columns = 2
+rows = 3
+inventory_management = NodePath("../../../../../InventoryManagement")
+
+[node name="CloseButton" type="Button" parent="Clickables/FridgeButton/Control"]
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 31.0
+text = "X"
 
 [node name="ShelfLeftButton" type="TextureButton" parent="Clickables"]
 offset_left = 126.0
@@ -199,15 +326,6 @@ texture_hover = ExtResource("5_08sp5")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="PlantLeftButton" type="TextureButton" parent="Clickables"]
-offset_left = 516.0
-offset_top = 340.0
-offset_right = 580.0
-offset_bottom = 414.0
-texture_hover = ExtResource("5_08sp5")
-ignore_texture_size = true
-stretch_mode = 0
-
 [node name="PlantRightButton" type="TextureButton" parent="Clickables"]
 offset_left = 648.0
 offset_top = 340.0
@@ -217,7 +335,7 @@ texture_hover = ExtResource("5_08sp5")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="WebButton" type="TextureButton" parent="Clickables"]
+[node name="WebButton" type="TextureButton" parent="Clickables" node_paths=PackedStringArray("menu")]
 offset_left = 693.0
 offset_top = 178.0
 offset_right = 824.0
@@ -225,6 +343,56 @@ offset_bottom = 322.0
 texture_hover = ExtResource("5_08sp5")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("12_pl5k3")
+menu = NodePath("Control")
+
+[node name="SpawnFeedback" type="Sprite2D" parent="Clickables/WebButton"]
+visible = false
+position = Vector2(73, 55)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_08sp5")
+
+[node name="SpawnAnimation" type="AnimationPlayer" parent="Clickables/WebButton/SpawnFeedback"]
+libraries = {
+"": SubResource("AnimationLibrary_i6his")
+}
+
+[node name="SpawnSFX" type="AudioStreamPlayer2D" parent="Clickables/WebButton/SpawnFeedback"]
+stream = ExtResource("13_st6vo")
+
+[node name="Control" type="Control" parent="Clickables/WebButton"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("4_p5ch1")
+
+[node name="Panel" type="Panel" parent="Clickables/WebButton/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Clickables/WebButton/Control/Panel"]
+layout_mode = 0
+offset_right = 11.0
+offset_bottom = 17.0
+text = "X"
+
+[node name="WebInventory" parent="Clickables/WebButton/Control/Panel" node_paths=PackedStringArray("spawn_timer", "spawn_animation_player", "spawn_audio_stream", "inventory_management") instance=ExtResource("7_8x0ij")]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
+script = ExtResource("12_ljgqm")
+spawn_timer = NodePath("SpawnTimer")
+spawn_animation_player = NodePath("../../../SpawnFeedback/SpawnAnimation")
+spawn_audio_stream = NodePath("../../../SpawnFeedback/SpawnSFX")
+columns = 2
+rows = 2
+inventory_management = NodePath("../../../../../InventoryManagement")
+
+[node name="SpawnTimer" type="Timer" parent="Clickables/WebButton/Control/Panel/WebInventory"]
+wait_time = 45.0
+autostart = true
 
 [node name="PosterButton" type="TextureButton" parent="Clickables"]
 offset_left = 1039.0
@@ -363,6 +531,58 @@ texture_hover = ExtResource("5_08sp5")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="PlayerInventoryMenu" type="Control" parent="." node_paths=PackedStringArray("animation_player")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 259.0
+offset_top = 551.0
+offset_right = 859.0
+offset_bottom = 671.0
+script = SubResource("GDScript_jn38e")
+animation_player = NodePath("MenuAnimation")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="PlayerInventoryMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.121667
+anchor_top = 0.891667
+anchor_right = 0.121667
+anchor_bottom = 0.891667
+offset_left = -73.0
+offset_top = -93.0
+offset_right = 527.0
+offset_bottom = 7.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MinimizeButton" type="Button" parent="PlayerInventoryMenu/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.434188
+anchor_top = -0.0106381
+anchor_right = -0.434188
+anchor_bottom = -0.0106381
+offset_left = 261.0
+offset_top = -32.0
+offset_right = 340.0
+offset_bottom = -1.0
+toggle_mode = true
+text = "Minimize"
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerInventory" parent="PlayerInventoryMenu/Panel" node_paths=PackedStringArray("inventory_management") instance=ExtResource("7_8x0ij")]
+layout_mode = 1
+script = ExtResource("8_feovw")
+inv_id = 1
+inventory_management = NodePath("../../../InventoryManagement")
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuAnimation" type="AnimationPlayer" parent="PlayerInventoryMenu"]
+libraries = {
+"": SubResource("AnimationLibrary_fmit7")
+}
+speed_scale = 4.0
+
 [node name="CursorItemSprite" type="Sprite2D" parent="."]
 visible = false
 top_level = true
@@ -372,12 +592,17 @@ centered = false
 anchor_mode = 0
 
 [connection signal="child_entered_tree" from="." to="InventoryManagement" method="_on_room_child_entered_tree"]
-[connection signal="toggled" from="PlayerInventoryMenu/Panel/MinimizeButton" to="PlayerInventoryMenu" method="_on_minimize_button_toggled"]
-[connection signal="ready" from="InventoryManagement" to="PlayerInventoryMenu/Panel/PlayerInventory" method="_on_inventory_management_ready"]
 [connection signal="ready" from="InventoryManagement" to="Tools/CauldronButton/CauldronMenu/BackgroundPanel/CauldronInventory" method="_on_inventory_management_ready"]
+[connection signal="ready" from="InventoryManagement" to="PlayerInventoryMenu/Panel/PlayerInventory" method="_on_inventory_management_ready"]
+[connection signal="pressed" from="Clickables/FridgeButton" to="Clickables/FridgeButton" method="_on_pressed"]
+[connection signal="pressed" from="Clickables/FridgeButton/Control/CloseButton" to="Clickables/FridgeButton" method="_on_close_button_pressed"]
+[connection signal="pressed" from="Clickables/WebButton" to="Clickables/WebButton" method="_on_pressed"]
+[connection signal="pressed" from="Clickables/WebButton/Control/Panel/Button" to="Clickables/WebButton" method="_on_button_pressed"]
+[connection signal="timeout" from="Clickables/WebButton/Control/Panel/WebInventory/SpawnTimer" to="Clickables/WebButton/Control/Panel/WebInventory" method="_on_spawn_timer_timeout"]
 [connection signal="pressed" from="Tools/CauldronButton" to="Tools/CauldronButton" method="_on_pressed"]
 [connection signal="timeout" from="Tools/CauldronButton/CauldronMenu/BackgroundPanel/CauldronInventory/Timer" to="Tools/CauldronButton/CauldronMenu/BackgroundPanel/CauldronInventory" method="_on_timer_timeout"]
 [connection signal="pressed" from="Tools/CauldronButton/CauldronMenu/BackgroundPanel/VBoxContainer/CookButton" to="Tools/CauldronButton/CauldronMenu/CauldronScriptNode" method="_on_cook_button_pressed"]
 [connection signal="pressed" from="Tools/CauldronButton/CauldronMenu/BackgroundPanel/VBoxContainer/TestButton" to="Tools/CauldronButton/CauldronMenu/CauldronScriptNode" method="_on_test_button_pressed"]
 [connection signal="pressed" from="Tools/CauldronButton/CauldronMenu/BackgroundPanel/ExitButton" to="Tools/CauldronButton/CauldronMenu" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Tools/OrbButton" to="Tools/OrbButton" method="_on_pressed"]
+[connection signal="toggled" from="PlayerInventoryMenu/Panel/MinimizeButton" to="PlayerInventoryMenu" method="_on_minimize_button_toggled"]
