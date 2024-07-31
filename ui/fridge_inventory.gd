@@ -13,6 +13,7 @@ func refresh_items():
 	set_item(8, 20)
 	set_item(9, 21)
 	set_item(10, 23)
+	set_item(11, 24)
 
 func _ready():
 	init()

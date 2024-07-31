@@ -46,7 +46,13 @@ offset_top = 108.0
 offset_right = 365.0
 offset_bottom = 344.0
 theme = ExtResource("4_w6j4q")
-text = "Orb of ancient alchemical knowledge"
+text = "Once I had a dream, where red and blue met light and dark.
+Blue tasted of light and childhood curiosity.
+Red tasted of savory jam, burned like the fires of hell yet filled me with the lights of heaven.
+Light was the source, the heart of everything, the energy in my veins.
+And the dark - a rare, dangerous essence.
+Since that night, I've been chasing the promise of that potion..."
+scroll_active = false
 
 [node name="FisheyeShaderControl" type="Node2D" parent="."]
 

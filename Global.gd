@@ -177,7 +177,7 @@ var item_table = {
 	
 	13 : {
 		"name" : "Ketchup",
-		"description" : "Jam.",
+		"description" : "Tomato is fruit, and fruit to...",
 		"types" : [],
 		"stats" : {"strong" : 1},
 		"icon" : "res://assets/art/25 Icons/13 Ketchup.png",
