@@ -23,6 +23,7 @@ func _init():
 	add_child(stats)
 	
 	#Nick:
+	#sprite_texture_path = stats.data["sprite_path"]
 	sprite.texture = load(sprite_texture_path)
 	sprite.show()
 
