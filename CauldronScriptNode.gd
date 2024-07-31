@@ -10,9 +10,9 @@ func _ready():
 		3 : ["Apple", "Pine Cone"], #pineapple
 		5 : ["Pineapple", "Instant Noodles"], #poodles
 		7 : ["Instant Noodles", "Tome"], #alphabet soup
-		10 : ["Alphabet Soup", "Caffeine"], #energy potion blue
-		25 : ["Energy Potion Blue", "Energy Potion Red", "Shadow Essence"], #ultimate shadow potion 
-		12 : ["Caffeine", "Ketchup", "Super Hot Chili"],
+		10 : ["Alphabet Soup", "Pure Caffeine"], #energy potion blue
+		25 : ["Energy Potion Blue", "Energy Potion Red", "Shadow Essence", "Pure Caffeine"], #ultimate shadow potion 
+		12 : ["Pure Caffeine", "Ketchup", "Super Hot Chili"],
 		17 : ["Wheaty Goop", "Eye Thing??"],
 		18 : ["Mushrooms", "Toast", "Ketchup"],
 		22 : ["Toast", "Crisps"]

@@ -31,7 +31,7 @@ var creature_table = {
 		"description" : "Somehow makes cardboard boxes appear.",
 		"sprite_path" : "res://assets/art/Monster/PNG Monsters/7.png",
 		"requirements" : {"healthy" : [REQ.GREATER_EQUAL, 1], "sneak" : [REQ.GREATER, 0], "smart" : [REQ.GREATER_EQUAL, 2],
-		"big" : [REQ.LESS_EQUAL, 0], "inspiring" : [REQ.LESS_EQUAL, 0], "repulsive" : [REQ.LESS_EQUAL, 0]}
+		"big" : [REQ.LESS_EQUAL, 0]}
 	},
 	
 	4 : {
