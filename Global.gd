@@ -15,36 +15,42 @@ var creature_table = {
 	1 : {
 		"title" : "The General",
 		"description" : "Louder than the students upstairs.",
+		"sprite_path" : "res://assets/art/Monster/PNG Monsters/4.png",
 		"requirements" : {"inspire" : [REQ.GREATER, 0], "smash" : [REQ.GREATER, 0], "big" : [REQ.GREATER_EQUAL, 3], "smart" : [REQ.GREATER_EQUAL, 2], "healthy" : [REQ.GREATER_EQUAL, 2], "strong" : [REQ.GREATER_EQUAL, 2], "repulsive" : [REQ.LESS_EQUAL, 0]}
 	},
 	
 	2 : {
 		"title" : "The Wizard",
 		"description" : "Keeps setting things on fire.",
+		"sprite_path" : "res://assets/art/Monster/PNG Monsters/26.png",
 		"requirements" : {"magic" : [REQ.GREATER, 0], "smart" : [REQ.GREATER_EQUAL, 3]}
 	},
 	
 	3 : {
 		"title" : "The Rogue",
 		"description" : "Somehow makes cardboard boxes appear.",
+		"sprite_path" : "res://assets/art/Monster/PNG Monsters/7.png",
 		"requirements" : {"healthy" : [REQ.GREATER_EQUAL, 1], "sneak" : [REQ.GREATER, 0], "smart" : [REQ.GREATER_EQUAL, 2],
 		"big" : [REQ.LESS_EQUAL, 0], "inspiring" : [REQ.LESS_EQUAL, 0], "repulsive" : [REQ.LESS_EQUAL, 0]}
 	},
 	
 	4 : {
 		"title" : "The Barbarian",
+		"sprite_path" : "res://assets/art/Monster/PNG Monsters/28.png",
 		"description" : "Mindlessly swings those big meat fists around.",
 		"requirements" : {"healthy" : [REQ.GREATER_EQUAL, 3], "big" : [REQ.GREATER_EQUAL, 2], "smash" : [REQ.GREATER, 0]}
 	},
 	
 	5 : {
 		"title" : "The Cannonfodder",
+		"sprite_path" : "res://assets/art/Monster/PNG Monsters/2.png",
 		"description" : "Can walk in a straight line and doesn't smell too awful.",
 		"requirements" : {"healthy" : [REQ.GREATER, 0], "repulsive" : [REQ.LESS_EQUAL, 0]}
 	},
 	
 	0 : {
 		"title" : "The Blob",
+		"sprite_path" : "res://assets/art/Monster/PNG Monsters/39.png",
 		"description" : "Not useful for anything...",
 		"requirements" : {}
 	}
