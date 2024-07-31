@@ -98,7 +98,7 @@ var item_table = {
 		"name" : "Instant Noodles",
 		"description" : "One of my greatest achievements.",
 		"types" : [],
-		"stats" : {"healthy" : -1, "smart" : 1, "respulsive" : -1},
+		"stats" : {"healthy" : -1, "smart" : 1, "repulsive" : -1},
 		"icon" : "res://assets/art/25 Icons/04 Instant noodles.png",
 		"max_stack" : 20
 	},
@@ -215,7 +215,7 @@ var item_table = {
 		"name" : "Pieye",
 		"description" : "Looking delicious",
 		"types" : [],
-		"stats" : {"respulsive" : 1, "sneak" : 1, "healthy" : 2},
+		"stats" : {"repulsive" : 1, "sneak" : 1, "healthy" : 2},
 		"icon" : "res://assets/art/25 Icons/17 Pieye.png",
 		"max_stack" : 20
 	},
