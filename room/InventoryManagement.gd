@@ -25,9 +25,14 @@ func _process(delta):
 		picked_up_sprite.hide()
 
 func _input(event):
+	#Cancel
 	if event.is_action_pressed("ui_cancel"):
 		picked_item = false
 		item_pickup_cancel.emit()
+	if event is InputEventMouseButton:
+		if event.button_index == 2:
+			picked_item = false
+			item_pickup_cancel.emit()
 
 #---------------------------------
 func get_inventories():
