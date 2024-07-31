@@ -1,6 +1,7 @@
 extends CookingTool
 
 @export var inventory : Control
+@export var spawnpoint : Node2D
 
 var current_creature : Creature
 
@@ -37,6 +38,7 @@ func _on_summon_button_pressed():
 	
 	if current_creature == null:
 		current_creature = creature_scene.instantiate()
+		spawnpoint.add_child(current_creature)
 		initiate_creature(current_creature)
 	
 	for ing in ingredients:

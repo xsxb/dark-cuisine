@@ -21,7 +21,8 @@ func _init():
 	description = "hey look, missingno's cousin showed up"
 	stats = stat_scene.instantiate()
 	add_child(stats)
-	
+
+func _ready():
 	#Nick:
 	#sprite_texture_path = stats.data["sprite_path"]
 	sprite.texture = load(sprite_texture_path)

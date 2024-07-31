@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://room/FridgeButton.gd" id="10_hydeq"]
 [ext_resource type="Script" path="res://ui/fridge_inventory.gd" id="11_40qd2"]
 [ext_resource type="AudioStream" uid="uid://bgcrkr17w5k60" path="res://assets/music/lab_beat01.mp3" id="11_urlu4"]
-[ext_resource type="PackedScene" uid="uid://c32o5n4thngoo" path="res://spawned_monster.tscn" id="12_6xdus"]
+[ext_resource type="PackedScene" path="res://spawned_monster.tscn" id="12_6xdus"]
 [ext_resource type="Script" path="res://room/WebButton.gd" id="12_pl5k3"]
 [ext_resource type="AudioStream" uid="uid://by7hhh3rqahvy" path="res://assets/sfx/wet/creature_slime_01.ogg" id="13_st6vo"]
 [ext_resource type="Script" path="res://ui/WebInventory.gd" id="14_fan5f"]
@@ -634,8 +634,10 @@ offset_bottom = 106.0
 text = "Summon
 Dark Spirit"
 
-[node name="SummoningScriptNode" type="Node" parent="Tools/SummoningButton/SummoningMenu"]
+[node name="SummoningScriptNode" type="Node" parent="Tools/SummoningButton/SummoningMenu" node_paths=PackedStringArray("inventory", "spawnpoint")]
 script = ExtResource("27_2fp73")
+inventory = NodePath("../BackgroundPanel/SummoningInventory")
+spawnpoint = NodePath("../../../../CreatureSpawn2D")
 
 [node name="CloseButton" type="Button" parent="Tools/SummoningButton/SummoningMenu"]
 layout_mode = 0
@@ -664,7 +666,7 @@ anchor_bottom = 0.891667
 offset_left = -73.0002
 offset_top = -93.0
 offset_right = 527.0
-offset_bottom = 6.99976
+offset_bottom = 6.99979
 metadata/_edit_use_anchors_ = true
 
 [node name="MinimizeButton" type="Button" parent="PlayerInventoryMenu/Panel"]
@@ -703,6 +705,9 @@ centered = false
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
 anchor_mode = 0
+
+[node name="CreatureSpawn2D" type="Node2D" parent="."]
+position = Vector2(543.412, 500.426)
 
 [connection signal="child_entered_tree" from="." to="InventoryManagement" method="_on_room_child_entered_tree"]
 [connection signal="ready" from="InventoryManagement" to="Tools/CauldronButton/CauldronMenu/BackgroundPanel/CauldronInventory" method="_on_inventory_management_ready"]
