@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://co0n2vsrb61it"]
+[gd_scene load_steps=43 format=3 uid="uid://co0n2vsrb61it"]
 
 [ext_resource type="Script" path="res://room/room.gd" id="1_aaa8y"]
 [ext_resource type="Texture2D" uid="uid://c8c20xfdorqtw" path="res://assets/art/Placeholder/Background_Lab_P01.png" id="2_kadsc"]
@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://room/FridgeButton.gd" id="10_hydeq"]
 [ext_resource type="Script" path="res://ui/fridge_inventory.gd" id="11_40qd2"]
 [ext_resource type="AudioStream" uid="uid://bgcrkr17w5k60" path="res://assets/music/lab_beat01.mp3" id="11_urlu4"]
-[ext_resource type="PackedScene" path="res://spawned_monster.tscn" id="12_6xdus"]
+[ext_resource type="PackedScene" uid="uid://c32o5n4thngoo" path="res://spawned_monster.tscn" id="12_6xdus"]
 [ext_resource type="Script" path="res://room/WebButton.gd" id="12_pl5k3"]
 [ext_resource type="AudioStream" uid="uid://by7hhh3rqahvy" path="res://assets/sfx/wet/creature_slime_01.ogg" id="13_st6vo"]
 [ext_resource type="Script" path="res://ui/WebInventory.gd" id="14_fan5f"]
@@ -29,6 +29,8 @@
 [ext_resource type="Script" path="res://room/SummoningMenu.gd" id="26_sa6e0"]
 [ext_resource type="Script" path="res://ui/SummoningInventory.gd" id="26_xxhus"]
 [ext_resource type="Script" path="res://room/SummoningScriptNode.gd" id="27_2fp73"]
+[ext_resource type="Texture2D" uid="uid://by571u3kpmwin" path="res://assets/art/UI/UI Paper/1 Sprites/Book Desk/4.png" id="29_1t887"]
+[ext_resource type="Script" path="res://room/MonsterMenu.gd" id="31_1b2du"]
 
 [sub_resource type="Animation" id="Animation_pla64"]
 length = 0.001
@@ -139,6 +141,9 @@ _data = {
 "spawn_animation": SubResource("Animation_u4bmi")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugiq4"]
+bg_color = Color(0.6, 0.6, 0.6, 0.415686)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvofs"]
 
 [sub_resource type="Theme" id="Theme_klli4"]
@@ -166,6 +171,9 @@ func _on_minimize_button_toggled(toggled_on):
 	if !toggled_on:
 		animation_player.play_backwards(\"minimize\")
 "
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rfqq5"]
+texture = ExtResource("29_1t887")
 
 [sub_resource type="Animation" id="Animation_7sqqv"]
 length = 0.001
@@ -260,6 +268,7 @@ position = Vector2(519, 445)
 [node name="Clickables" type="Node" parent="."]
 
 [node name="PlantLeftButton" type="TextureButton" parent="Clickables"]
+visible = false
 offset_left = 516.0
 offset_top = 340.0
 offset_right = 580.0
@@ -277,21 +286,22 @@ texture_hover = ExtResource("5_08sp5")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("10_hydeq")
-menu = NodePath("Control")
+menu = NodePath("FridgeMenu")
 
-[node name="Control" type="Control" parent="Clickables/FridgeButton"]
-visible = false
+[node name="FridgeMenu" type="Control" parent="Clickables/FridgeButton"]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 6.0
+offset_top = -49.0
+offset_right = 46.0
+offset_bottom = -9.0
 theme = ExtResource("4_p5ch1")
 
-[node name="Panel" type="Panel" parent="Clickables/FridgeButton/Control"]
+[node name="Panel" type="Panel" parent="Clickables/FridgeButton/FridgeMenu"]
 layout_mode = 0
-offset_right = 162.0
+offset_right = 314.0
 offset_bottom = 238.0
 
-[node name="FridgeInventory" parent="Clickables/FridgeButton/Control/Panel" node_paths=PackedStringArray("inventory_management") instance=ExtResource("7_8x0ij")]
+[node name="FridgeInventory" parent="Clickables/FridgeButton/FridgeMenu/Panel" node_paths=PackedStringArray("inventory_management") instance=ExtResource("7_8x0ij")]
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 20.0
@@ -301,13 +311,14 @@ columns = 4
 rows = 3
 inventory_management = NodePath("../../../../../InventoryManagement")
 
-[node name="CloseButton" type="Button" parent="Clickables/FridgeButton/Control"]
+[node name="CloseButton" type="Button" parent="Clickables/FridgeButton/FridgeMenu"]
 layout_mode = 0
 offset_right = 30.0
 offset_bottom = 30.0
 text = "X"
 
 [node name="ShelfLeftButton" type="TextureButton" parent="Clickables"]
+visible = false
 offset_left = 126.0
 offset_top = 316.0
 offset_right = 261.0
@@ -317,6 +328,7 @@ ignore_texture_size = true
 stretch_mode = 3
 
 [node name="DrawerLeftButton" type="TextureButton" parent="Clickables"]
+visible = false
 offset_left = 171.0
 offset_top = 506.0
 offset_right = 267.0
@@ -326,6 +338,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="ShelfRightButton" type="TextureButton" parent="Clickables"]
+visible = false
 offset_left = 891.0
 offset_top = 313.0
 offset_right = 1007.0
@@ -335,6 +348,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="PlantRightButton" type="TextureButton" parent="Clickables"]
+visible = false
 offset_left = 648.0
 offset_top = 340.0
 offset_right = 688.0
@@ -343,7 +357,7 @@ texture_hover = ExtResource("5_08sp5")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="WebButton" type="TextureButton" parent="Clickables" node_paths=PackedStringArray("menu")]
+[node name="WebButton" type="TextureButton" parent="Clickables" node_paths=PackedStringArray("menu", "sfx")]
 offset_left = 693.0
 offset_top = 178.0
 offset_right = 824.0
@@ -353,6 +367,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("12_pl5k3")
 menu = NodePath("Control")
+sfx = NodePath("SpawnFeedback/SpawnSFX")
 
 [node name="SpawnFeedback" type="Sprite2D" parent="Clickables/WebButton"]
 visible = false
@@ -377,8 +392,9 @@ theme = ExtResource("4_p5ch1")
 
 [node name="Panel" type="Panel" parent="Clickables/WebButton/Control"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 183.0
+offset_bottom = 165.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ugiq4")
 
 [node name="Button" type="Button" parent="Clickables/WebButton/Control/Panel"]
 layout_mode = 0
@@ -406,6 +422,7 @@ wait_time = 45.0
 autostart = true
 
 [node name="PosterButton" type="TextureButton" parent="Clickables"]
+visible = false
 offset_left = 1039.0
 offset_top = 307.0
 offset_right = 1130.0
@@ -489,11 +506,12 @@ layout_mode = 2
 disabled = true
 text = "Tester"
 
-[node name="ExitButton" type="Button" parent="Tools/CauldronButton/CauldronMenu/BackgroundPanel"]
+[node name="CloseButton" type="Button" parent="Tools/CauldronButton/CauldronMenu/BackgroundPanel"]
 layout_mode = 0
 offset_right = 11.0
 offset_bottom = 17.0
 rotation = 0.0343104
+theme = ExtResource("4_p5ch1")
 text = "X"
 
 [node name="CauldronScriptNode" type="Node" parent="Tools/CauldronButton/CauldronMenu" node_paths=PackedStringArray("inventory", "player_inventory")]
@@ -666,7 +684,8 @@ anchor_bottom = 0.891667
 offset_left = -73.0002
 offset_top = -93.0
 offset_right = 527.0
-offset_bottom = 6.99979
+offset_bottom = 6.99973
+theme_override_styles/panel = SubResource("StyleBoxTexture_rfqq5")
 metadata/_edit_use_anchors_ = true
 
 [node name="MinimizeButton" type="Button" parent="PlayerInventoryMenu/Panel"]
@@ -680,6 +699,7 @@ offset_left = 261.0
 offset_top = -32.0
 offset_right = 340.0
 offset_bottom = -1.0
+theme = ExtResource("4_p5ch1")
 toggle_mode = true
 text = "Minimize"
 metadata/_edit_use_anchors_ = true
@@ -709,11 +729,46 @@ anchor_mode = 0
 [node name="CreatureSpawn2D" type="Node2D" parent="."]
 position = Vector2(543.412, 500.426)
 
+[node name="MonsterMenu" type="Control" parent="." node_paths=PackedStringArray("stat_list")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("4_p5ch1")
+script = ExtResource("31_1b2du")
+stat_list = NodePath("BackgroundPanel/ItemList")
+
+[node name="BackgroundPanel" type="Panel" parent="MonsterMenu"]
+layout_mode = 0
+offset_right = 279.0
+offset_bottom = 292.0
+
+[node name="ItemList" type="ItemList" parent="MonsterMenu/BackgroundPanel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 35.0
+offset_right = 270.0
+offset_bottom = 226.0
+
+[node name="SubmitButton" type="Button" parent="MonsterMenu/BackgroundPanel"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 230.0
+offset_right = 199.0
+offset_bottom = 270.0
+text = "Dispatch summon"
+
+[node name="Label" type="Label" parent="MonsterMenu"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 17.0
+text = "Monster"
+
 [connection signal="child_entered_tree" from="." to="InventoryManagement" method="_on_room_child_entered_tree"]
 [connection signal="ready" from="InventoryManagement" to="Tools/CauldronButton/CauldronMenu/BackgroundPanel/CauldronInventory" method="_on_inventory_management_ready"]
 [connection signal="ready" from="InventoryManagement" to="PlayerInventoryMenu/Panel/PlayerInventory" method="_on_inventory_management_ready"]
 [connection signal="pressed" from="Clickables/FridgeButton" to="Clickables/FridgeButton" method="_on_pressed"]
-[connection signal="pressed" from="Clickables/FridgeButton/Control/CloseButton" to="Clickables/FridgeButton" method="_on_close_button_pressed"]
+[connection signal="pressed" from="Clickables/FridgeButton/FridgeMenu/CloseButton" to="Clickables/FridgeButton" method="_on_close_button_pressed"]
 [connection signal="pressed" from="Clickables/WebButton" to="Clickables/WebButton" method="_on_pressed"]
 [connection signal="pressed" from="Clickables/WebButton/Control/Panel/Button" to="Clickables/WebButton" method="_on_button_pressed"]
 [connection signal="timeout" from="Clickables/WebButton/Control/Panel/WebInventory/SpawnTimer" to="Clickables/WebButton/Control/Panel/WebInventory" method="_on_spawn_timer_timeout"]
@@ -721,7 +776,7 @@ position = Vector2(543.412, 500.426)
 [connection signal="timeout" from="Tools/CauldronButton/CauldronMenu/BackgroundPanel/CauldronInventory/Timer" to="Tools/CauldronButton/CauldronMenu/BackgroundPanel/CauldronInventory" method="_on_timer_timeout"]
 [connection signal="pressed" from="Tools/CauldronButton/CauldronMenu/BackgroundPanel/VBoxContainer/CookButton" to="Tools/CauldronButton/CauldronMenu/CauldronScriptNode" method="_on_cook_button_pressed"]
 [connection signal="pressed" from="Tools/CauldronButton/CauldronMenu/BackgroundPanel/VBoxContainer/TestButton" to="Tools/CauldronButton/CauldronMenu/CauldronScriptNode" method="_on_test_button_pressed"]
-[connection signal="pressed" from="Tools/CauldronButton/CauldronMenu/BackgroundPanel/ExitButton" to="Tools/CauldronButton/CauldronMenu" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Tools/CauldronButton/CauldronMenu/BackgroundPanel/CloseButton" to="Tools/CauldronButton/CauldronMenu" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Tools/DistilleryButton" to="Tools/DistilleryButton" method="_on_pressed"]
 [connection signal="pressed" from="Tools/DistilleryButton/DistilleryMenu/BackgroundPanel/DistillButton" to="Tools/DistilleryButton/DistilleryMenu/DistilleryScriptNode" method="_on_distill_button_pressed"]
 [connection signal="pressed" from="Tools/DistilleryButton/DistilleryMenu/CloseButton" to="Tools/DistilleryButton" method="_on_close_button_pressed"]
@@ -731,3 +786,4 @@ position = Vector2(543.412, 500.426)
 [connection signal="pressed" from="Tools/SummoningButton/SummoningMenu/BackgroundPanel/SummonButton" to="Tools/SummoningButton/SummoningMenu/SummoningScriptNode" method="_on_summon_button_pressed"]
 [connection signal="pressed" from="Tools/SummoningButton/SummoningMenu/CloseButton" to="Tools/SummoningButton/SummoningMenu" method="_on_close_button_pressed"]
 [connection signal="toggled" from="PlayerInventoryMenu/Panel/MinimizeButton" to="PlayerInventoryMenu" method="_on_minimize_button_toggled"]
+[connection signal="pressed" from="MonsterMenu/BackgroundPanel/SubmitButton" to="MonsterMenu" method="_on_submit_button_pressed"]
