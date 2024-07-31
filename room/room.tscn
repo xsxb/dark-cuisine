@@ -728,7 +728,7 @@ visible = false
 anchor_mode = 0
 
 [node name="CreatureSpawn2D" type="Node2D" parent="."]
-position = Vector2(543.412, 500.426)
+position = Vector2(516, 473)
 
 [node name="MonsterMenu" type="Control" parent="." node_paths=PackedStringArray("stat_list", "creature_spawn", "description_field")]
 layout_mode = 3
