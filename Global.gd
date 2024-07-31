@@ -273,7 +273,7 @@ var item_table = {
 		"description" : "The soul.",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/25 Icons/24 Shaddow Essence.png",
+		"icon" : "res://assets/art/25 Icons/24 Shadow Essence.png",
 		"max_stack" : 20
 	},
 	
@@ -291,7 +291,7 @@ var item_table = {
 		"description" : "Wiggles in my hands",
 		"types" : [],
 		"stats" : {},
-		"icon" : "res://assets/art/Icons/veg/shadow/3.png",
+		"icon" : "res://assets/art/25 Icons/24 Shadow Essence.png",
 		"max_stack" : 20
 	}
 
