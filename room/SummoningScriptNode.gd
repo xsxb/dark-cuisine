@@ -47,6 +47,17 @@ func _on_summon_button_pressed():
 	for ing in ingredients:
 		evolve_creature(current_creature, ing)
 	
+	var sprite_texture_path = "res://assets/art/lukas-monster.png"
+	
+	match current_creature.type:
+		1: sprite_texture_path = "res://assets/art/Monster/PNG Monsters/1.png"
+		2: sprite_texture_path = "res://assets/art/Monster/PNG Monsters/2.png"
+		3: sprite_texture_path = "res://assets/art/Monster/PNG Monsters/3.png"
+		4: sprite_texture_path = "res://assets/art/Monster/PNG Monsters/4.png"
+		5: sprite_texture_path = "res://assets/art/Monster/PNG Monsters/5.png"
+	
+	current_creature.sprite.texture = load(sprite_texture_path)
+	
 	inventory.remove_items(ingredients)
 	
 	emit_signal("creature_evolved") 
@@ -65,7 +76,7 @@ func evolve_creature(creature_node, ingredient):
 	creature_node.type = new_type
 	creature_node.title = creature_table[new_type]["title"]
 	creature_node.description = creature_table[new_type]["description"]
-
+	
 
 
 # takes stat array
