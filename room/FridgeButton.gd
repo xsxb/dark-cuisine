@@ -12,14 +12,13 @@ func _ready():
 
 
 func _on_pressed():
-	pass
 	#sfx.stream = open_sound
 	#sfx.play()
-	#menu.show()
+	menu.show()
 
 
 func _on_close_button_pressed():
-	pass
 	#sfx.stream = close_sound
 	#sfx.play()
-	#menu.hide()
+	$Control/Panel/FridgeInventory.refresh_items()
+	menu.hide()

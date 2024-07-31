@@ -16,7 +16,10 @@ func _on_distill_button_pressed():
 	var ingredients = inventory.get_item_nodes()
 	var result = resolve_recipe(ingredients)
 	
-	if result == 999: #TODO eliminate workaround
+	if !result:
+		return
+	
+	elif result == 999: #TODO eliminate workaround
 		inventory.remove_items(ingredients)
 		player_inventory.add_item(13) #Ketchup
 		player_inventory.add_item(15) #Wheaty Goop
