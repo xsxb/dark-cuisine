@@ -2,6 +2,7 @@ extends TextureButton
 
 @export var menu : Control
 @export var sfx : AudioStreamPlayer2D
+@export var fridge_inventory : Control
 
 var open_sound = preload("res://assets/sfx/doors/sfx100v2_misc_04.ogg")
 var close_sound = preload("res://assets/sfx/doors/sfx100v2_misc_13.ogg")
@@ -20,5 +21,5 @@ func _on_pressed():
 func _on_close_button_pressed():
 	#sfx.stream = close_sound
 	#sfx.play()
-	$Control/Panel/FridgeInventory.refresh_items()
+	fridge_inventory.refresh_items()
 	menu.hide()

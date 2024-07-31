@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://co0n2vsrb61it"]
+[gd_scene load_steps=44 format=3 uid="uid://co0n2vsrb61it"]
 
 [ext_resource type="Script" path="res://room/room.gd" id="1_aaa8y"]
 [ext_resource type="Texture2D" uid="uid://c8c20xfdorqtw" path="res://assets/art/Placeholder/Background_Lab_P01.png" id="2_kadsc"]
@@ -31,6 +31,7 @@
 [ext_resource type="Script" path="res://room/SummoningScriptNode.gd" id="27_2fp73"]
 [ext_resource type="Texture2D" uid="uid://by571u3kpmwin" path="res://assets/art/UI/UI Paper/1 Sprites/Book Desk/4.png" id="29_1t887"]
 [ext_resource type="Script" path="res://room/MonsterMenu.gd" id="31_1b2du"]
+[ext_resource type="Script" path="res://room/MonsterMenuScriptNode.gd" id="32_3sk5b"]
 
 [sub_resource type="Animation" id="Animation_pla64"]
 length = 0.001
@@ -277,7 +278,7 @@ texture_hover = ExtResource("5_08sp5")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="FridgeButton" type="TextureButton" parent="Clickables" node_paths=PackedStringArray("menu", "fridge_inventory")]
+[node name="FridgeButton" type="TextureButton" parent="Clickables" node_paths=PackedStringArray("menu")]
 offset_left = 387.0
 offset_top = 323.0
 offset_right = 451.0
@@ -287,7 +288,6 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("10_hydeq")
 menu = NodePath("FridgeMenu")
-fridge_inventory = NodePath("FridgeMenu/Panel/FridgeInventory")
 
 [node name="FridgeMenu" type="Control" parent="Clickables/FridgeButton"]
 anchors_preset = 0
@@ -730,7 +730,7 @@ anchor_mode = 0
 [node name="CreatureSpawn2D" type="Node2D" parent="."]
 position = Vector2(543.412, 500.426)
 
-[node name="MonsterMenu" type="Control" parent="." node_paths=PackedStringArray("stat_list", "creature_spawn", "description_field")]
+[node name="MonsterMenu" type="Control" parent="." node_paths=PackedStringArray("stat_list", "creature_spawn")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -739,7 +739,6 @@ theme = ExtResource("4_p5ch1")
 script = ExtResource("31_1b2du")
 stat_list = NodePath("BackgroundPanel/ItemList")
 creature_spawn = NodePath("../CreatureSpawn2D")
-description_field = NodePath("BackgroundPanel/MonsterDescription")
 
 [node name="BackgroundPanel" type="Panel" parent="MonsterMenu"]
 layout_mode = 0
@@ -753,14 +752,10 @@ offset_top = 35.0
 offset_right = 270.0
 offset_bottom = 226.0
 
-[node name="MonsterDescription" type="RichTextLabel" parent="MonsterMenu/BackgroundPanel"]
-custom_minimum_size = Vector2(250, 100)
+[node name="MonsterDescription" type="RichTextLabel" parent="MonsterMenu/BackgroundPanel/ItemList"]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 35.0
-offset_right = 332.0
-offset_bottom = 335.0
-scroll_active = false
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="SubmitButton" type="Button" parent="MonsterMenu/BackgroundPanel"]
 layout_mode = 0
@@ -775,6 +770,10 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 17.0
 text = "Monster"
+
+[node name="MonsterMenuScriptNode" type="Node" parent="MonsterMenu" node_paths=PackedStringArray("description_field")]
+script = ExtResource("32_3sk5b")
+description_field = NodePath("../BackgroundPanel/ItemList/MonsterDescription")
 
 [connection signal="child_entered_tree" from="." to="InventoryManagement" method="_on_room_child_entered_tree"]
 [connection signal="ready" from="InventoryManagement" to="Tools/CauldronButton/CauldronMenu/BackgroundPanel/CauldronInventory" method="_on_inventory_management_ready"]
@@ -796,8 +795,7 @@ text = "Monster"
 [connection signal="pressed" from="Tools/OrbButton/Orb/Button" to="Tools/OrbButton" method="_on_button_pressed"]
 [connection signal="pressed" from="Tools/SummoningButton" to="Tools/SummoningButton" method="_on_pressed"]
 [connection signal="pressed" from="Tools/SummoningButton/SummoningMenu/BackgroundPanel/SummonButton" to="Tools/SummoningButton/SummoningMenu/SummoningScriptNode" method="_on_summon_button_pressed"]
-[connection signal="creature_evolved" from="Tools/SummoningButton/SummoningMenu/SummoningScriptNode" to="MonsterMenu" method="_on_summoning_script_node_creature_evolved"]
-[connection signal="creature_gone" from="Tools/SummoningButton/SummoningMenu/SummoningScriptNode" to="MonsterMenu" method="_on_summoning_script_node_creature_gone"]
 [connection signal="pressed" from="Tools/SummoningButton/SummoningMenu/CloseButton" to="Tools/SummoningButton/SummoningMenu" method="_on_close_button_pressed"]
 [connection signal="toggled" from="PlayerInventoryMenu/Panel/MinimizeButton" to="PlayerInventoryMenu" method="_on_minimize_button_toggled"]
 [connection signal="pressed" from="MonsterMenu/BackgroundPanel/SubmitButton" to="Tools/SummoningButton/SummoningMenu/SummoningScriptNode" method="_on_submit_button_pressed"]
+[connection signal="pressed" from="MonsterMenu/BackgroundPanel/SubmitButton" to="MonsterMenu" method="_on_submit_button_pressed"]

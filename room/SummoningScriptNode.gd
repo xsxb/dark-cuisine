@@ -3,6 +3,9 @@ extends CookingTool
 @export var inventory : Control
 @export var spawnpoint : Node2D
 
+signal creature_evolved
+signal creature_gone
+
 var current_creature : Creature
 
 var creature_table = Global.creature_table
@@ -45,6 +48,8 @@ func _on_summon_button_pressed():
 		evolve_creature(current_creature, ing)
 	
 	inventory.remove_items(ingredients)
+	
+	emit_signal("creature_evolved") 
 
 
 
@@ -59,7 +64,8 @@ func evolve_creature(creature_node, ingredient):
 	
 	creature_node.type = new_type
 	creature_node.title = creature_table[new_type]["title"]
-	creature_node.description = creature_table[new_type]["description"] 
+	creature_node.description = creature_table[new_type]["description"]
+
 
 
 # takes stat array
@@ -114,3 +120,9 @@ func meets_requirements(stats : Dictionary, requirements : Dictionary):
 	
 
 	return true
+
+
+func _on_submit_button_pressed():
+	spawnpoint.remove_child(current_creature)
+	current_creature = null
+	emit_signal("creature_gone")
