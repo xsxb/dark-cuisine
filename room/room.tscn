@@ -666,10 +666,15 @@ offset_bottom = 106.0
 text = "Feed
 The Dark"
 
-[node name="SummoningScriptNode" type="Node" parent="Tools/SummoningButton/SummoningMenu" node_paths=PackedStringArray("inventory", "spawnpoint")]
+[node name="SummoningScriptNode" type="Node" parent="Tools/SummoningButton/SummoningMenu" node_paths=PackedStringArray("inventory", "spawnpoint", "despawn_timer")]
 script = ExtResource("27_2fp73")
 inventory = NodePath("../BackgroundPanel/SummoningInventory")
 spawnpoint = NodePath("../../../../CreatureSpawn2D")
+despawn_timer = NodePath("DespawnTimer")
+
+[node name="DespawnTimer" type="Timer" parent="Tools/SummoningButton/SummoningMenu/SummoningScriptNode"]
+wait_time = 4.4
+one_shot = true
 
 [node name="CloseButton" type="Button" parent="Tools/SummoningButton/SummoningMenu"]
 layout_mode = 0
@@ -810,6 +815,7 @@ text = "Dispatch summon"
 [connection signal="pressed" from="Tools/SummoningButton/SummoningMenu/BackgroundPanel/SummonButton" to="Tools/SummoningButton/SummoningMenu/SummoningScriptNode" method="_on_summon_button_pressed"]
 [connection signal="creature_evolved" from="Tools/SummoningButton/SummoningMenu/SummoningScriptNode" to="MonsterMenu" method="_on_summoning_script_node_creature_evolved"]
 [connection signal="creature_gone" from="Tools/SummoningButton/SummoningMenu/SummoningScriptNode" to="MonsterMenu" method="_on_summoning_script_node_creature_gone"]
+[connection signal="timeout" from="Tools/SummoningButton/SummoningMenu/SummoningScriptNode/DespawnTimer" to="Tools/SummoningButton/SummoningMenu/SummoningScriptNode" method="_on_despawn_timer_timeout"]
 [connection signal="pressed" from="Tools/SummoningButton/SummoningMenu/CloseButton" to="Tools/SummoningButton/SummoningMenu" method="_on_close_button_pressed"]
 [connection signal="toggled" from="PlayerInventoryMenu/Panel/MinimizeButton" to="PlayerInventoryMenu" method="_on_minimize_button_toggled"]
 [connection signal="pressed" from="MonsterMenu/BackgroundPanel/SubmitButton" to="Tools/SummoningButton/SummoningMenu/SummoningScriptNode" method="_on_submit_button_pressed"]

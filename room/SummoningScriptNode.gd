@@ -2,6 +2,7 @@ extends CookingTool
 
 @export var inventory : Control
 @export var spawnpoint : Node2D
+@export var despawn_timer : Timer
 
 signal creature_evolved
 signal creature_gone
@@ -137,11 +138,18 @@ func _on_submit_button_pressed():
 	if current_creature == null:
 		return
 	
-	current_creature.animation_player.animation_finished.connect(_on_creature_animation_finished)
+	#current_creature.animation_player.animation_finished.connect(_on_creature_animation_finished)
 	current_creature.animation_player.play("dance")
+	despawn_timer.start()
 	
-func _on_creature_animation_finished():
-	
+#func _on_creature_animation_finished():
+	#
+	#spawnpoint.remove_child(current_creature)
+	#current_creature = null
+	#emit_signal("creature_gone")
+
+#Animation finished workaround:
+func _on_despawn_timer_timeout():
 	spawnpoint.remove_child(current_creature)
 	current_creature = null
 	emit_signal("creature_gone")
