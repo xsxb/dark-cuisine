@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://co0n2vsrb61it"]
+[gd_scene load_steps=46 format=3 uid="uid://co0n2vsrb61it"]
 
 [ext_resource type="Script" path="res://room/room.gd" id="1_aaa8y"]
 [ext_resource type="Texture2D" uid="uid://c8c20xfdorqtw" path="res://assets/art/Placeholder/Background_Lab_P01.png" id="2_kadsc"]
@@ -33,6 +33,7 @@
 [ext_resource type="Script" path="res://room/SummoningScriptNode.gd" id="27_2fp73"]
 [ext_resource type="Texture2D" uid="uid://by571u3kpmwin" path="res://assets/art/UI/UI Paper/1 Sprites/Book Desk/4.png" id="29_1t887"]
 [ext_resource type="Script" path="res://room/MonsterMenu.gd" id="31_1b2du"]
+[ext_resource type="FontFile" uid="uid://wq4p6wqglps6" path="res://ui/old_english_text_mt.ttf" id="34_h2qdf"]
 
 [sub_resource type="Animation" id="Animation_pla64"]
 length = 0.001
@@ -772,6 +773,10 @@ offset_left = 32.0
 offset_top = 35.0
 offset_right = 332.0
 offset_bottom = 335.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.255659, 0.255659, 0.255659, 1)
+theme_override_fonts/normal_font = ExtResource("34_h2qdf")
 scroll_active = false
 
 [node name="SubmitButton" type="Button" parent="MonsterMenu/BackgroundPanel"]
@@ -781,12 +786,6 @@ offset_top = 230.0
 offset_right = 199.0
 offset_bottom = 270.0
 text = "Dispatch summon"
-
-[node name="Label" type="Label" parent="MonsterMenu"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 17.0
-text = "Monster"
 
 [connection signal="child_entered_tree" from="." to="InventoryManagement" method="_on_room_child_entered_tree"]
 [connection signal="ready" from="InventoryManagement" to="Tools/CauldronButton/CauldronMenu/BackgroundPanel/CauldronInventory" method="_on_inventory_management_ready"]
