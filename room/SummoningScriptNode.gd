@@ -32,6 +32,9 @@ func _on_summon_button_pressed():
 	
 	var ingredients = inventory.get_item_nodes()
 	
+	if ingredients.is_empty():
+		return
+	
 	if current_creature == null:
 		current_creature = creature_scene.instantiate()
 		initiate_creature(current_creature)
