@@ -123,6 +123,10 @@ func meets_requirements(stats : Dictionary, requirements : Dictionary):
 
 
 func _on_submit_button_pressed():
+	current_creature.animation_player.animation_finished.connect(_on_creature_animation_finished)
+	current_creature.animation_player.play("dance")
+	
+func _on_creature_animation_finished():
 	spawnpoint.remove_child(current_creature)
 	current_creature = null
 	emit_signal("creature_gone")
