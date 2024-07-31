@@ -16,7 +16,7 @@ var creature_table = {
 		"title" : "The General",
 		"description" : "Louder than the students upstairs.",
 		"sprite_path" : "res://assets/art/Monster/PNG Monsters/4.png",
-		"requirements" : {"inspire" : [REQ.GREATER, 0], "smash" : [REQ.GREATER, 0], "big" : [REQ.GREATER_EQUAL, 3], "smart" : [REQ.GREATER_EQUAL, 2], "healthy" : [REQ.GREATER_EQUAL, 2], "strong" : [REQ.GREATER_EQUAL, 2], "repulsive" : [REQ.LESS_EQUAL, 0]}
+		"requirements" : {"inspiring" : [REQ.GREATER, 0], "smash" : [REQ.GREATER, 0], "big" : [REQ.GREATER_EQUAL, 3], "smart" : [REQ.GREATER_EQUAL, 2], "healthy" : [REQ.GREATER_EQUAL, 2], "strong" : [REQ.GREATER_EQUAL, 2], "repulsive" : [REQ.LESS_EQUAL, 0]}
 	},
 	
 	2 : {
@@ -260,7 +260,7 @@ var item_table = {
 		"name" : "British Sandwich",
 		"description" : "Always wondered what a British is",
 		"types" : [],
-		"stats" : {"inspiring" : 1, "healthy" : -1},
+		"stats" : {"sneaky" : 1, "healthy" : -1},
 		"icon" : "res://assets/art/25 Icons/22 British Sandwich.png",
 		"max_stack" : 20
 	},
