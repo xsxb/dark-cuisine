@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://co0n2vsrb61it"]
+[gd_scene load_steps=45 format=3 uid="uid://co0n2vsrb61it"]
 
 [ext_resource type="Script" path="res://room/room.gd" id="1_aaa8y"]
 [ext_resource type="Texture2D" uid="uid://c8c20xfdorqtw" path="res://assets/art/Placeholder/Background_Lab_P01.png" id="2_kadsc"]
@@ -15,12 +15,14 @@
 [ext_resource type="Script" path="res://room/FridgeButton.gd" id="10_hydeq"]
 [ext_resource type="Script" path="res://ui/fridge_inventory.gd" id="11_40qd2"]
 [ext_resource type="AudioStream" uid="uid://bgcrkr17w5k60" path="res://assets/music/lab_beat01.mp3" id="11_urlu4"]
-[ext_resource type="PackedScene" path="res://spawned_monster.tscn" id="12_6xdus"]
+[ext_resource type="PackedScene" uid="uid://c32o5n4thngoo" path="res://spawned_monster.tscn" id="12_6xdus"]
 [ext_resource type="Script" path="res://room/WebButton.gd" id="12_pl5k3"]
 [ext_resource type="AudioStream" uid="uid://by7hhh3rqahvy" path="res://assets/sfx/wet/creature_slime_01.ogg" id="13_st6vo"]
 [ext_resource type="Script" path="res://ui/WebInventory.gd" id="14_fan5f"]
 [ext_resource type="Script" path="res://room/OrbButton.gd" id="15_g2uuf"]
 [ext_resource type="PackedScene" uid="uid://b4rmp8sxp45a1" path="res://orb/orb.tscn" id="15_k2ef7"]
+[ext_resource type="Script" path="res://room/PosterButton.gd" id="15_p5vl6"]
+[ext_resource type="Texture2D" uid="uid://b8d6g1xxac1tn" path="res://assets/art/Lab/Poster.png" id="16_j1sgs"]
 [ext_resource type="Script" path="res://room/DistilleryButton.gd" id="19_bhb3k"]
 [ext_resource type="Script" path="res://room/DistilleryMenu.gd" id="20_gb632"]
 [ext_resource type="Script" path="res://ui/DistilleryInventory.gd" id="21_s2int"]
@@ -422,8 +424,7 @@ inventory_management = NodePath("../../../../../InventoryManagement")
 wait_time = 45.0
 autostart = true
 
-[node name="PosterButton" type="TextureButton" parent="Clickables"]
-visible = false
+[node name="PosterButton" type="TextureButton" parent="Clickables" node_paths=PackedStringArray("sprite", "audio")]
 offset_left = 1039.0
 offset_top = 307.0
 offset_right = 1130.0
@@ -431,6 +432,17 @@ offset_bottom = 447.0
 texture_hover = ExtResource("5_08sp5")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("15_p5vl6")
+sprite = NodePath("Sprite2D")
+audio = NodePath("PosterSFX")
+
+[node name="Sprite2D" type="Sprite2D" parent="Clickables/PosterButton"]
+visible = false
+position = Vector2(-433, -15)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("16_j1sgs")
+
+[node name="PosterSFX" type="AudioStreamPlayer2D" parent="Clickables/PosterButton"]
 
 [node name="Tools" type="Node" parent="."]
 
@@ -685,7 +697,7 @@ anchor_bottom = 0.891667
 offset_left = -73.0002
 offset_top = -93.0
 offset_right = 527.0
-offset_bottom = 6.99969
+offset_bottom = 6.99965
 theme_override_styles/panel = SubResource("StyleBoxTexture_rfqq5")
 metadata/_edit_use_anchors_ = true
 
@@ -784,6 +796,7 @@ text = "Monster"
 [connection signal="pressed" from="Clickables/WebButton" to="Clickables/WebButton" method="_on_pressed"]
 [connection signal="pressed" from="Clickables/WebButton/Control/Panel/Button" to="Clickables/WebButton" method="_on_button_pressed"]
 [connection signal="timeout" from="Clickables/WebButton/Control/Panel/WebInventory/SpawnTimer" to="Clickables/WebButton/Control/Panel/WebInventory" method="_on_spawn_timer_timeout"]
+[connection signal="pressed" from="Clickables/PosterButton" to="Clickables/PosterButton" method="_on_pressed"]
 [connection signal="pressed" from="Tools/CauldronButton" to="Tools/CauldronButton" method="_on_pressed"]
 [connection signal="timeout" from="Tools/CauldronButton/CauldronMenu/BackgroundPanel/CauldronInventory/Timer" to="Tools/CauldronButton/CauldronMenu/BackgroundPanel/CauldronInventory" method="_on_timer_timeout"]
 [connection signal="pressed" from="Tools/CauldronButton/CauldronMenu/BackgroundPanel/VBoxContainer/CookButton" to="Tools/CauldronButton/CauldronMenu/CauldronScriptNode" method="_on_cook_button_pressed"]
