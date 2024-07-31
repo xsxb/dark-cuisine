@@ -50,11 +50,11 @@ func _on_summon_button_pressed():
 	var sprite_texture_path = "res://assets/art/lukas-monster.png"
 	
 	match current_creature.type:
-		1: sprite_texture_path = "res://assets/art/Monster/PNG Monsters/1.png"
-		2: sprite_texture_path = "res://assets/art/Monster/PNG Monsters/2.png"
-		3: sprite_texture_path = "res://assets/art/Monster/PNG Monsters/3.png"
-		4: sprite_texture_path = "res://assets/art/Monster/PNG Monsters/4.png"
-		5: sprite_texture_path = "res://assets/art/Monster/PNG Monsters/5.png"
+		1: sprite_texture_path = "res://assets/art/Monster/PNG Monsters/24.png" #general
+		2: sprite_texture_path = "res://assets/art/Monster/PNG Monsters/17.png" #wizard
+		3: sprite_texture_path = "res://assets/art/Monster/PNG Monsters/27.png" #rogue
+		4: sprite_texture_path = "res://assets/art/Monster/PNG Monsters/7.png" #barbarian
+		5: sprite_texture_path = "res://assets/art/Monster/PNG Monsters/23.png" #cannonfodder
 	
 	current_creature.sprite.texture = load(sprite_texture_path)
 	
