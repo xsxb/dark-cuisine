@@ -260,7 +260,7 @@ var item_table = {
 		"name" : "British Sandwich",
 		"description" : "Always wondered what a British is",
 		"types" : [],
-		"stats" : {"sneaky" : 1, "healthy" : -1},
+		"stats" : {"strong" : 1, "healthy" : -1},
 		"icon" : "res://assets/art/25 Icons/22 British Sandwich.png",
 		"max_stack" : 20
 	},
