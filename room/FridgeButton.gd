@@ -12,12 +12,14 @@ func _ready():
 
 
 func _on_pressed():
-	sfx.stream = open_sound
-	sfx.play()
-	menu.show()
+	pass
+	#sfx.stream = open_sound
+	#sfx.play()
+	#menu.show()
 
 
 func _on_close_button_pressed():
-	sfx.stream = close_sound
-	sfx.play()
-	menu.hide()
+	pass
+	#sfx.stream = close_sound
+	#sfx.play()
+	#menu.hide()

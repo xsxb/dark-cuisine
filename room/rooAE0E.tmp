@@ -1,0 +1,726 @@
+[gd_scene load_steps=39 format=3 uid="uid://co0n2vsrb61it"]
+
+[ext_resource type="Script" path="res://room/room.gd" id="1_aaa8y"]
+[ext_resource type="Texture2D" uid="uid://c8c20xfdorqtw" path="res://assets/art/Placeholder/Background_Lab_P01.png" id="2_kadsc"]
+[ext_resource type="Theme" uid="uid://lwhy6nphe0ya" path="res://ui/base_theme.tres" id="4_p5ch1"]
+[ext_resource type="Script" path="res://room/InventoryManagement.gd" id="5_1bptw"]
+[ext_resource type="Texture2D" uid="uid://06ogtdn6xyf" path="res://assets/art/UI/highlight-white.png" id="5_08sp5"]
+[ext_resource type="Script" path="res://cauldron_menu.gd" id="5_rrmvn"]
+[ext_resource type="Script" path="res://ui/CauldronInventory.gd" id="7_3hvn4"]
+[ext_resource type="PackedScene" uid="uid://ch0lbubw47vx4" path="res://ui/inventory.tscn" id="7_8x0ij"]
+[ext_resource type="AudioStream" uid="uid://cliyahuujicxy" path="res://assets/sfx/blubber-loop.mp3" id="8_3ggf8"]
+[ext_resource type="Script" path="res://CauldronScriptNode.gd" id="8_4jpey"]
+[ext_resource type="Script" path="res://ui/PlayerInventory.gd" id="8_feovw"]
+[ext_resource type="Script" path="res://room/CauldronButton.gd" id="10_bkrb2"]
+[ext_resource type="Script" path="res://room/FridgeButton.gd" id="10_hydeq"]
+[ext_resource type="Script" path="res://ui/fridge_inventory.gd" id="11_40qd2"]
+[ext_resource type="AudioStream" uid="uid://bgcrkr17w5k60" path="res://assets/music/lab_beat01.mp3" id="11_urlu4"]
+[ext_resource type="PackedScene" path="res://spawned_monster.tscn" id="12_6xdus"]
+[ext_resource type="Script" path="res://room/WebButton.gd" id="12_pl5k3"]
+[ext_resource type="AudioStream" uid="uid://by7hhh3rqahvy" path="res://assets/sfx/wet/creature_slime_01.ogg" id="13_st6vo"]
+[ext_resource type="Script" path="res://ui/WebInventory.gd" id="14_fan5f"]
+[ext_resource type="Script" path="res://room/OrbButton.gd" id="15_g2uuf"]
+[ext_resource type="PackedScene" uid="uid://b4rmp8sxp45a1" path="res://orb/orb.tscn" id="15_k2ef7"]
+[ext_resource type="Script" path="res://room/DistilleryButton.gd" id="19_bhb3k"]
+[ext_resource type="Script" path="res://room/DistilleryMenu.gd" id="20_gb632"]
+[ext_resource type="Script" path="res://ui/DistilleryInventory.gd" id="21_s2int"]
+[ext_resource type="Script" path="res://room/SummoningButton.gd" id="22_a7hiw"]
+[ext_resource type="Script" path="res://room/DistilleryScriptNode.gd" id="22_l51tt"]
+[ext_resource type="Script" path="res://room/SummoningMenu.gd" id="26_sa6e0"]
+[ext_resource type="Script" path="res://ui/SummoningInventory.gd" id="26_xxhus"]
+[ext_resource type="Script" path="res://room/SummoningScriptNode.gd" id="27_2fp73"]
+
+[sub_resource type="Animation" id="Animation_pla64"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(73, 55)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_u4bmi"]
+resource_name = "spawn_animation"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 0.0852886, -0.219189, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(73, 55), Vector2(73, 55), Vector2(73, 55), Vector2(73, 55)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0.5, 0.5), Vector2(0.316148, 0.587329), Vector2(0.316148, 0.587329), Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i6his"]
+_data = {
+"RESET": SubResource("Animation_pla64"),
+"spawn_animation": SubResource("Animation_u4bmi")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvofs"]
+
+[sub_resource type="Theme" id="Theme_klli4"]
+Panel/styles/panel = SubResource("StyleBoxFlat_pvofs")
+
+[sub_resource type="GDScript" id="GDScript_jn38e"]
+script/source = "extends Control
+
+@export var animation_player : AnimationPlayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_minimize_button_toggled(toggled_on):
+	if toggled_on:
+		animation_player.play(\"minimize\")
+	if !toggled_on:
+		animation_player.play_backwards(\"minimize\")
+"
+
+[sub_resource type="Animation" id="Animation_7sqqv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 14)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_kyf1q"]
+resource_name = "minimize"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 18), Vector2(0, 96)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fmit7"]
+_data = {
+"RESET": SubResource("Animation_7sqqv"),
+"minimize": SubResource("Animation_kyf1q")
+}
+
+[node name="Room" type="Node2D" node_paths=PackedStringArray("cauldron_button")]
+script = ExtResource("1_aaa8y")
+cauldron_button = NodePath("Tools/CauldronButton")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(0, -30)
+scale = Vector2(0.57, 0.57)
+texture = ExtResource("2_kadsc")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="BlubberLoopAudioStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_3ggf8")
+volume_db = -24.674
+pitch_scale = 0.61
+autoplay = true
+
+[node name="MusicAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_urlu4")
+volume_db = -12.018
+autoplay = true
+
+[node name="InventoryManagement" type="Node" parent="." node_paths=PackedStringArray("picked_up_sprite")]
+script = ExtResource("5_1bptw")
+picked_up_sprite = NodePath("../CursorItemSprite")
+
+[node name="TestMonster" parent="." instance=ExtResource("12_6xdus")]
+visible = false
+position = Vector2(519, 445)
+
+[node name="Clickables" type="Node" parent="."]
+
+[node name="PlantLeftButton" type="TextureButton" parent="Clickables"]
+offset_left = 516.0
+offset_top = 340.0
+offset_right = 580.0
+offset_bottom = 414.0
+texture_hover = ExtResource("5_08sp5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="FridgeButton" type="TextureButton" parent="Clickables" node_paths=PackedStringArray("menu")]
+offset_left = 387.0
+offset_top = 323.0
+offset_right = 451.0
+offset_bottom = 473.0
+texture_hover = ExtResource("5_08sp5")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("10_hydeq")
+menu = NodePath("Control")
+
+[node name="Control" type="Control" parent="Clickables/FridgeButton"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("4_p5ch1")
+
+[node name="Panel" type="Panel" parent="Clickables/FridgeButton/Control"]
+layout_mode = 0
+offset_right = 162.0
+offset_bottom = 238.0
+
+[node name="FridgeInventory" parent="Clickables/FridgeButton/Control/Panel" node_paths=PackedStringArray("inventory_management") instance=ExtResource("7_8x0ij")]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
+script = ExtResource("11_40qd2")
+columns = 2
+rows = 3
+inventory_management = NodePath("../../../../../InventoryManagement")
+
+[node name="CloseButton" type="Button" parent="Clickables/FridgeButton/Control"]
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 30.0
+text = "X"
+
+[node name="ShelfLeftButton" type="TextureButton" parent="Clickables"]
+offset_left = 126.0
+offset_top = 316.0
+offset_right = 261.0
+offset_bottom = 536.0
+texture_hover = ExtResource("5_08sp5")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="DrawerLeftButton" type="TextureButton" parent="Clickables"]
+offset_left = 171.0
+offset_top = 506.0
+offset_right = 267.0
+offset_bottom = 594.0
+texture_hover = ExtResource("5_08sp5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ShelfRightButton" type="TextureButton" parent="Clickables"]
+offset_left = 891.0
+offset_top = 313.0
+offset_right = 1007.0
+offset_bottom = 480.0
+texture_hover = ExtResource("5_08sp5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PlantRightButton" type="TextureButton" parent="Clickables"]
+offset_left = 648.0
+offset_top = 340.0
+offset_right = 688.0
+offset_bottom = 444.0
+texture_hover = ExtResource("5_08sp5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="WebButton" type="TextureButton" parent="Clickables" node_paths=PackedStringArray("menu")]
+offset_left = 693.0
+offset_top = 178.0
+offset_right = 824.0
+offset_bottom = 322.0
+texture_hover = ExtResource("5_08sp5")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("12_pl5k3")
+menu = NodePath("Control")
+
+[node name="SpawnFeedback" type="Sprite2D" parent="Clickables/WebButton"]
+visible = false
+position = Vector2(73, 55)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_08sp5")
+
+[node name="SpawnAnimation" type="AnimationPlayer" parent="Clickables/WebButton/SpawnFeedback"]
+libraries = {
+"": SubResource("AnimationLibrary_i6his")
+}
+
+[node name="SpawnSFX" type="AudioStreamPlayer2D" parent="Clickables/WebButton/SpawnFeedback"]
+stream = ExtResource("13_st6vo")
+
+[node name="Control" type="Control" parent="Clickables/WebButton"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("4_p5ch1")
+
+[node name="Panel" type="Panel" parent="Clickables/WebButton/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Clickables/WebButton/Control/Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 13.0
+offset_right = 21.0
+offset_bottom = 30.0
+text = "X"
+
+[node name="WebInventory" parent="Clickables/WebButton/Control/Panel" node_paths=PackedStringArray("spawn_timer", "spawn_animation_player", "spawn_audio_stream", "inventory_management") instance=ExtResource("7_8x0ij")]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
+script = ExtResource("14_fan5f")
+spawn_timer = NodePath("SpawnTimer")
+spawn_animation_player = NodePath("../../../SpawnFeedback/SpawnAnimation")
+spawn_audio_stream = NodePath("../../../SpawnFeedback/SpawnSFX")
+columns = 2
+rows = 2
+inventory_management = NodePath("../../../../../InventoryManagement")
+
+[node name="SpawnTimer" type="Timer" parent="Clickables/WebButton/Control/Panel/WebInventory"]
+wait_time = 45.0
+autostart = true
+
+[node name="PosterButton" type="TextureButton" parent="Clickables"]
+offset_left = 1039.0
+offset_top = 307.0
+offset_right = 1130.0
+offset_bottom = 447.0
+texture_hover = ExtResource("5_08sp5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Tools" type="Node" parent="."]
+
+[node name="CauldronButton" type="TextureButton" parent="Tools" node_paths=PackedStringArray("cauldron_menu")]
+offset_left = 645.0
+offset_top = 417.0
+offset_right = 768.0
+offset_bottom = 499.0
+theme = ExtResource("4_p5ch1")
+texture_hover = ExtResource("5_08sp5")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("10_bkrb2")
+cauldron_menu = NodePath("CauldronMenu")
+metadata/_edit_use_anchors_ = true
+
+[node name="CauldronMenu" type="Control" parent="Tools/CauldronButton" node_paths=PackedStringArray("script_node", "background_panel")]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 63.0
+offset_top = -294.0
+offset_right = 63.0
+offset_bottom = -294.0
+theme = ExtResource("4_p5ch1")
+script = ExtResource("5_rrmvn")
+script_node = NodePath("CauldronScriptNode")
+background_panel = NodePath("BackgroundPanel")
+metadata/_edit_use_anchors_ = true
+
+[node name="BackgroundPanel" type="Panel" parent="Tools/CauldronButton/CauldronMenu"]
+layout_mode = 0
+offset_right = 441.0
+offset_bottom = 331.0
+
+[node name="CauldronInventory" parent="Tools/CauldronButton/CauldronMenu/BackgroundPanel" node_paths=PackedStringArray("inventory_management") instance=ExtResource("7_8x0ij")]
+layout_mode = 1
+offset_left = 44.0
+offset_top = 44.0
+offset_right = 44.0
+offset_bottom = 44.0
+theme = SubResource("Theme_klli4")
+script = ExtResource("7_3hvn4")
+inv_id = 2
+columns = 2
+rows = 2
+inventory_management = NodePath("../../../../../InventoryManagement")
+
+[node name="Timer" type="Timer" parent="Tools/CauldronButton/CauldronMenu/BackgroundPanel/CauldronInventory"]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tools/CauldronButton/CauldronMenu/BackgroundPanel"]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 104.0
+offset_right = 410.0
+offset_bottom = 170.0
+
+[node name="CookButton" type="Button" parent="Tools/CauldronButton/CauldronMenu/BackgroundPanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_p5ch1")
+text = "Cook"
+
+[node name="ClearButton" type="Button" parent="Tools/CauldronButton/CauldronMenu/BackgroundPanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_p5ch1")
+disabled = true
+text = "Clear"
+
+[node name="TestButton" type="Button" parent="Tools/CauldronButton/CauldronMenu/BackgroundPanel/VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Tester"
+
+[node name="ExitButton" type="Button" parent="Tools/CauldronButton/CauldronMenu/BackgroundPanel"]
+layout_mode = 0
+offset_right = 11.0
+offset_bottom = 17.0
+rotation = 0.0343104
+text = "X"
+
+[node name="CauldronScriptNode" type="Node" parent="Tools/CauldronButton/CauldronMenu" node_paths=PackedStringArray("inventory", "player_inventory")]
+script = ExtResource("8_4jpey")
+inventory = NodePath("../BackgroundPanel/CauldronInventory")
+player_inventory = NodePath("../../../../PlayerInventoryMenu/Panel/PlayerInventory")
+
+[node name="MicrowaveButton" type="TextureButton" parent="Tools"]
+offset_left = 251.0
+offset_top = 386.0
+offset_right = 347.0
+offset_bottom = 459.0
+texture_hover = ExtResource("5_08sp5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="DistilleryButton" type="TextureButton" parent="Tools" node_paths=PackedStringArray("menu")]
+offset_left = 1017.0
+offset_top = 465.0
+offset_right = 1144.0
+offset_bottom = 656.0
+theme = ExtResource("4_p5ch1")
+texture_hover = ExtResource("5_08sp5")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("19_bhb3k")
+menu = NodePath("DistilleryMenu")
+
+[node name="DistilleryMenu" type="Control" parent="Tools/DistilleryButton" node_paths=PackedStringArray("script_node", "background_panel")]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("20_gb632")
+script_node = NodePath("DistilleryScriptNode")
+background_panel = NodePath("BackgroundPanel")
+
+[node name="BackgroundPanel" type="Panel" parent="Tools/DistilleryButton/DistilleryMenu"]
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 114.0
+
+[node name="DistilleryInventory" parent="Tools/DistilleryButton/DistilleryMenu/BackgroundPanel" node_paths=PackedStringArray("inventory_management") instance=ExtResource("7_8x0ij")]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
+script = ExtResource("21_s2int")
+columns = 1
+inventory_management = NodePath("../../../../../InventoryManagement")
+
+[node name="DistillButton" type="Button" parent="Tools/DistilleryButton/DistilleryMenu/BackgroundPanel"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 38.0
+offset_right = 181.0
+offset_bottom = 78.0
+text = "Go"
+
+[node name="DistilleryScriptNode" type="Node" parent="Tools/DistilleryButton/DistilleryMenu"]
+script = ExtResource("22_l51tt")
+
+[node name="CloseButton" type="Button" parent="Tools/DistilleryButton/DistilleryMenu"]
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 30.0
+text = "X"
+
+[node name="OrbButton" type="TextureButton" parent="Tools" node_paths=PackedStringArray("menu")]
+offset_left = 568.0
+offset_top = 502.0
+offset_right = 646.0
+offset_bottom = 585.0
+texture_hover = ExtResource("5_08sp5")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("15_g2uuf")
+menu = NodePath("Orb")
+
+[node name="Orb" parent="Tools/OrbButton" instance=ExtResource("15_k2ef7")]
+visible = false
+position = Vector2(-224, -405)
+
+[node name="Button" type="Button" parent="Tools/OrbButton/Orb"]
+offset_left = -234.0
+offset_top = -57.0
+offset_right = -216.0
+offset_bottom = -26.0
+theme = ExtResource("4_p5ch1")
+text = "X"
+
+[node name="ZoomInAnimation" type="AnimationPlayer" parent="Tools/OrbButton"]
+
+[node name="SummoningButton" type="TextureButton" parent="Tools" node_paths=PackedStringArray("menu")]
+offset_left = 672.0
+offset_top = 489.0
+offset_right = 751.0
+offset_bottom = 539.0
+theme = ExtResource("4_p5ch1")
+texture_hover = ExtResource("5_08sp5")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("22_a7hiw")
+menu = NodePath("SummoningMenu")
+
+[node name="SummoningMenu" type="Control" parent="Tools/SummoningButton" node_paths=PackedStringArray("script_node", "background_panel")]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("26_sa6e0")
+script_node = NodePath("SummoningScriptNode")
+background_panel = NodePath("BackgroundPanel")
+
+[node name="BackgroundPanel" type="Panel" parent="Tools/SummoningButton/SummoningMenu"]
+layout_mode = 0
+offset_right = 277.0
+offset_bottom = 171.0
+
+[node name="SummoningInventory" parent="Tools/SummoningButton/SummoningMenu/BackgroundPanel" node_paths=PackedStringArray("inventory_management") instance=ExtResource("7_8x0ij")]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
+script = ExtResource("26_xxhus")
+columns = 2
+rows = 2
+inventory_management = NodePath("../../../../../InventoryManagement")
+
+[node name="SummonButton" type="Button" parent="Tools/SummoningButton/SummoningMenu/BackgroundPanel"]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 53.0
+offset_right = 268.0
+offset_bottom = 106.0
+text = "Summon
+Dark Spirit"
+
+[node name="SummoningScriptNode" type="Node" parent="Tools/SummoningButton/SummoningMenu"]
+script = ExtResource("27_2fp73")
+
+[node name="CloseButton" type="Button" parent="Tools/SummoningButton/SummoningMenu"]
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 30.0
+text = "X"
+
+[node name="PlayerInventoryMenu" type="Control" parent="." node_paths=PackedStringArray("animation_player")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 259.0
+offset_top = 551.0
+offset_right = 859.0
+offset_bottom = 671.0
+script = SubResource("GDScript_jn38e")
+animation_player = NodePath("MenuAnimation")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="PlayerInventoryMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.121667
+anchor_top = 0.891667
+anchor_right = 0.121667
+anchor_bottom = 0.891667
+offset_left = -73.0002
+offset_top = -93.0
+offset_right = 527.0
+offset_bottom = 6.99979
+metadata/_edit_use_anchors_ = true
+
+[node name="MinimizeButton" type="Button" parent="PlayerInventoryMenu/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.434188
+anchor_top = -0.0106381
+anchor_right = -0.434188
+anchor_bottom = -0.0106381
+offset_left = 261.0
+offset_top = -32.0
+offset_right = 340.0
+offset_bottom = -1.0
+toggle_mode = true
+text = "Minimize"
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerInventory" parent="PlayerInventoryMenu/Panel" node_paths=PackedStringArray("inventory_management") instance=ExtResource("7_8x0ij")]
+layout_mode = 1
+script = ExtResource("8_feovw")
+inv_id = 1
+inventory_management = NodePath("../../../InventoryManagement")
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuAnimation" type="AnimationPlayer" parent="PlayerInventoryMenu"]
+libraries = {
+"": SubResource("AnimationLibrary_fmit7")
+}
+speed_scale = 4.0
+
+[node name="CursorItemSprite" type="Sprite2D" parent="."]
+visible = false
+top_level = true
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+anchor_mode = 0
+
+[connection signal="child_entered_tree" from="." to="InventoryManagement" method="_on_room_child_entered_tree"]
+[connection signal="ready" from="InventoryManagement" to="Tools/CauldronButton/CauldronMenu/BackgroundPanel/CauldronInventory" method="_on_inventory_management_ready"]
+[connection signal="ready" from="InventoryManagement" to="PlayerInventoryMenu/Panel/PlayerInventory" method="_on_inventory_management_ready"]
+[connection signal="pressed" from="Clickables/FridgeButton" to="Clickables/FridgeButton" method="_on_pressed"]
+[connection signal="pressed" from="Clickables/FridgeButton/Control/CloseButton" to="Clickables/FridgeButton" method="_on_close_button_pressed"]
+[connection signal="pressed" from="Clickables/WebButton" to="Clickables/WebButton" method="_on_pressed"]
+[connection signal="pressed" from="Clickables/WebButton/Control/Panel/Button" to="Clickables/WebButton" method="_on_button_pressed"]
+[connection signal="timeout" from="Clickables/WebButton/Control/Panel/WebInventory/SpawnTimer" to="Clickables/WebButton/Control/Panel/WebInventory" method="_on_spawn_timer_timeout"]
+[connection signal="pressed" from="Tools/CauldronButton" to="Tools/CauldronButton" method="_on_pressed"]
+[connection signal="timeout" from="Tools/CauldronButton/CauldronMenu/BackgroundPanel/CauldronInventory/Timer" to="Tools/CauldronButton/CauldronMenu/BackgroundPanel/CauldronInventory" method="_on_timer_timeout"]
+[connection signal="pressed" from="Tools/CauldronButton/CauldronMenu/BackgroundPanel/VBoxContainer/CookButton" to="Tools/CauldronButton/CauldronMenu/CauldronScriptNode" method="_on_cook_button_pressed"]
+[connection signal="pressed" from="Tools/CauldronButton/CauldronMenu/BackgroundPanel/VBoxContainer/TestButton" to="Tools/CauldronButton/CauldronMenu/CauldronScriptNode" method="_on_test_button_pressed"]
+[connection signal="pressed" from="Tools/CauldronButton/CauldronMenu/BackgroundPanel/ExitButton" to="Tools/CauldronButton/CauldronMenu" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Tools/DistilleryButton" to="Tools/DistilleryButton" method="_on_pressed"]
+[connection signal="pressed" from="Tools/DistilleryButton/DistilleryMenu/BackgroundPanel/DistillButton" to="Tools/DistilleryButton/DistilleryMenu/DistilleryScriptNode" method="_on_distill_button_pressed"]
+[connection signal="pressed" from="Tools/DistilleryButton/DistilleryMenu/CloseButton" to="Tools/DistilleryButton" method="_on_close_button_pressed"]
+[connection signal="pressed" from="Tools/OrbButton" to="Tools/OrbButton" method="_on_pressed"]
+[connection signal="pressed" from="Tools/OrbButton/Orb/Button" to="Tools/OrbButton" method="_on_button_pressed"]
+[connection signal="pressed" from="Tools/SummoningButton" to="Tools/SummoningButton" method="_on_pressed"]
+[connection signal="pressed" from="Tools/SummoningButton/SummoningMenu/BackgroundPanel/SummonButton" to="Tools/SummoningButton/SummoningMenu/SummoningScriptNode" method="_on_summon_button_pressed"]
+[connection signal="pressed" from="Tools/SummoningButton/SummoningMenu/CloseButton" to="Tools/SummoningButton/SummoningMenu" method="_on_close_button_pressed"]
+[connection signal="toggled" from="PlayerInventoryMenu/Panel/MinimizeButton" to="PlayerInventoryMenu" method="_on_minimize_button_toggled"]

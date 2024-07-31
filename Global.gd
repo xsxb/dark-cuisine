@@ -65,7 +65,7 @@ var item_table = {
 		"name" : "Apple",
 		"description" : "Crunchy",
 		"types" : ["fruit", "solid"],
-		"stats" : {"healthy" : 2, "smart" : 1},
+		"stats" : {"healthy" : 1, "smart" : 1},
 		"icon" : "res://assets/art/25 Icons/01 Apple.png",
 		"max_stack" : 20
 	},
@@ -92,7 +92,7 @@ var item_table = {
 		"name" : "Instant Noodles",
 		"description" : "One of my greatest achievements.",
 		"types" : [],
-		"stats" : {},
+		"stats" : {"healthy" : -1, "smart" : 1, "respulsive" : -1},
 		"icon" : "res://assets/art/25 Icons/04 Instant noodles.png",
 		"max_stack" : 20
 	},
@@ -101,7 +101,7 @@ var item_table = {
 		"name" : "Poodles",
 		"description" : "A complex taste for intellectual pallettes.",
 		"types" : [],
-		"stats" : {},
+		"stats" : {"magic" : 1},
 		"icon" : "res://assets/art/25 Icons/05 Poodles.png",
 		"max_stack" : 20
 	},
@@ -119,14 +119,14 @@ var item_table = {
 		"name" : "Alphabet Soup",
 		"description" : "Made me who I am today.",
 		"types" : [],
-		"stats" : {},
+		"stats" : {"smart" : 2},
 		"icon" : "res://assets/art/25 Icons/07 Alphabet soup.png",
 		"max_stack" : 20
 	},
 	
 	8 : {
 		"name" : "Cold Coffee",
-		"description" : "",
+		"description" : "You see a waste, I see a goldmine.",
 		"types" : [],
 		"stats" : {},
 		"icon" : "res://assets/art/25 Icons/08 Cold Coffee.png",
@@ -146,7 +146,7 @@ var item_table = {
 		"name" : "Energy Potion Blue",
 		"description" : "Mhhh...",
 		"types" : [],
-		"stats" : {},
+		"stats" : {"smart" : 2, "healthy" : -2, "repulsive" : -1},
 		"icon" : "res://assets/art/25 Icons/10 Energy Potion Blue.png",
 		"max_stack" : 20
 	},
@@ -155,7 +155,7 @@ var item_table = {
 		"name" : "Super Hot Chili",
 		"description" : "Tempting",
 		"types" : [],
-		"stats" : {},
+		"stats" : {"healthy" : 2},
 		"icon" : "res://assets/art/25 Icons/11 Super Hot Chili.png",
 		"max_stack" : 20
 	},
@@ -164,23 +164,23 @@ var item_table = {
 		"name" : "Energy Potion Red",
 		"description" : "Oh my!",
 		"types" : [],
-		"stats" : {},
+		"stats" : {"strong" : 2, "healthy" : -2},
 		"icon" : "res://assets/art/25 Icons/12 Energy Potion Red.png",
 		"max_stack" : 20
 	},
 	
 	13 : {
 		"name" : "Ketchup",
-		"description" : "",
+		"description" : "Jam.",
 		"types" : [],
-		"stats" : {},
+		"stats" : {"strong" : 1},
 		"icon" : "res://assets/art/25 Icons/13 Ketchup.png",
 		"max_stack" : 20
 	},
 	
 	14 : {
 		"name" : "Cold Pizza Slice",
-		"description" : "",
+		"description" : "Good thing we didn't finish it!",
 		"types" : [],
 		"stats" : {},
 		"icon" : "res://assets/art/25 Icons/14 Cold Pizza Slice.png",
@@ -209,7 +209,7 @@ var item_table = {
 		"name" : "Pieye",
 		"description" : "Looking delicious",
 		"types" : [],
-		"stats" : {},
+		"stats" : {"respulsive" : 1, "sneak" : 1, "healthy" : 2},
 		"icon" : "res://assets/art/25 Icons/17 Pieye.png",
 		"max_stack" : 20
 	},
@@ -218,7 +218,7 @@ var item_table = {
 		"name" : "Idiot Sandwich",
 		"description" : "",
 		"types" : [],
-		"stats" : {},
+		"stats" : {"smash" : 1, "repulsive" : 1},
 		"icon" : "res://assets/art/25 Icons/18 Idiot Sandwich.png",
 		"max_stack" : 20
 	},
@@ -254,13 +254,13 @@ var item_table = {
 		"name" : "British Sandwich",
 		"description" : "Always wondered what a British is",
 		"types" : [],
-		"stats" : {},
+		"stats" : {"inspiring" : 1, "healthy" : -1},
 		"icon" : "res://assets/art/25 Icons/22 British Sandwich.png",
 		"max_stack" : 20
 	},
 	
 	23 : {
-		"name" : "Tortillas",
+		"name" : "Crisps",
 		"description" : "",
 		"types" : [],
 		"stats" : {},
@@ -281,7 +281,7 @@ var item_table = {
 		"name" : "Shadow Potion Ultimate",
 		"description" : "IT IS DONE!",
 		"types" : [],
-		"stats" : {},
+		"stats" : {"healthy" : -5, "smart" : 5, "strong" : 5, "inspiring" : 1},
 		"icon" : "res://assets/art/25 Icons/25 Energy Potion Shadow.png",
 		"max_stack" : 20
 	},

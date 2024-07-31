@@ -15,7 +15,7 @@ func _ready():
 		12 : ["Caffeine", "Ketchup", "Super Hot Chili"],
 		17 : ["Wheaty Goop", "Eye Thing??"],
 		18 : ["Mushrooms", "Toast", "Ketchup"],
-		22 : ["Toast", "Tortillas"]
+		22 : ["Toast", "Crisps"]
 		}
 
 
