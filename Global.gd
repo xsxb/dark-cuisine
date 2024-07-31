@@ -206,7 +206,7 @@ var item_table = {
 		"name" : "Eye Thing??",
 		"description" : "What is this? Why is this in my room??",
 		"types" : [],
-		"stats" : {},
+		"stats" : {"big" : -2},
 		"icon" : "res://assets/art/25 Icons/16 Eye Thing.png",
 		"max_stack" : 20
 	},
@@ -224,7 +224,7 @@ var item_table = {
 		"name" : "Idiot Sandwich",
 		"description" : "",
 		"types" : [],
-		"stats" : {"smash" : 1, "repulsive" : 1},
+		"stats" : {"smash" : 1, "repulsive" : 1, "big" : 3},
 		"icon" : "res://assets/art/25 Icons/18 Idiot Sandwich.png",
 		"max_stack" : 20
 	},
@@ -287,7 +287,7 @@ var item_table = {
 		"name" : "Shadow Potion Ultimate",
 		"description" : "IT IS DONE!",
 		"types" : [],
-		"stats" : {"healthy" : -5, "smart" : 5, "strong" : 5, "inspiring" : 1},
+		"stats" : {"healthy" : -5, "smart" : 5, "strong" : 5, "inspiring" : 1, "repulsive" : -1},
 		"icon" : "res://assets/art/25 Icons/25 Energy Potion Shadow.png",
 		"max_stack" : 20
 	},

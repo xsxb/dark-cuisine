@@ -631,8 +631,8 @@ offset_left = 174.0
 offset_top = 53.0
 offset_right = 268.0
 offset_bottom = 106.0
-text = "Summon
-Dark Spirit"
+text = "Feed
+The Dark"
 
 [node name="SummoningScriptNode" type="Node" parent="Tools/SummoningButton/SummoningMenu" node_paths=PackedStringArray("inventory", "spawnpoint")]
 script = ExtResource("27_2fp73")
