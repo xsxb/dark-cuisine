@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://u5s1cse35b1p"]
+
+[node name="TestUi" type="Node2D"]
+
+[node name="ItemList" type="ItemList" parent="."]
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 253.0
+offset_bottom = 410.0
