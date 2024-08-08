@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dssop3aomlv07"]
+
+[ext_resource type="Script" path="res://cooking-system/recipes/Recipe.gd" id="1_b4ykn"]
+
+[node name="Recipe" type="Node"]
+script = ExtResource("1_b4ykn")
