@@ -1,0 +1,17 @@
+[
+{
+"ID":0,
+"name":"Failure",
+"description":"What have I done??"
+},
+{
+"ID":1,
+"name":"Stuffed Sock",
+"description":"Very distinct aroma"
+},
+{
+"ID":2,
+"name":"Alphabet Soup",
+"description":"My favorite!"
+}
+]
