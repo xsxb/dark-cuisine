@@ -1,46 +1,60 @@
 extends Node
 
+const name_prefix = "RECIPE_"
+
 #TODO: handle recipe ids per global enums to make int constants readable
 
 var rec_scene = load("res://cooking-system/recipes/Recipe.tscn")
 
 var recipes = {}
 
-func _init():
-	add_recipe_root(-1, "root", "uh, how did this turn up here?")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	add_recipe(-1, "root", "uh, how did this turn up here?", null)
+	add_recipe(0, "Failure", "What have I done??", -1)
 	var path = "res://cooking-system/recipes/test.json"
 	var json_string = FileAccess.get_file_as_string(path)
 	load_from_json(json_string)
+	
+	#print_recipes()
 
 
-func get_recipe(rec_id) :
-	return recipes.get(rec_id)
+func get_recipe(rec_id : int) :
+	return recipes[rec_id]
 
 func get_children_ids(rec_id):
 	pass
 	
 
-
-func add_recipe_root(id, name, description):
-	add_recipe(id, name, description, null)
+func print_recipes():
+	for child in get_children():
+		print("Recipe: " + child.name + "\n")
+		child.print_recipe()
+		print("\n")
 
 # reads in recipe and sorts into search tree
 func add_recipe(id, name, description, base):
 	
 	if base == null && id != -1:
-		base = -1
+		base = 0
 	
-	recipes[id] = rec_scene.instantiate()
-	recipes[id].id = id
-	recipes[id].name = name
-	recipes[id].description = description
-	recipes[id].base = base
+	var new_recipe = rec_scene.instantiate()
+	
+	new_recipe.init_values(id, name, description, base)
+	
+	new_recipe.name = name_prefix + str(id)
+	
+	recipes[id] = new_recipe
+	add_child(new_recipe)
+	
+	
+	#print (recipes)
+	#print(base)
 	
 	if base != null:
-		recipes.get(base).add_derived(id)
+		var test = get_recipe(base)
+		test.add_derived(id)
 
 
 func load_from_json(json_string : String):
@@ -50,7 +64,6 @@ func load_from_json(json_string : String):
 	if error == OK:
 		var rec_array = json.data
 		if typeof(rec_array) == TYPE_ARRAY:
-			print(rec_array) # Prints array
 			
 			for rec_object in rec_array:
 				var id = rec_object.get("ID")
@@ -59,13 +72,15 @@ func load_from_json(json_string : String):
 				var base = rec_object.get("base")
 				add_recipe(id, name, description, base)
 			
-			print(recipes)
+			#print(recipes)
+			for rec in recipes:
+				recipes[rec].print_recipe()
 			
 		else:
 			print("Unexpected data")
 	else:
 		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
-		pass
+	
 
 # builds a tree of recipe references to check in order
 

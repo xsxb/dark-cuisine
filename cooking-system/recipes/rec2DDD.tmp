@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://l0bt3xac03lp"]
+
+[ext_resource type="Script" path="res://cooking-system/recipes/recipe_master.gd" id="1_5uuww"]
+
+[node name="RecipeMaster" type="Node"]
+script = ExtResource("1_5uuww")

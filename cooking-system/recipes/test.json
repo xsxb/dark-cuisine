@@ -2,7 +2,8 @@
 {
 "ID":0,
 "name":"Failure",
-"description":"What have I done??"
+"description":"What have I done??",
+"base":-1
 },
 {
 "ID":1,
