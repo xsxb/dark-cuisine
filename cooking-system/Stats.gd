@@ -15,7 +15,11 @@ func set_to(dict : Dictionary):
 func set_stat(key : String, value : int):
 	data[key] = value
 
-func set_from_string(stat_string : String):
+func set_data_from_string(data_strings : Array):
+	for str in data_strings:
+		set_stat_from_string(str)
+
+func set_stat_from_string(stat_string : String):
 	var pair = string_to_pair(stat_string)
 	set_stat(pair[0], pair[1])
 

@@ -34,14 +34,13 @@ func print_recipes():
 		print("\n")
 
 # reads in recipe and sorts into search tree
-func add_recipe(id, name, description, base):
+func add_recipe(id, name, description, base, ingredients = [], stat_strings = []):
 	
 	if base == null && id != -1:
 		base = 0
 	
 	var new_recipe = rec_scene.instantiate()
-	
-	new_recipe.init_values(id, name, description, base)
+	new_recipe.init_values(id, name, description, base, ingredients, stat_strings)
 	
 	new_recipe.name = name_prefix + str(id)
 	
@@ -70,7 +69,11 @@ func load_from_json(json_string : String):
 				var name = rec_object.get("name")
 				var description = rec_object.get("description")
 				var base = rec_object.get("base")
-				add_recipe(id, name, description, base)
+				var ingredients = rec_object.get("ingredients")
+				var stat_strings = rec_object.get("effects")
+				
+				add_recipe(id, name, description, base, ingredients, stat_strings)
+			
 			
 			#print(recipes)
 			for rec in recipes:

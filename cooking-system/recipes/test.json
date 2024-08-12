@@ -1,18 +1,23 @@
 [
 {
-"ID":0,
-"name":"Failure",
-"description":"What have I done??",
-"base":-1
-},
-{
 "ID":1,
 "name":"Stuffed Sock",
-"description":"Very distinct aroma"
+"description":"Very distinct aroma",
+"ingredients":[20, "*"],
+"effects":["repulsive", "strong+"]
 },
 {
 "ID":2,
 "name":"Alphabet Soup",
-"description":"My favorite!"
+"description":"My favorite!",
+"ingredients":[4,6],
+"effects":["smart++"]
+},
+{
+"ID":3,
+"name":"Calza di Pomodoro",
+"description":"Simple, yet sophisticated!",
+"ingredients":[20,13],
+"effects":["smart+"]
 }
 ]
